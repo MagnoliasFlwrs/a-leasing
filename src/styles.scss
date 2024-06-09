@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: .3s ease;
+}
+
+a {
+  text-decoration: none;
+}
+ul , li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --Red: #EA2119
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(./fonts/Roboto-Thin.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(./fonts/Roboto-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(./fonts/Roboto-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(./fonts/Roboto-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Roboto";
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.header {
+  padding: 16px 38px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  ul {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    li {
+      a {
+        color: rgba(0, 0, 0, 0.80);
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .logo-subtitle {
+        color: var(--Red, #EA2119);
+        text-align: center;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 30px; /* 214.286% */
+      }
+      .logo-title {
+        color: var(--Red, #EA2119);
+        text-align: center;
+        font-family: Roboto;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.contracts-container {
+  display: flex;
+}
+.contracts-subject-container {
+  display: flex;
+  width: 422px;
+  padding: 31px 24px 56px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: #F5F5F7;
+  .filters {
+    display: flex;
+    gap: 6px;
+    li {
+      cursor: pointer;
+      border-radius: 30px;
+      background: #F5F5F7;
+      display: flex;
+      padding: 6px 12px;
+      align-items: flex-start;
+      gap: 10px;
+      color: rgba(51, 51, 51, 0.60);
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; /* 14.4px */
+      &.active {
+        color: #FFF;
+        font-family: Roboto;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 14.4px */
+        display: flex;
+        padding: 6px 12px;
+        align-items: flex-start;
+        gap: 10px;
+        border-radius: 30px;
+        background: var(--Red, #EA2119);
+      }
+    }
+  }
+}

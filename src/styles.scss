@@ -75,10 +75,16 @@ body {
       a {
         color: rgba(0, 0, 0, 0.80);
         font-family: Roboto;
-        font-size: 14px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        @media (min-width: 1920px) {
+          font-size: 18px;
+        }
+        @media (min-width: 1600px) {
+          font-size: 17px;
+        }
       }
       .logo-subtitle {
         color: var(--Red, #EA2119);
@@ -88,6 +94,12 @@ body {
         font-style: normal;
         font-weight: 500;
         line-height: 30px; /* 214.286% */
+        @media (min-width: 1920px) {
+          font-size: 16px;
+        }
+        @media (min-width: 1600px) {
+          font-size: 15px;
+        }
       }
       .logo-title {
         color: var(--Red, #EA2119);
@@ -98,12 +110,20 @@ body {
         font-weight: 800;
         line-height: normal;
         text-transform: uppercase;
+        @media (min-width: 1920px) {
+          font-size: 34px;
+        }
+        @media (min-width: 1600px) {
+          font-size: 33px;
+        }
       }
     }
   }
 }
 .contracts-container {
   display: flex;
+  width: 100%;
+
 }
 .contracts-subject-container {
   display: flex;
@@ -115,6 +135,12 @@ body {
   flex-shrink: 0;
   align-self: stretch;
   background: #F5F5F7;
+  @media (min-width: 1920px) {
+    width: 450px;
+  }
+  @media (min-width: 1600px) {
+    width: 450px;
+  }
   .filters {
     display: flex;
     gap: 6px;
@@ -132,6 +158,12 @@ body {
       font-style: normal;
       font-weight: 400;
       line-height: 120%; /* 14.4px */
+      @media (min-width: 1920px) {
+        font-size: 14px;
+      }
+      @media (min-width: 1600px) {
+        font-size: 13px;
+      }
       &.active {
         color: #FFF;
         font-family: Roboto;
@@ -145,7 +177,223 @@ body {
         gap: 10px;
         border-radius: 30px;
         background: var(--Red, #EA2119);
+        @media (min-width: 1920px) {
+          font-size: 14px;
+        }
+        @media (min-width: 1600px) {
+          font-size: 13px;
+        }
       }
+    }
+  }
+  .subject-cards {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .new-leasing-subject {
+      display: flex;
+      width: calc(100% - 24px - 24px);
+      padding: 12px 24px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      position: absolute;
+      left: 24px;
+      bottom: 61px;
+      border-radius: 100px;
+      background: var(--Red, #EA2119);
+      color: #FFF;
+      font-family: Roboto;
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 0.34px;
+      @media (min-width: 1920px) {
+        font-size: 19px;
+      }
+      @media (min-width: 1600px) {
+        font-size: 18px;
+      }
+    }
+
+    .contract-card {
+      display: flex;
+      padding: 12px 24px;
+      justify-content: space-between;
+      gap: 10px;
+      align-self: stretch;
+      border-radius: 14px;
+      background: #FFF;
+      cursor: pointer;
+      min-height: 121px;
+      &:hover {
+        border-radius: 14px;
+        background: #FFF;
+        box-shadow: 2px 4px 6px 0px rgba(0, 0, 0, 0.14);
+      }
+      &.active {
+        border-radius: 14px;
+        background: #FFF;
+        box-shadow: 2px 4px 6px 0px rgba(0, 0, 0, 0.14);
+      }
+      .column-1 {
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+        .subject-type {
+          padding: 0;
+          margin: 0;
+          color: #333;
+          font-family: Roboto;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%; /* 14.4px */
+          @media (min-width: 1920px) {
+            font-size: 14px;
+          }
+          @media (min-width: 1600px) {
+            font-size: 13px;
+          }
+        }
+        .subject-title {
+          color: #333;
+          font-family: Roboto;
+          font-size: 17px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 120%; /* 20.4px */
+          @media (min-width: 1920px) {
+            font-size: 19px;
+          }
+          @media (min-width: 1600px) {
+            font-size: 18px;
+          }
+        }
+        .more-subjects {
+          color: var(--grey_txt, rgba(143, 143, 148, 0.70));
+          font-family: Roboto;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%; /* 14.4px */
+          @media (min-width: 1920px) {
+            font-size: 14px;
+          }
+          @media (min-width: 1600px) {
+            font-size: 13px;
+          }
+        }
+        .contract-name {
+          color: var(--grey_txt, rgba(143, 143, 148, 0.70));
+          font-family: Roboto;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%; /* 14.4px */
+          display: block;
+          margin-top: auto;
+          @media (min-width: 1920px) {
+            font-size: 14px;
+          }
+          @media (min-width: 1600px) {
+            font-size: 13px;
+          }
+        }
+      }
+      .column-2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        .status {
+          font-family: Roboto;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%; /* 14.4px */
+          @media (min-width: 1920px) {
+            font-size: 14px;
+          }
+          @media (min-width: 1600px) {
+            font-size: 13px;
+          }
+          &.good {
+            color: #30D158;
+          }
+          &.bad {
+            color: var(--Red, #EA2119);
+          }
+        }
+        .payment {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          p {
+            color: #333;
+            font-family: Roboto;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 120%; /* 20.4px */
+            @media (min-width: 1920px) {
+              font-size: 19px;
+            }
+            @media (min-width: 1600px) {
+              font-size: 18px;
+            }
+          }
+          span {
+            color: var(--grey_txt, rgba(143, 143, 148, 0.70));
+            font-family: Roboto;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 120%; /* 14.4px */
+            @media (min-width: 1920px) {
+              font-size: 14px;
+            }
+            @media (min-width: 1600px) {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.subject-details-container {
+  padding: 31px 24px 56px 24px;
+  flex-grow: 1;
+}
+.finance-payment-details {
+  display: flex;
+  padding: 12px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1 0 0;
+  border-radius: 14px;
+  background: #F5F5F7;
+  .finance-payment-details-title {
+    color: #333;
+    font-family: Roboto;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 20.4px */
+    margin-bottom: 10px;
+    @media (min-width: 1920px) {
+      font-size: 19px;
+    }
+    @media (min-width: 1600px) {
+      font-size: 18px;
     }
   }
 }

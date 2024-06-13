@@ -5,7 +5,7 @@ import ContractDetails from "../components/contracts/ContractDetails";
 
 const ContractsLayout = () => {
     return (
-        <Flex className='contracts-container'>
+        <Flex className='contracts-container' style={{flexGrow: 1}}>
             <ContractSubjects/>
             <ContractDetails/>
         </Flex>

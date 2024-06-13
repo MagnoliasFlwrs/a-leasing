@@ -8,8 +8,8 @@ import PaymentBlock from "./PaymentBlock";
 const FinanceBlock = () => {
     return (
         <Flex direction='column' gap='56px' width='100%'>
-            <Flex gap='24px' >
-                <Flex direction='column' gap='12px' width='390px'>
+            <Flex gap='24px'  className='finance-cont'>
+                <Flex  className='finance-block-col'>
                     <SubjectSlider/>
                     <ToPayCard/>
                 </Flex>

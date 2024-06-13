@@ -5,7 +5,7 @@ import PaymentHistory from "./PaymentHistory";
 
 const PaymentBlock = () => {
     return (
-        <Flex gap='24px'>
+        <Flex gap='24px' className='payment-container'>
             <PaymentInfo/>
             <PaymentHistory/>
         </Flex>

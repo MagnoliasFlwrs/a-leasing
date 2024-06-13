@@ -2,6 +2,7 @@ import React from 'react';
 import {Flex, Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
 import FinanceBlock from "./FinanceBlock";
 import PaymentBlock from "./PaymentBlock";
+import DocumentsBlock from "./documents/DocumentsBlock";
 
 const ContractDetails = () => {
     const tabStyle = {
@@ -34,7 +35,7 @@ const ContractDetails = () => {
                         <FinanceBlock/>
                     </TabPanel>
                     <TabPanel style={{padding:'0'}}>
-                        <p>two!</p>
+                        <DocumentsBlock/>
                     </TabPanel>
                     <TabPanel style={{padding:'0'}}>
                         <p>one!</p>

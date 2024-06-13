@@ -138,6 +138,11 @@ body {
   display: flex;
   width: 100%;
 }
+@media (max-width: 743px) {
+  .contracts-container {
+    flex-direction: column;
+  }
+}
 
 .contracts-subject-container {
   display: flex;
@@ -152,7 +157,7 @@ body {
 }
 @media (min-width: 1920px) {
   .contracts-subject-container {
-    width: 450px;
+    width: 557px;
   }
 }
 @media (min-width: 1600px) {
@@ -160,9 +165,24 @@ body {
     width: 450px;
   }
 }
+@media (max-width: 1133px) {
+  .contracts-subject-container {
+    width: 381px;
+  }
+}
+@media (max-width: 743px) {
+  .contracts-subject-container {
+    width: 100%;
+  }
+}
 .contracts-subject-container .filters {
   display: flex;
   gap: 6px;
+}
+@media (max-width: 1133px) {
+  .contracts-subject-container .filters {
+    gap: 0;
+  }
 }
 .contracts-subject-container .filters li {
   cursor: pointer;
@@ -187,6 +207,11 @@ body {
 @media (min-width: 1600px) {
   .contracts-subject-container .filters li {
     font-size: 13px;
+  }
+}
+@media (max-width: 1133px) {
+  .contracts-subject-container .filters li:last-child {
+    padding: 6px 0 6px 12px;
   }
 }
 .contracts-subject-container .filters li.active {
@@ -430,6 +455,12 @@ body {
   flex-grow: 1;
 }
 
+@media (max-width: 745px) {
+  .finance-cont {
+    flex-direction: column;
+  }
+}
+
 .finance-payment-details {
   display: flex;
   padding: 12px 24px;
@@ -438,6 +469,11 @@ body {
   flex: 1 0 0;
   border-radius: 14px;
   background: #F5F5F7;
+}
+@media (max-width: 745px) {
+  .finance-payment-details {
+    width: 100%;
+  }
 }
 .finance-payment-details .finance-payment-details-title {
   color: #333;
@@ -526,6 +562,27 @@ body {
 }
 .finance-payment-details .text-p:last-child, .finance-payment-details .text-p:nth-child(3) {
   margin-bottom: 0;
+}
+
+.finance-block-col {
+  flex-direction: column;
+  gap: 12px;
+  width: 390px;
+}
+@media (max-width: 1133px) {
+  .finance-block-col {
+    width: 326px;
+  }
+}
+@media (max-width: 1024px) {
+  .finance-block-col {
+    width: 286px;
+  }
+}
+@media (max-width: 745px) {
+  .finance-block-col {
+    width: 100%;
+  }
 }
 
 .subject-slider-wrap {
@@ -713,6 +770,12 @@ body {
   }
 }
 
+@media (max-width: 1133px) {
+  .payment-container {
+    flex-direction: column;
+  }
+}
+
 .payment-info-block {
   display: flex;
   width: 390px;
@@ -722,6 +785,11 @@ body {
   flex-shrink: 0;
   align-self: stretch;
   height: fit-content;
+}
+@media (max-width: 1133px) {
+  .payment-info-block {
+    width: 100%;
+  }
 }
 .payment-info-block .title {
   color: #333;
@@ -826,6 +894,11 @@ body {
   flex-shrink: 0;
   align-self: stretch;
   height: fit-content;
+}
+@media (max-width: 1133px) {
+  .payment-history-block {
+    width: 100%;
+  }
 }
 .payment-history-block .title {
   color: #333;
@@ -945,6 +1018,67 @@ body {
 
 .payment-history-box.expanded ul li {
   display: flex;
+}
+
+.documents-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.documents-container .document-container-block-select {
+  width: 206px;
+}
+.documents-container .document-container-block-select .document-container-select {
+  display: flex;
+  padding: 10px 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  outline: none;
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  outline-offset: 0;
+}
+.documents-container .document-container-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.documents-container .document-container-list .document-item {
+  display: flex;
+  padding: 24px 18px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+  align-self: stretch;
+  border-bottom: 1px solid var(--Grey, rgba(149, 149, 149, 0.4));
+}
+.documents-container .document-container-list .document-item:last-child {
+  border-bottom: none;
+}
+.documents-container .document-container-list .document-item .title {
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 16.8px */
+}
+.documents-container .document-container-list .document-item .btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.documents-container .document-container-list .document-item .btns button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */

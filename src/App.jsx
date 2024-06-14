@@ -18,15 +18,23 @@ function App() {
                     path: "/contracts",
                     element: <ContractsLayout/>,
                 },
+                {
+                    path: "/profile",
+                    element: <p>profile</p>,
+                },
+                {
+                    path: "/applications",
+                    element: <p>applications</p>,
+                },
             ],
         },
     ];
     const router = createBrowserRouter(routes);
-  return (
-      <ChakraProvider>
-          <RouterProvider router={router} />
-      </ChakraProvider>
-  );
+    return (
+        <ChakraProvider>
+            <RouterProvider router={router} />
+        </ChakraProvider>
+    );
 }
 
 export default App;

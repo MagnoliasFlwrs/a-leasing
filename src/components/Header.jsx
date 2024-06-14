@@ -8,30 +8,30 @@ const Header = () => {
                     <p className='logo-title'>а</p>
                 </li>
                 <li>
-                    <a href="#">Профиль</a>
+                    <a href="/profile">Профиль</a>
                 </li>
                 <li>
-                    <a href="#">Договоры лизинга</a>
+                    <a href="/contracts">Договоры лизинга</a>
                 </li>
                 <li>
-                    <a href="#">Мои заявки</a>
+                    <a href="/applications">Мои заявки</a>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="#">Курсы валют</a>
+                    <a href="/contracts">Курсы валют</a>
                 </li>
                 <li>
-                <a href="#">Страховой случай</a>
+                <a href="/contracts">Страховой случай</a>
                 </li>
                 <li>
-                    <a href="#">Контакты</a>
+                    <a href="/contracts">Контакты</a>
                 </li>
                 <li>
-                    <a href="#">FaQ</a>
+                    <a href="/contracts">FaQ</a>
                 </li>
                 <li>
-                    <a href="#">О компании</a>
+                    <a href="/contracts">О компании</a>
                 </li>
                 <li>
                     <p className='logo-subtitle'>А-Лизинг</p>

@@ -70,6 +70,13 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  border-bottom: 1px solid var(--Grey, rgba(149, 149, 149, 0.4));
+  background: rgba(251, 251, 253, 0.8);
+  backdrop-filter: blur(7px);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 @media (max-width: 1120px) {
   .header {
@@ -81,10 +88,14 @@ body {
   gap: 24px;
   align-items: center;
 }
+.header ul li {
+  display: flex;
+  align-items: center;
+}
 .header ul li a {
   color: rgba(0, 0, 0, 0.8);
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -106,7 +117,7 @@ body {
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 30px; /* 214.286% */
+  line-height: normal;
 }
 @media (min-width: 1920px) {
   .header ul li .logo-subtitle {
@@ -368,6 +379,7 @@ body {
   background: #FFF;
   cursor: pointer;
   min-height: 121px;
+  margin: 7px;
 }
 .contracts-subject-container .subject-cards .contract-card:hover {
   border-radius: 14px;

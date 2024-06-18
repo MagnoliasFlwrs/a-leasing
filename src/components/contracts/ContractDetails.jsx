@@ -3,6 +3,7 @@ import {Flex, Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
 import FinanceBlock from "./FinanceBlock";
 import PaymentBlock from "./PaymentBlock";
 import DocumentsBlock from "./documents/DocumentsBlock";
+import CustomModal from "./documents/CustomModal.jsx";
 
 const ContractDetails = () => {
     const tabStyle = {
@@ -36,6 +37,7 @@ const ContractDetails = () => {
                     </TabPanel>
                     <TabPanel style={{padding:'0'}}>
                         <DocumentsBlock/>
+                        <CustomModal/>
                     </TabPanel>
                     <TabPanel style={{padding:'0'}}>
                         <p>one!</p>

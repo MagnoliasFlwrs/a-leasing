@@ -246,6 +246,7 @@ body {
   flex-shrink: 0;
   align-self: stretch;
   background: #F5F5F7;
+  position: relative;
 }
 @media (min-width: 1920px) {
   .contracts-subject-container {
@@ -265,6 +266,7 @@ body {
 @media (max-width: 743px) {
   .contracts-subject-container {
     width: 100%;
+    flex-grow: 1;
   }
 }
 .contracts-subject-container .filters {
@@ -338,36 +340,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-.contracts-subject-container .subject-cards .new-leasing-subject {
-  display: flex;
-  width: calc(100% - 24px - 24px);
-  padding: 12px 24px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  left: 24px;
-  bottom: 61px;
-  border-radius: 100px;
-  background: var(--Red, #EA2119);
-  color: #FFF;
-  font-family: Roboto;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: 0.34px;
-}
-@media (min-width: 1920px) {
-  .contracts-subject-container .subject-cards .new-leasing-subject {
-    font-size: 19px;
-  }
-}
-@media (min-width: 1600px) {
-  .contracts-subject-container .subject-cards .new-leasing-subject {
-    font-size: 18px;
-  }
 }
 .contracts-subject-container .subject-cards .contract-card {
   display: flex;
@@ -542,10 +514,59 @@ body {
     font-size: 13px;
   }
 }
+.contracts-subject-container .new-leasing-subject {
+  display: flex;
+  width: calc(100% - 24px - 24px);
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  left: 24px;
+  bottom: 61px;
+  border-radius: 100px;
+  background: var(--Red, #EA2119);
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.34px;
+}
+.contracts-subject-container .new-leasing-subject:hover {
+  border-radius: 100px;
+  background: #DF140C;
+}
+@media (min-width: 1920px) {
+  .contracts-subject-container .new-leasing-subject {
+    font-size: 19px;
+  }
+}
+@media (min-width: 1600px) {
+  .contracts-subject-container .new-leasing-subject {
+    font-size: 18px;
+  }
+}
 
 .subject-details-container {
   padding: 31px 24px 56px 24px;
   flex-grow: 1;
+}
+@media (max-width: 745px) {
+  .subject-details-container {
+    display: none !important;
+  }
+}
+
+.contracts-mobile-details .subject-details-container {
+  padding: 31px 24px 56px 24px;
+  flex-grow: 1;
+}
+@media (max-width: 745px) {
+  .contracts-mobile-details .subject-details-container {
+    display: flex !important;
+  }
 }
 
 @media (max-width: 745px) {
@@ -1172,6 +1193,32 @@ body {
   border: none;
   background: transparent;
   cursor: pointer;
+}
+
+.custom-modal {
+  display: flex;
+  max-width: 576px;
+  width: 100%;
+  height: 100vh;
+  padding: 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background: #FFF;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 20;
+}
+.custom-modal .custom-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.custom-modal .custom-modal-body {
+  overflow-y: auto;
+  flex-grow: 1;
 }
 
 /*# sourceMappingURL=styles.css.map */

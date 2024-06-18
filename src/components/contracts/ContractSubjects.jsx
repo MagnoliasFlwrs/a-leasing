@@ -42,9 +42,8 @@ const ContractSubjects = () => {
                     )
                 }
 
-                <button className="new-leasing-subject" type='button'>Оставить заявку на лизинг</button>
             </div>
-
+            <button className="new-leasing-subject" type='button'>Оставить заявку на лизинг</button>
         </Flex>
     );
 };

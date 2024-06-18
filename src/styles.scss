@@ -233,6 +233,7 @@ body {
   flex-shrink: 0;
   align-self: stretch;
   background: #F5F5F7;
+  position: relative;
   @media (min-width: 1920px) {
     width: 557px;
   }
@@ -244,6 +245,7 @@ body {
   }
   @media (max-width: 743px) {
     width: 100%;
+    flex-grow: 1;
   }
   .filters {
     display: flex;
@@ -307,32 +309,7 @@ body {
     flex-direction: column;
     gap: 10px;
 
-    .new-leasing-subject {
-      display: flex;
-      width: calc(100% - 24px - 24px);
-      padding: 12px 24px;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      position: absolute;
-      left: 24px;
-      bottom: 61px;
-      border-radius: 100px;
-      background: var(--Red, #EA2119);
-      color: #FFF;
-      font-family: Roboto;
-      font-size: 17px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-      letter-spacing: 0.34px;
-      @media (min-width: 1920px) {
-        font-size: 19px;
-      }
-      @media (min-width: 1600px) {
-        font-size: 18px;
-      }
-    }
+
 
     .contract-card {
       display: flex;
@@ -480,10 +457,52 @@ body {
       }
     }
   }
+  .new-leasing-subject {
+    display: flex;
+    width: calc(100% - 24px - 24px);
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    left: 24px;
+    bottom: 61px;
+    border-radius: 100px;
+    background: var(--Red, #EA2119);
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.34px;
+    &:hover {
+      border-radius: 100px;
+      background: #DF140C;
+    }
+    @media (min-width: 1920px) {
+      font-size: 19px;
+    }
+    @media (min-width: 1600px) {
+      font-size: 18px;
+    }
+  }
 }
 .subject-details-container {
   padding: 31px 24px 56px 24px;
   flex-grow: 1;
+  @media (max-width: 745px) {
+    display: none !important;
+  }
+}
+.contracts-mobile-details {
+  .subject-details-container {
+    padding: 31px 24px 56px 24px;
+    flex-grow: 1;
+    @media (max-width: 745px) {
+      display: flex !important;
+    }
+  }
 }
 .finance-cont {
   @media (max-width: 745px) {
@@ -677,8 +696,6 @@ body {
     }
   }
 }
-
-
 
 .swiper-pagination {
   bottom: 0!important;
@@ -1040,6 +1057,37 @@ body {
         }
       }
     }
+  }
+}
+
+
+
+.custom-modal {
+  display: flex;
+  max-width: 576px;
+  width: 100%;
+  height: 100vh;
+  padding: 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background: #FFF;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 20;
+
+
+  .custom-modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+  }
+  .custom-modal-body {
+    overflow-y: auto;
+    flex-grow: 1;
   }
 }
 

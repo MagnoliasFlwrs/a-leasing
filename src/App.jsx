@@ -3,6 +3,7 @@ import './App.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import MainLayout from "./routes/MainLayout";
 import ContractsLayout from "./routes/ContractsLayout";
+import ContractsMobileLayout from "./routes/ContractsMobileLayout.jsx";
 
 function App() {
     const routes = [
@@ -17,6 +18,10 @@ function App() {
                 {
                     path: "/contracts",
                     element: <ContractsLayout/>,
+                },
+                {
+                    path: "/contracts-details",
+                    element: <ContractsMobileLayout/>,
                 },
                 {
                     path: "/profile",

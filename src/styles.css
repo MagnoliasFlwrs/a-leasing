@@ -1195,30 +1195,4 @@ body {
   cursor: pointer;
 }
 
-.custom-modal {
-  display: flex;
-  max-width: 576px;
-  width: 100%;
-  height: 100vh;
-  padding: 24px;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  background: #FFF;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 20;
-}
-.custom-modal .custom-modal-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-.custom-modal .custom-modal-body {
-  overflow-y: auto;
-  flex-grow: 1;
-}
-
 /*# sourceMappingURL=styles.css.map */

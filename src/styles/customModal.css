@@ -1,0 +1,125 @@
+.custom-modal {
+  display: flex;
+  max-width: 576px;
+  width: 100%;
+  height: 100vh;
+  padding: 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background: #FFF;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 20;
+}
+.custom-modal .custom-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.custom-modal .custom-modal-body {
+  overflow-y: auto;
+  flex-grow: 1;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: none;
+}
+.custom-modal .custom-modal-body::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+}
+.custom-modal .custom-modal-body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.custom-modal .custom-modal-body .accordeon .box {
+  width: 100%;
+  border-bottom: 1px solid rgba(149, 149, 149, 0.4);
+}
+.custom-modal .custom-modal-body .accordeon .box.active .label .show-icon {
+  transform: rotate(225deg);
+}
+.custom-modal .custom-modal-body .accordeon .box .label {
+  display: flex;
+  padding: 24px 18px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+  align-self: stretch;
+  cursor: pointer;
+}
+.custom-modal .custom-modal-body .accordeon .box .label .label-cont {
+  color: #333;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 20.4px */
+}
+.custom-modal .custom-modal-body .accordeon .box .content {
+  position: relative;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images {
+  display: flex;
+  gap: 23px;
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont {
+  width: calc((100% - 23px) / 2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont .image {
+  width: 100%;
+  height: 343px;
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont .edit {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  cursor: pointer;
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont .edit span {
+  color: var(--blue, #0070C9);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont .delete {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  cursor: pointer;
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont .delete span {
+  color: var(--Red, #EA2119);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+
+/*# sourceMappingURL=customModal.css.map */

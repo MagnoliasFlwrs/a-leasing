@@ -1,13 +1,17 @@
 import React from 'react';
-import {Accordion, AccordionButton, AccordionItem, AccordionPanel, Box, Flex} from "@chakra-ui/react";
-import {AddIcon, MinusIcon} from "@chakra-ui/icons";
+import { Flex} from "@chakra-ui/react";
+import '../../../styles/customModal.css';
+import agreement from '../../../images/agreement.png'
+import CustomAccordeon from "./CustomAccordeon.jsx";
 
 
 const CustomModal = () => {
+
+
     return (
         <Flex className='custom-modal'>
             <Flex className='custom-modal-head'>
-                <div className="close-icon">
+                <div className="close-icon" style={{cursor:'pointer'}}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <rect width="24" height="24" rx="12" fill="#333333"/>
                         <path fillRule="evenodd" clipRule="evenodd"
@@ -18,7 +22,7 @@ const CustomModal = () => {
                               fill="white"/>
                     </svg>
                 </div>
-                <div className="download-icon">
+                <div className="download-icon" style={{cursor:'pointer'}}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
                               d="M4.86195 10.862C5.1223 10.6017 5.54441 10.6017 5.80476 10.862L8.00002 13.0573L10.1953 10.862C10.4556 10.6017 10.8777 10.6017 11.1381 10.862C11.3984 11.1224 11.3984 11.5445 11.1381 11.8048L8.47142 14.4715C8.21108 14.7318 7.78897 14.7318 7.52862 14.4715L4.86195 11.8048C4.6016 11.5445 4.6016 11.1224 4.86195 10.862Z"
@@ -32,54 +36,12 @@ const CustomModal = () => {
                     </svg>
                 </div>
             </Flex>
-            <Flex className='custom-modal-body' width='100%'>
-                <div className="block">
-
+            <Flex className='custom-modal-body' width='100%' direction='column'>
+                <div className="img-block" style={{height:'660px', width:'100%'}}>
+                    <img src={agreement} alt="img" style={{width:'100%' , height:'100%' , objectFit:'contain'}}/>
                 </div>
-                <Accordion width='100%'>
-                    <AccordionItem width='100%'>
-                        {({ isExpanded }) => (
-                            <>
-                                <h2>
-                                    <AccordionButton>
-                                        <Box as='span' flex='1' textAlign='left'>
-                                            Mazda 3 2020 г.в. JN1WNYD21U0000001
-                                        </Box>
-                                        {isExpanded ? (
-                                            <MinusIcon fontSize='12px' />
-                                        ) : (
-                                            <AddIcon fontSize='12px' />
-                                        )}
-                                    </AccordionButton>
-                                </h2>
-                                <AccordionPanel pb={4}>
 
-                                </AccordionPanel>
-                            </>
-                        )}
-                    </AccordionItem>
-                    <AccordionItem width='100%'>
-                        {({ isExpanded }) => (
-                            <>
-                                <h2>
-                                    <AccordionButton>
-                                        <Box as='span' flex='1' textAlign='left'>
-                                            Mazda 3 2020 г.в. JN1WNYD21U0000001
-                                        </Box>
-                                        {isExpanded ? (
-                                            <MinusIcon fontSize='12px' />
-                                        ) : (
-                                            <AddIcon fontSize='12px' />
-                                        )}
-                                    </AccordionButton>
-                                </h2>
-                                <AccordionPanel pb={4}>
-
-                                </AccordionPanel>
-                            </>
-                        )}
-                    </AccordionItem>
-                </Accordion>
+                <CustomAccordeon/>
             </Flex>
         </Flex>
     );

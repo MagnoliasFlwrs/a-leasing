@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Flex} from "@chakra-ui/react";
 import '../../../styles/customModal.css';
 import agreement from '../../../images/agreement.png'
 import CustomAccordeon from "./CustomAccordeon.jsx";
+import EditDocuments from "./EditDocuments.jsx";
 
 
 const CustomModal = () => {
@@ -40,8 +41,10 @@ const CustomModal = () => {
                 <div className="img-block" style={{height:'660px', width:'100%'}}>
                     <img src={agreement} alt="img" style={{width:'100%' , height:'100%' , objectFit:'contain'}}/>
                 </div>
-
                 <CustomAccordeon/>
+                <EditDocuments/>
+
+
             </Flex>
         </Flex>
     );

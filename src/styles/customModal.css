@@ -63,7 +63,6 @@
   max-height: 0;
   transition: 0.3s;
   width: 100%;
-  padding: 0;
   display: flex;
   flex-direction: column;
 }
@@ -72,6 +71,7 @@
   flex-direction: column;
   gap: 12px;
   align-items: flex-start;
+  padding: 0 18px 24px;
 }
 .custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images {
   display: flex;
@@ -98,6 +98,10 @@
   gap: 12px;
   align-items: center;
   cursor: pointer;
+  display: none;
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont .edit.active {
+  display: flex;
 }
 .custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont .edit span {
   color: var(--blue, #0070C9);
@@ -112,6 +116,10 @@
   gap: 12px;
   align-items: center;
   cursor: pointer;
+  display: none;
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont .delete.active {
+  display: flex;
 }
 .custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .images .img-cont .delete span {
   color: var(--Red, #EA2119);
@@ -120,6 +128,12 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 16.8px */
+}
+.custom-modal .custom-modal-body .accordeon .box .content .box-content-wrapper .btns {
+  display: flex;
+  gap: 12px;
+  margin: 0 18px;
+  align-items: center;
 }
 
 /*# sourceMappingURL=customModal.css.map */

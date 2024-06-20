@@ -1050,6 +1050,9 @@ body {
         display: flex;
         align-items: center;
         gap: 10px;
+        &.hide {
+          display: none;
+        }
         button {
           border: none;
           background: transparent;

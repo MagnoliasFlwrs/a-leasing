@@ -7,15 +7,24 @@
   .images {
     display: flex;
     gap: 23px;
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
     .img-cont {
       width: calc((100% - 23px)/2);
       display: flex;
       flex-direction: column;
       gap: 10px;
       align-items: flex-start;
+      @media (max-width: 600px) {
+        width: 100%;
+      }
       .image {
         width: 100%;
         height: 343px;
+        @media (max-width: 600px) {
+          height: 418px;
+        }
         img {
           width: 100%;
           height: 100%;

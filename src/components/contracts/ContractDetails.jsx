@@ -4,6 +4,9 @@ import FinanceBlock from "./FinanceBlock";
 import PaymentBlock from "./PaymentBlock";
 import DocumentsBlock from "./documents/DocumentsBlock";
 import CustomModal from "./documents/CustomModal.jsx";
+import DeleteModal from "./documents/DeleteModal.jsx";
+import PaymentSchedule from "./PaymentSchedule.jsx";
+import Procuratory from "./Procuratory.jsx";
 
 const ContractDetails = () => {
     const tabStyle = {
@@ -37,16 +40,15 @@ const ContractDetails = () => {
                     </TabPanel>
                     <TabPanel style={{padding:'0'}}>
                         <DocumentsBlock/>
-                        <CustomModal/>
                     </TabPanel>
                     <TabPanel style={{padding:'0'}}>
-                        <p>one!</p>
+                        <PaymentSchedule/>
                     </TabPanel>
                     <TabPanel style={{padding:'0'}}>
                         <p>two!</p>
                     </TabPanel>
                     <TabPanel style={{padding:'0'}}>
-                        <p>one!</p>
+                        <Procuratory/>
                     </TabPanel>
                     <TabPanel style={{padding:'0'}}>
                         <p>two!</p>

@@ -63,6 +63,19 @@ body {
   transition: 0.3s ease;
 }
 
+.overlay {
+  background: rgba(251, 251, 253, 0.8);
+  backdrop-filter: blur(7px);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 20;
+  display: none;
+}
+.overlay.open {
+  display: block;
+}
+
 .header {
   padding: 16px 38px;
   width: 100%;
@@ -196,10 +209,12 @@ body {
   transition: 0.75s ease-in-out;
   z-index: -1;
   opacity: 0;
+  display: none;
 }
 .mobile-menu .show {
   top: 70px;
   opacity: 1;
+  display: none;
 }
 .mobile-menu .up {
   z-index: 5;
@@ -1141,7 +1156,8 @@ body {
   gap: 12px;
 }
 .documents-container .document-container-block-select {
-  width: 206px;
+  display: flex;
+  gap: 24px;
 }
 .documents-container .document-container-block-select .document-container-select {
   display: flex;
@@ -1193,6 +1209,45 @@ body {
   display: none;
 }
 .documents-container .document-container-list .document-item .btns button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.document-container-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.document-container-list .document-item {
+  display: flex;
+  padding: 24px 18px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+  align-self: stretch;
+  border-bottom: 1px solid var(--Grey, rgba(149, 149, 149, 0.4));
+}
+.document-container-list .document-item:last-child {
+  border-bottom: none;
+}
+.document-container-list .document-item .title {
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 16.8px */
+}
+.document-container-list .document-item .btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.document-container-list .document-item .btns.hide {
+  display: none;
+}
+.document-container-list .document-item .btns button {
   border: none;
   background: transparent;
   cursor: pointer;

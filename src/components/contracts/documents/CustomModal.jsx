@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Flex} from "@chakra-ui/react";
 import '../../../styles/customModal.css';
 import agreement from '../../../images/agreement.png'
@@ -7,12 +7,14 @@ import EditDocuments from "./EditDocuments.jsx";
 
 
 const CustomModal = () => {
-
-
+    const hideModal = () => {
+        document.querySelector('.custom-modal').classList.remove('open');
+        document.querySelector('.overlay').classList.remove('open');
+    }
     return (
         <Flex className='custom-modal'>
             <Flex className='custom-modal-head'>
-                <div className="close-icon" style={{cursor:'pointer'}}>
+                <div className="close-icon" style={{cursor:'pointer'}} onClick={()=> hideModal()}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <rect width="24" height="24" rx="12" fill="#333333"/>
                         <path fillRule="evenodd" clipRule="evenodd"
@@ -43,8 +45,6 @@ const CustomModal = () => {
                 </div>
                 <CustomAccordeon/>
                 <EditDocuments/>
-
-
             </Flex>
         </Flex>
     );

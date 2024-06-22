@@ -27,8 +27,6 @@ const EditDocuments = () => {
                         <img src={doc1} alt=""/>
                     </div>
                     <DragAndDropFile
-                        helpText="Перетащите файл сюда или нажмите, чтобы выбрать файл"
-                        disabled={false} // или true, если нужно отключить компонент
                         onDrop={handleFileDrop}
                     />
                     <div className='edit'>
@@ -61,8 +59,6 @@ const EditDocuments = () => {
                         <img src={doc2} alt=""/>
                     </div>
                     <DragAndDropFile
-                        helpText="Перетащите файл сюда или нажмите, чтобы выбрать файл"
-                        disabled={false} // или true, если нужно отключить компонент
                         onDrop={handleFileDrop2}
                     />
                     <div className='edit'>
@@ -91,6 +87,13 @@ const EditDocuments = () => {
                     </div>
                 </div>
             </div>
+            <p style={{
+                color: 'rgba(149, 149, 149, 0.40)',
+                fontSize: '14px',
+                fontStyle: 'normal',
+                fontWeight: 400,
+                lineHeight: '120%'
+            }}>Добавьте фотографии техпаспорта с обеих сторон</p>
             <button className="submit-btn">
                 Сохранить изменения
             </button>

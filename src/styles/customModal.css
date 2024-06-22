@@ -10,14 +10,38 @@
   background: #FFF;
   position: fixed;
   top: 0;
-  right: 0;
+  right: -100%;
+  transition: right 0.5s linear, opacity 0.2s ease;
+  opacity: 0;
   z-index: 20;
+}
+@media (max-width: 768px) {
+  .custom-modal {
+    margin: 57px 27px 25px;
+    max-width: calc(100% - 54px);
+    max-height: calc(100% - 25px - 57px);
+    height: fit-content;
+  }
+}
+.custom-modal.open {
+  right: 0;
+  opacity: 1;
 }
 .custom-modal .custom-modal-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+@media (max-width: 768px) {
+  .custom-modal .custom-modal-head {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .custom-modal .custom-modal-head .close-icon {
+    margin-left: auto;
+  }
 }
 .custom-modal .custom-modal-body {
   overflow-y: auto;

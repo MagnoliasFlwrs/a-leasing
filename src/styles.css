@@ -76,6 +76,18 @@ body {
   display: block;
 }
 
+.box-shadow {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 20;
+  display: none;
+}
+.box-shadow.open {
+  display: block;
+}
+
 .header {
   padding: 16px 38px;
   width: 100%;
@@ -562,6 +574,22 @@ body {
   .contracts-subject-container .new-leasing-subject {
     font-size: 18px;
   }
+}
+
+.contract-tablist {
+  scrollbar-color: transparent transparent;
+  scrollbar-width: none;
+}
+.contract-tablist::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+}
+.contract-tablist ::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.contract-tablist ::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
 }
 
 .subject-details-container {

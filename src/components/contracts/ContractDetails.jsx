@@ -7,6 +7,7 @@ import CustomModal from "./documents/CustomModal.jsx";
 import DeleteModal from "./documents/DeleteModal.jsx";
 import PaymentSchedule from "./PaymentSchedule.jsx";
 import Procuratory from "./Procuratory.jsx";
+import RequestsBlock from "./requests/RequestsBlock.jsx";
 
 const ContractDetails = () => {
     const tabStyle = {
@@ -26,7 +27,7 @@ const ContractDetails = () => {
     return (
         <Flex className='subject-details-container'>
             <Tabs variant='unstyled' width='100%'>
-                <TabList gap='24px' overflowX='auto'>
+                <TabList gap='24px' overflowX='auto' className='contract-tablist'>
                     <Tab {...tabStyle}>Финансы</Tab>
                     <Tab {...tabStyle}>Документы</Tab>
                     <Tab {...tabStyle}>График платежей</Tab>
@@ -51,7 +52,7 @@ const ContractDetails = () => {
                         <Procuratory/>
                     </TabPanel>
                     <TabPanel style={{padding:'0'}}>
-                        <p>two!</p>
+                        <RequestsBlock/>
                     </TabPanel>
                 </TabPanels>
             </Tabs>

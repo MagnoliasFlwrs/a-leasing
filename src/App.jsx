@@ -5,6 +5,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import MainLayout from "./routes/MainLayout";
 import ContractsLayout from "./routes/ContractsLayout";
 import ContractsMobileLayout from "./routes/ContractsMobileLayout.jsx";
+import ApplicationDetailsLayout from "./routes/ApplicationDetailsLayout.jsx";
 
 function App() {
     const routes = [
@@ -27,6 +28,10 @@ function App() {
                 {
                     path: "/profile",
                     element: <p>profile</p>,
+                },
+                {
+                    path: "/applications-details",
+                    element: <ApplicationDetailsLayout/>,
                 },
                 {
                     path: "/applications",

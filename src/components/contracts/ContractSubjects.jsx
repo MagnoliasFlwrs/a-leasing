@@ -13,6 +13,9 @@ const ContractSubjects = () => {
 
     const handleCardClick = (i) => {
         setActiveIndex2(i);
+        if (window.innerWidth < 744) {
+            window.location.href='/contracts-details'
+        }
     }
 
 
@@ -21,6 +24,10 @@ const ContractSubjects = () => {
 
     return (
         <Flex className='contracts-subject-container'>
+            {
+                (window.innerWidth < 744) && <h1 className="page-title">Договоры лизинга</h1>
+            }
+
             <ul className="filters">
                 {filters.map((filter, index) => (
                     <li

@@ -6,6 +6,13 @@ const RequestItem = () => {
         document.querySelector('.custom-modal').classList.add('open');
         document.querySelector('.overlay').classList.add('open');
     }
+    const updateApplication = () => {
+        if (window.innerWidth > 743) {
+            showModal()
+        } else {
+            window.location.href = '/applications-details'
+        }
+    }
     function boxHandler(e) {
         e.preventDefault();
         let currentBox = e.target.closest(".box");
@@ -50,7 +57,7 @@ const RequestItem = () => {
                             <div className="item">
                                 <p className="comment">Поручитель не завершил заполнение анкеты. Вы можете отправить ему
                                     ссылку скопировав ее или ввести номер телефона поручителя.</p>
-                                <div className="btn" onClick={()=>showModal()}>Дополнить</div>
+                                <div className="btn" onClick={()=>updateApplication()}>Дополнить</div>
                             </div>
                             <div className="item">
                                 <div className="btn" onClick={()=>showModal()}>Просмотреть документ</div>

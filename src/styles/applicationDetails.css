@@ -1,0 +1,255 @@
+.application-details-cont {
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.application-details-cont .back-link {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.application-details-cont .back-link span {
+  color: var(--blue, #0070C9);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.application-details-cont .page-title {
+  color: #333;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 20.4px */
+}
+.application-details-cont .title {
+  color: #333;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 20.4px */
+}
+.application-details-cont .text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.application-details-cont .text span {
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 16.8px */
+}
+.application-details-cont .text p {
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.application-details-cont .comment-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.application-details-cont .comment-wrap span {
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 16.8px */
+}
+.application-details-cont .comment-wrap textarea {
+  display: flex;
+  height: 286px;
+  padding: 10px 16px;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  resize: none;
+  outline: none;
+}
+.application-details-cont .comment-wrap textarea::placeholder {
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.application-details-cont button {
+  display: flex;
+  width: 100%;
+  height: 44px;
+  padding: 0px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 1000px;
+  background: #EFEFEF;
+  color: #959595;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 20.4px */
+  outline: none;
+}
+.application-details-cont .dropzone-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.application-details-cont .application-dropzone {
+  border-radius: 20px;
+  border: 1px dashed var(--Grey, rgba(149, 149, 149, 0.4));
+  background: rgba(232, 232, 237, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  height: 140px;
+}
+.application-details-cont .application-dropzone .label {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.application-details-cont .application-dropzone .label span {
+  color: var(--Grey, rgba(149, 149, 149, 0.4));
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.application-details-cont .files-list {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+.application-details-cont .files-list .file-item {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.application-details-cont .files-list .file-item span {
+  color: rgba(51, 51, 51, 0.7);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+}
+.application-details-cont .files-list .file-item .delete-btn {
+  width: fit-content;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: auto;
+}
+.application-details-cont .appl-link {
+  color: var(--blue, #0070C9);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.application-details-cont .appl-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.application-details-cont .appl-actions .copy-link {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+}
+.application-details-cont .appl-actions .copy-link span {
+  color: var(--blue, #0070C9);
+  text-align: right;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.application-details-cont .appl-actions .copy-link .notification {
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.application-details-cont .appl-actions .copy-link .notification .notification-wrapper {
+  position: relative;
+  display: flex;
+  padding: 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 14px;
+  background: #FBFBFD;
+  box-shadow: 2px 4px 12px 0px rgba(0, 0, 0, 0.14);
+  color: rgba(29, 29, 31, 0.7);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+}
+.application-details-cont .appl-actions .copy-link .notification .notification-wrapper svg {
+  position: absolute;
+  top: 100%;
+  left: 8px;
+}
+.application-details-cont .appl-actions input {
+  display: flex;
+  padding: 10px 16px;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  outline: none;
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.application-details-cont .appl-actions input::placeholder {
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.application-details-cont .appl-actions .feedback {
+  color: var(--grey_txt, rgba(143, 143, 148, 0.7));
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+}
+
+/*# sourceMappingURL=applicationDetails.css.map */

@@ -5,6 +5,7 @@ import agreement from '../../../images/agreement.png'
 import CustomAccordeon from "./CustomAccordeon.jsx";
 import EditDocuments from "./EditDocuments.jsx";
 import RequestDetailsBlock from "../requests/RequestDetailsBlock.jsx";
+import InsuranceModalBlock from "../insurance/InsuranceModalBlock.jsx";
 
 
 const CustomModal = () => {
@@ -47,6 +48,7 @@ const CustomModal = () => {
                 <CustomAccordeon/>
                 <EditDocuments/>
                 <RequestDetailsBlock/>
+                <InsuranceModalBlock/>
             </Flex>
         </Flex>
     );

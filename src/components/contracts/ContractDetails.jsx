@@ -6,6 +6,7 @@ import PaymentSchedule from "./PaymentSchedule.jsx";
 import Procuratory from "./Procuratory.jsx";
 import RequestsBlock from "./requests/RequestsBlock.jsx";
 import InsuranceBlock from "./insurance/InsuranceBlock.jsx";
+import CreateNewRequestBlock from "./CreateNewRequestBlock.jsx";
 
 const ContractDetails = () => {
     const tabStyle = {
@@ -68,6 +69,7 @@ const ContractDetails = () => {
                     </TabPanel>
                 </TabPanels>
             </Tabs>
+            <CreateNewRequestBlock/>
         </Flex>
     );
 };

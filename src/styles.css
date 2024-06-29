@@ -603,6 +603,7 @@ body {
 .subject-details-container {
   padding: 31px 24px 56px 24px;
   flex-grow: 1;
+  position: relative;
 }
 @media (max-width: 745px) {
   .subject-details-container {

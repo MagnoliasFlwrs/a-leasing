@@ -1,0 +1,95 @@
+.new-request-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #FFFFFF;
+  z-index: 5;
+  padding: 31px 24px 56px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.new-request-block .back-btn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+.new-request-block .back-btn span {
+  color: var(--blue, #0070C9);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.new-request-block .new-request-type-item .accordeon .box {
+  width: 100%;
+  border-bottom: 1px solid rgba(149, 149, 149, 0.4);
+}
+.new-request-block .new-request-type-item .accordeon .box.active .label .show-icon {
+  transform: rotate(225deg);
+}
+.new-request-block .new-request-type-item .accordeon .box .label {
+  display: flex;
+  padding: 24px 18px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+  align-self: stretch;
+  cursor: pointer;
+}
+.new-request-block .new-request-type-item .accordeon .box .label .label-cont {
+  color: #333;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 20.4px */
+}
+.new-request-block .new-request-type-item .accordeon .box .content {
+  position: relative;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.new-request-block .new-request-type-item .accordeon .box .content .box-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 36px 24px 18px;
+}
+.new-request-block .new-request-type-item .accordeon .box .content .box-content-wrapper .document-item {
+  width: 100%;
+  display: flex;
+  padding: 12px 0px;
+  border-bottom: 1px solid rgba(210, 210, 215, 0.7);
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.new-request-block .new-request-type-item .accordeon .box .content .box-content-wrapper .document-item:last-child {
+  border-bottom: none;
+}
+.new-request-block .new-request-type-item .accordeon .box .content .box-content-wrapper .document-item .title {
+  color: var(--blue, #0070C9);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  margin-right: auto;
+}
+.new-request-block .new-request-type-item .accordeon .box .content .box-content-wrapper .document-item .price {
+  color: rgba(149, 149, 149, 0.7);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/*# sourceMappingURL=newRequestBlock.css.map */

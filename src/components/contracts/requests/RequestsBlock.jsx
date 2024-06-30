@@ -39,9 +39,13 @@ const RequestsBlock = () => {
         };
     }, []);
 
+    const showCreateRequestModal = ()=> {
+        document.querySelector('.new-request-block').classList.add('open');
+    }
+
     return (
         <div className='requests-block'>
-            <div className="apply">
+            <div className="apply" onClick={() => showCreateRequestModal()}>
                 <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.5" y="1" width="15" height="15" rx="7.5" stroke="#0070C9"/>
                     <path d="M8 4L8 13" stroke="#0070C9" strokeLinecap="round"/>

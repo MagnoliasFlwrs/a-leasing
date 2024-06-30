@@ -6,6 +6,7 @@ import {Outlet} from "react-router-dom";
 import CustomModal from "../components/contracts/documents/CustomModal.jsx";
 import DeleteModal from "../components/contracts/documents/DeleteModal.jsx";
 import MobileFiltersModal from "../components/contracts/requests/MobileFiltersModal.jsx";
+import NewRequestModal from "../components/contracts/requests/NewRequestModal.jsx";
 const MainLayout = () => {
     const hideModal = () => {
         document.querySelector('.custom-modal').classList.remove('open');
@@ -24,6 +25,7 @@ const MainLayout = () => {
            <CustomModal/>
            <DeleteModal/>
            <MobileFiltersModal/>
+           <NewRequestModal/>
        </Flex>
     );
 };

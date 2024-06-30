@@ -1,5 +1,6 @@
 import React from 'react';
 import {Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
+import PrivateInfo from "./PrivateInfo.jsx";
 
 const ProfileDetailsBlock = () => {
     const tabStyle = {
@@ -27,13 +28,13 @@ const ProfileDetailsBlock = () => {
                 </TabList>
                 <TabPanels style={{paddingTop: '24px'}}>
                     <TabPanel style={{padding: '0'}}>
-
+                        <PrivateInfo/>
                     </TabPanel>
                     <TabPanel style={{padding: '0'}}>
-
+                        <PrivateInfo/>
                     </TabPanel>
                     <TabPanel style={{padding: '0'}}>
-
+                        <PrivateInfo/>
                     </TabPanel>
                 </TabPanels>
             </Tabs>

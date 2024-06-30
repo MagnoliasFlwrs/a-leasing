@@ -3,10 +3,13 @@ import '../../styles/newRequestBlock.css'
 import NewRequestTypeItem from "./requests/NewRequestTypeItem.jsx";
 
 const CreateNewRequestBlock = () => {
-    const arr = ['Доверенности' , 'Допсоглашения' , 'Запрос документов' , 'Взаиморасчеты' , 'Иное']
+    const arr = ['Доверенности' , 'Допсоглашения' , 'Запрос документов' , 'Взаиморасчеты' , 'Иное'];
+    const hideCreateRequestModal = ()=> {
+        document.querySelector('.new-request-block').classList.remove('open');
+    }
     return (
         <div className='new-request-block'>
-            <div className="back-btn">
+            <div className="back-btn" onClick={()=> hideCreateRequestModal()}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd"
                           d="M2.66675 8.49967C2.66675 8.13148 2.96522 7.83301 3.33341 7.83301H12.6667C13.0349 7.83301 13.3334 8.13148 13.3334 8.49967C13.3334 8.86786 13.0349 9.16634 12.6667 9.16634H3.33341C2.96522 9.16634 2.66675 8.86786 2.66675 8.49967Z"

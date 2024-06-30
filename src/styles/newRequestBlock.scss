@@ -10,6 +10,10 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  display: none;
+  &.open {
+    display: block;
+  }
   .back-btn {
     display: flex;
     gap: 10px;

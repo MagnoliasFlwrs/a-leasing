@@ -27,7 +27,7 @@ const ProcuratoryForm = () => {
                     Если необходимо согласие
                 </Checkbox>
 
-                <a href="/new-document" className={linkActivity ? 'disabled' : 'red'}>Сформировать доверенность</a>
+                <a href="/new-document-confirm" className={linkActivity ? 'disabled' : 'red'}>Сформировать доверенность</a>
             </div>
         </div>
     );

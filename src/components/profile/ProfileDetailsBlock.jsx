@@ -22,9 +22,9 @@ const ProfileDetailsBlock = () => {
             <h2>Моя анкета</h2>
             <Tabs variant='unstyled' width='100%'>
                 <TabList gap='24px' overflowX='auto' className='contract-tablist'>
-                    <Tab {...tabStyle}>Личные данные</Tab>
-                    <Tab {...tabStyle}>Место работы и доход</Tab>
-                    <Tab {...tabStyle}>Имущество в собсвенности</Tab>
+                    <Tab {...tabStyle} className='tab'>Личные данные</Tab>
+                    <Tab {...tabStyle} className='tab'>Место работы и доход</Tab>
+                    <Tab {...tabStyle} className='tab'>Имущество в собсвенности</Tab>
                 </TabList>
                 <TabPanels style={{paddingTop: '24px'}}>
                     <TabPanel style={{padding: '0'}}>

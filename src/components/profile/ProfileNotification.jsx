@@ -1,8 +1,22 @@
 import React from 'react';
 
 const ProfileNotification = () => {
+    const hideNotifications = () => {
+        document.querySelector('.profile-notification-container').classList.remove('open');
+    }
     return (
         <div className='profile-notification-container'>
+            <div className="back-btn" onClick={() => hideNotifications()}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                    <path fillRule="evenodd" clipRule="evenodd"
+                          d="M2.66663 8.49967C2.66663 8.13148 2.9651 7.83301 3.33329 7.83301H12.6666C13.0348 7.83301 13.3333 8.13148 13.3333 8.49967C13.3333 8.86786 13.0348 9.16634 12.6666 9.16634H3.33329C2.9651 9.16634 2.66663 8.86786 2.66663 8.49967Z"
+                          fill="#0070C9"/>
+                    <path fillRule="evenodd" clipRule="evenodd"
+                          d="M8.47136 3.36225C8.73171 3.6226 8.73171 4.04471 8.47136 4.30506L4.2761 8.50033L8.47136 12.6956C8.73171 12.9559 8.73171 13.378 8.47136 13.6384C8.21101 13.8987 7.7889 13.8987 7.52855 13.6384L2.86189 8.97173C2.60154 8.71138 2.60154 8.28927 2.86189 8.02892L7.52855 3.36225C7.7889 3.1019 8.21101 3.1019 8.47136 3.36225Z"
+                          fill="#0070C9"/>
+                </svg>
+                <span>Назад</span>
+            </div>
             <h2>Мои уведомления</h2>
             <ul className="notification-list">
                 <li>

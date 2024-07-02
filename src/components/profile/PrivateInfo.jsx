@@ -1,7 +1,5 @@
 import React from 'react';
 import '../../styles/privateInfo.css'
-import doc1 from "../../images/doc1.png";
-import doc2 from "../../images/doc2.png";
 
 const PrivateInfo = () => {
 

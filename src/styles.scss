@@ -1166,6 +1166,20 @@ body {
   }
 }
 
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  span {
+    color: var(--blue, #0070C9);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+
 
 
 

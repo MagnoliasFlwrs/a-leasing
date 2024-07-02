@@ -8,6 +8,7 @@ import ContractsMobileLayout from "./routes/ContractsMobileLayout.jsx";
 import ApplicationDetailsLayout from "./routes/ApplicationDetailsLayout.jsx";
 import ProfileLayout from "./routes/ProfileLayout.jsx";
 import ProcuratoryLayout from "./routes/ProcuratoryLayout.jsx";
+import NewDocumentLayout from "./routes/NewDocumentLayout.jsx";
 
 function App() {
     const routes = [
@@ -37,7 +38,11 @@ function App() {
                     element: <ApplicationDetailsLayout/>,
                 },
                 {
-                    path: "/new-document",
+                    path: "/new-document-request",
+                    element: <NewDocumentLayout/>,
+                },
+                {
+                    path: "/new-document-confirm",
                     element: <ProcuratoryLayout/>,
                 },
                 {

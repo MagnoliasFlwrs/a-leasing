@@ -14,11 +14,20 @@ const NewRequestTypeItem = ({data}) => {
             currentContent.style.maxHeight = 0;
         }
     }
-
     const showModal = () => {
         document.querySelector('.new-request-modal').classList.add('open');
         document.querySelector('.overlay').classList.add('open');
     }
+    const itemHandler = () => {
+        if (window.innerWidth < 744) {
+            window.location.href = '/new-document-request'
+        } else {
+            showModal()
+        }
+
+    }
+
+
     return (
         <div className='new-request-type-item'>
             <div className="accordeon">
@@ -39,7 +48,7 @@ const NewRequestTypeItem = ({data}) => {
                     </div>
                     <div className="content">
                         <div className="box-content-wrapper">
-                            <div className="document-item" onClick={()=> showModal()}>
+                            <div className="document-item" onClick={()=> itemHandler()}>
                                 <div className="icon">
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +66,7 @@ const NewRequestTypeItem = ({data}) => {
                                 <span className="title">заявление о возврате денежных средств</span>
                                 <span className="price">Бесплатно</span>
                             </div>
-                            <div className="document-item" onClick={()=> showModal()}>
+                            <div className="document-item" onClick={()=> itemHandler()}>
                                 <div className="icon">
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +84,7 @@ const NewRequestTypeItem = ({data}) => {
                                 <span className="title">акт сверки</span>
                                 <span className="price">Бесплатно</span>
                             </div>
-                            <div className="document-item" onClick={()=> showModal()}>
+                            <div className="document-item" onClick={()=> itemHandler()}>
                                 <div className="icon">
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +102,7 @@ const NewRequestTypeItem = ({data}) => {
                                 <span className="title">о переносе даты уплаты лизинговых платежей</span>
                                 <span className="price">Бесплатно</span>
                             </div>
-                            <div className="document-item" onClick={()=> showModal()}>
+                            <div className="document-item" onClick={()=> itemHandler()}>
                                 <div className="icon">
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -112,7 +121,7 @@ const NewRequestTypeItem = ({data}) => {
                                 <span className="price">Бесплатно</span>
                             </div>
 
-                            <div className="document-item" onClick={()=> showModal()}>
+                            <div className="document-item" onClick={()=> itemHandler()}>
                                 <div className="icon">
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -130,7 +139,7 @@ const NewRequestTypeItem = ({data}) => {
                                 <span className="title">полное досрочное погашение</span>
                                 <span className="price">Бесплатно</span>
                             </div>
-                            <div className="document-item" onClick={()=> showModal()}>
+                            <div className="document-item" onClick={()=> itemHandler()}>
                                 <div className="icon">
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">

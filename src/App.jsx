@@ -9,6 +9,7 @@ import ApplicationDetailsLayout from "./routes/ApplicationDetailsLayout.jsx";
 import ProfileLayout from "./routes/ProfileLayout.jsx";
 import ProcuratoryLayout from "./routes/ProcuratoryLayout.jsx";
 import NewDocumentLayout from "./routes/NewDocumentLayout.jsx";
+import EditingProfileLayout from "./routes/EditingProfileLayout.jsx";
 
 function App() {
     const routes = [
@@ -40,6 +41,10 @@ function App() {
                 {
                     path: "/new-document-request",
                     element: <NewDocumentLayout/>,
+                },
+                {
+                    path: "/edit-profile",
+                    element: <EditingProfileLayout/>,
                 },
                 {
                     path: "/new-document-confirm",

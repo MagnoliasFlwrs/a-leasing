@@ -1,0 +1,70 @@
+.editing-profile-layout {
+  flex-grow: 1;
+  padding: 31px 38px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  .head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      h1 {
+        color: #333;
+        font-family: Roboto;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%; /* 20.4px */      }
+    }
+    .red-btn {
+      display: flex;
+      padding: 12px 24px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 100px;
+      background: var(--Red, #EA2119);
+      color: #FFF;
+      font-family: Roboto;
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 0.34px;
+      cursor: pointer;
+      &:hover {
+        border-radius: 100px;
+        background: #DF140C;
+      }
+    }
+  }
+  .profile-info-form {
+    display: flex;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 50%;
+    .chapter {
+      max-width: 390px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      .title {
+        color: #000;
+        font-family: Roboto;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+  }
+
+}

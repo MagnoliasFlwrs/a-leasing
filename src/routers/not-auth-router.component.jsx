@@ -4,11 +4,12 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
+import LoginLayout from "../routes/LoginLayout.jsx";
 
 const notAuthRoutes = [
   {
     path: "login",
-    element: <p>страница авторизации</p>,
+    element: <LoginLayout/>,
   },
   {
     path: "*",

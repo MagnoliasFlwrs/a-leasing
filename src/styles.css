@@ -868,18 +868,17 @@ body {
     font-size: 13px;
   }
 }
-
-.swiper-pagination {
+.subjectSwiper .swiper-pagination {
   bottom: 0 !important;
 }
-.swiper-pagination .swiper-pagination-bullet {
+.subjectSwiper .swiper-pagination .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   border-radius: 7px;
   background: var(--Grey, rgba(149, 149, 149, 0.4));
   opacity: 1;
 }
-.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.subjectSwiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   width: 40px;
   height: 8px;
   border-radius: 7px;

@@ -760,24 +760,25 @@ body {
       }
     }
   }
-}
-
-.swiper-pagination {
-  bottom: 0!important;
-  .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    border-radius: 7px;
-    background: var(--Grey, rgba(149, 149, 149, 0.40));
-    opacity: 1;
-    &.swiper-pagination-bullet-active {
-      width: 40px;
+  .swiper-pagination {
+    bottom: 0!important;
+    .swiper-pagination-bullet {
+      width: 8px;
       height: 8px;
       border-radius: 7px;
       background: var(--Grey, rgba(149, 149, 149, 0.40));
+      opacity: 1;
+      &.swiper-pagination-bullet-active {
+        width: 40px;
+        height: 8px;
+        border-radius: 7px;
+        background: var(--Grey, rgba(149, 149, 149, 0.40));
+      }
     }
   }
 }
+
+
 
 .to-pay-card {
   display: flex;

@@ -72,8 +72,16 @@
   border-radius: 14px;
   background: #FFF;
   max-width: 500px;
+  height: 469px;
   width: 100%;
-  height: fit-content;
+}
+.login-layout .form-row .login-form .form {
+  width: 100%;
+}
+.login-layout .form-row .login-form .form-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .login-layout .form-row .login-form .form-inner .title {
   color: #000;
@@ -83,11 +91,43 @@
   font-weight: 500;
   line-height: 120%; /* 28.8px */
   margin-bottom: 56px;
+  text-align: center;
 }
 .login-layout .form-row .login-form .form-inner .row {
   display: flex;
   gap: 10px;
   margin-bottom: 17px;
+  width: 100%;
+  align-items: flex-start;
+}
+.login-layout .form-row .login-form .form-inner .row .input-box {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.login-layout .form-row .login-form .form-inner .row .input-box span {
+  color: var(--Red, #EA2119);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.login-layout .form-row .login-form .form-inner .row .input-box input {
+  display: flex;
+  height: 56px;
+  padding: 10px 16px;
+  align-items: center;
+  gap: 4px;
+  flex: unset;
+  flex-shrink: 0;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+.login-layout .form-row .login-form .form-inner .row .input-box input.error {
+  border: 1px solid var(--Red, #EA2119);
 }
 .login-layout .form-row .login-form .form-inner .row input {
   display: flex;
@@ -111,6 +151,9 @@
   cursor: pointer;
   border-radius: 12px;
   background: var(--Red, #EA2119);
+}
+.login-layout .form-row .login-form .form-inner .row button:hover {
+  background: #DF140C;
 }
 .login-layout .footer {
   border-top: 1px solid rgba(149, 149, 149, 0.2);

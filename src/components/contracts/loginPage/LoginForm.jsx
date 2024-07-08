@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {Checkbox, PinInput, PinInputField} from "@chakra-ui/react";
+import {useGetAccountsMutation, useSignInMutation} from "../../../services/auth/index.js";
+import {useDispatch, useSelector} from "react-redux";
+import {setTokens} from "../../../lib/store/features/auth/index.js";
 
 const LoginForm = () => {
     const [login, setLogin] = useState('');
@@ -11,6 +14,11 @@ const LoginForm = () => {
     const [isValidLogin, setIsValidLogin] = useState(false);
     const [selectedAccount, setSelectedAccount] = useState('');
     const [isChoosenAccount, setIsChoosenAccount] = useState(false);
+    const [signIn] = useSignInMutation();
+    const [getAccounts] = useGetAccountsMutation();
+    const [accounts, setAccounts] = useState([]);
+    const dispatch = useDispatch();
+    const isAuth = useSelector((state) => state.auth.isAuth);
 
     useEffect(() => {
         const input = document.querySelector('.login-input');
@@ -100,8 +108,67 @@ const LoginForm = () => {
             setLoginErr(true);
         }
     }
-    const handleSubmit = ()=> {
-        console.log(login , password)
+    const handleSubmit = async  ()=> {
+        const newLogin = login.replace(/[\s()+-]/g, '');
+        try {
+            const response = await getAccounts({'phoneNumber': newLogin , 'password' : password}).unwrap();
+            setAccounts(Object.entries(response))
+
+        } catch (error) {
+            console.error('Sign-in failed:', error);
+        }
+
+
+    }
+    useEffect(() => {
+        const signInAccount = async () => {
+            console.log(accounts);
+            if (accounts.length !== 0) {
+                if (accounts.length === 1) {
+                    const newLogin = login.replace(/[\s()+-]/g, '');
+                    const body = {
+                        "password": password,
+                        "phoneNumber": newLogin,
+                        "signInType": accounts[0][0]
+                    };
+                    try {
+                        const response = await signIn(body).unwrap();
+                        dispatch(setTokens({
+                            accessToken : response.accessToken,
+                            refreshToken : response.refreshToken
+                        }));
+                    } catch (error) {
+                        console.error('Sign-in failed:', error);
+                        setPassword('');
+                        setPasswordErr(true);
+                    }
+                } else {
+                    document.querySelector('.choose-account-block').classList.add('open');
+                }
+            }
+        };
+
+        signInAccount();
+    }, [accounts]);
+
+    const choosenAccountSubmit = async () => {
+        const newLogin = login.replace(/[\s()+-]/g, '');
+        const body = {
+            "password": password,
+            "phoneNumber": newLogin,
+            "signInType": selectedAccount
+        };
+        try {
+            const response = await signIn(body).unwrap();
+            dispatch(setTokens({
+                accessToken : response.accessToken,
+                refreshToken : response.refreshToken
+            }));
+        } catch (error) {
+            console.error('Sign-in failed:', error);
+            setPassword('');
+            setPasswordErr(true)
+        }
     }
 
 
@@ -116,6 +183,9 @@ const LoginForm = () => {
     const openRegistrationBlock = (e) => {
         e.preventDefault()
         document.querySelector('.registration-block').classList.add('open');
+    }
+    const hideChooseAccountBlock = () => {
+        document.querySelector('.choose-account-block').classList.remove('open');
     }
 
     return (
@@ -152,14 +222,22 @@ const LoginForm = () => {
                     {
                         isValidLogin &&
                         <div className="row">
-                            <input
-                                type="password"
-                                className='pass-input'
-                                onChange={(e) => handlePass(e)}
-                                value={password}
-                            />
+                            <div className="input-box">
+                                <input
+                                    type="password"
+                                    className={passwordErr ? 'pass-input error' : 'pass-input'}
+                                    onChange={(e) => handlePass(e)}
+                                    placeholder='Введите пароль'
+                                    value={password}
+                                />
+                                {
+                                    passwordErr && <span>Неверный логин или пароль</span>
+                                }
+
+                            </div>
+
                             <button onClick={() => handleSubmit()}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="37" height="36" viewBox="0 0 37 36"
+                            <svg xmlns="http://www.w3.org/2000/svg" width="37" height="36" viewBox="0 0 37 36"
                                      fill="none">
                                     <path fillRule="evenodd" clipRule="evenodd"
                                           d="M12.9393 7.93934C13.5251 7.35355 14.4749 7.35355 15.0607 7.93934L24.0607 16.9393C24.6464 17.5251 24.6464 18.4749 24.0607 19.0607L15.0607 28.0607C14.4749 28.6464 13.5251 28.6464 12.9393 28.0607C12.3536 27.4749 12.3536 26.5251 12.9393 25.9393L20.8787 18L12.9393 10.0607C12.3536 9.47487 12.3536 8.52513 12.9393 7.93934Z"
@@ -187,7 +265,7 @@ const LoginForm = () => {
                 </div>
             </div>
             <div className="choose-account-block ">
-                <div className="back-btn">
+                <div className="back-btn" onClick={()=> hideChooseAccountBlock()}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
                               d="M2.66675 8.49967C2.66675 8.13148 2.96522 7.83301 3.33341 7.83301H12.6667C13.0349 7.83301 13.3334 8.13148 13.3334 8.49967C13.3334 8.86786 13.0349 9.16634 12.6667 9.16634H3.33341C2.96522 9.16634 2.66675 8.86786 2.66675 8.49967Z"
@@ -205,24 +283,39 @@ const LoginForm = () => {
                          несколько аккаунтов. Выберите тот тип аккаунта,
                         под которым вы хотите авторизоваться.</span>
                         <div className="checkboxes">
-                            <Checkbox
-                                colorScheme='red'
-                                isChecked={selectedAccount === 'ИП “Иванов”'}
-                                onChange={() => handleCheckboxChange('ИП “Иванов”')}
-                            >
-                                ИП “Иванов”
-                            </Checkbox>
-                            <Checkbox
-                                colorScheme='red'
-                                isChecked={selectedAccount === 'Иванов Иван Иванович'}
-                                onChange={() => handleCheckboxChange('Иванов Иван Иванович')}
-                            >
-                                Иванов Иван Иванович
-                            </Checkbox>
+                            {accounts?.map((account, index) => {
+                                return (
+                                    <Checkbox
+                                        key={index}
+                                        colorScheme='red'
+                                        isChecked={selectedAccount === account[0]}
+                                        onChange={() => handleCheckboxChange(account[0])}
+                                    >
+                                        {account[0] === 'NATURAL_PERSON' && (
+                                            <>
+                                                {account[1].profile?.generalInfo?.fullName?.firstname} {account[1].profile?.generalInfo?.fullName?.middlename} {account[1].profile?.generalInfo?.fullName?.lastname}
+                                            </>
+                                        )}
+                                        {account[0] === 'LEGAL_PERSON' && (
+                                            <>
+                                                {account[1][0].profile?.generalInfo?.generalInfo?.shortName}
+                                            </>
+                                        )}
+                                        {account[0] === 'INDIVIDUAL_ENTREPRENEUR' && (
+                                            <>
+                                                ИП {account[1].profile?.generalInfo?.fullName?.firstname} {account[1].profile?.generalInfo?.fullName?.middlename} {account[1].profile?.generalInfo?.fullName?.lastname}
+                                            </>
+                                        )}
+                                    </Checkbox>
+                                );
+                            })}
                         </div>
+
                     </div>
 
-                    <button className={isChoosenAccount ? 'red' : 'gray'}>Войти</button>
+                    <button className={isChoosenAccount ? 'red' : 'gray'}
+                            onClick={()=> choosenAccountSubmit()}
+                    >Войти</button>
                 </div>
             </div>
             <div className="confirm-block">

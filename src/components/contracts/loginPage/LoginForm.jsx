@@ -116,6 +116,8 @@ const LoginForm = () => {
 
         } catch (error) {
             console.error('Sign-in failed:', error);
+            setPassword('');
+            setPasswordErr(true);
         }
 
 
@@ -167,7 +169,7 @@ const LoginForm = () => {
         } catch (error) {
             console.error('Sign-in failed:', error);
             setPassword('');
-            setPasswordErr(true)
+            setPasswordErr(true);
         }
     }
 

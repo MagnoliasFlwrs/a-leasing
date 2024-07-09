@@ -551,7 +551,7 @@ body {
     flex-grow: 1;
     flex-direction: column;
     gap: 24px;
-    @media (max-width: 745px) {
+    @media (max-width: 743px) {
       display: flex !important;
     }
     .back-link {

@@ -14,10 +14,19 @@ export const authApi = api.injectEndpoints({
     getIndividualEntrepreneursProfileById: builder.query({
       query: (id) => `individual-entrepreneurs/${id}`,
     }),
+    getLegalPersonsProfileById: builder.query({
+      query: (id) => `legal-persons/${id}`,
+    }),
+    getNaturalPersonsProfileById: builder.query({
+      query: (id) => `natural-persons/${id}`,
+    }),
   }),
 });
 
 export const { useSignInMutation,
                 useChangePasswordMutation ,
                 useGetAccountsMutation ,
-                useGetIndividualEntrepreneursProfileByIdQuery  } = authApi;
+                useGetIndividualEntrepreneursProfileByIdQuery ,
+                useGetLegalPersonsProfileByIdQuery ,
+                useGetNaturalPersonsProfileByIdQuery ,
+} = authApi;

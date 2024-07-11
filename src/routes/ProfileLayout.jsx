@@ -3,7 +3,10 @@ import '../styles/profile.css'
 import ProfileUserInfoBlock from "../components/profile/ProfileUserInfoBlock.jsx";
 import ProfileDetailsBlock from "../components/profile/ProfileDetailsBlock.jsx";
 import ProfileNotification from "../components/profile/ProfileNotification.jsx";
-import {useGetIndividualEntrepreneursProfileByIdQuery} from "../services/auth/index.js";
+import {
+    useGetIndividualEntrepreneursProfileByIdQuery,
+    useGetLegalPersonsProfileByIdQuery, useGetNaturalPersonsProfileByIdQuery
+} from "../services/auth/index.js";
 
 
 const ProfileLayout = () => {
@@ -11,7 +14,7 @@ const ProfileLayout = () => {
     const accessToken = localStorage.getItem('access-token');
     const parts = accessToken.split('.');
 
-    const [getIndividualEntrepreneursProfileById ,{ data, error, isSuccess}]  = useGetIndividualEntrepreneursProfileByIdQuery();
+
 
     const base64urlDecode = (str) => {
         const base64 = str.replace(/-/g, '+').replace(/_/g, '/');
@@ -28,18 +31,49 @@ const ProfileLayout = () => {
         }
     }, []);
 
-    // useEffect(() => {
-    //     if (userInfo?.signInType === 'INDIVIDUAL_ENTREPRENEUR') {
-    //         getIndividualEntrepreneursProfileById(userInfo?.userId);
-    //     }
-    // }, [userInfo]);
+    console.log(userInfo)
 
-    useEffect(() => {
-        if (isSuccess ) {
+    const {
+        data: individualData,
+        error: individualError,
+        isSuccess: isIndividualSuccess
+    } = useGetIndividualEntrepreneursProfileByIdQuery(
+        userInfo?.signInType === 'INDIVIDUAL_ENTREPRENEUR' ? userInfo.accountId : null,
+        { skip: userInfo?.signInType !== 'INDIVIDUAL_ENTREPRENEUR' }
+    );
 
-            console.log('Профиль:', data);
-        }
-    }, [isSuccess, data]);
+    const {
+        data: legalData,
+        error: legalError,
+        isSuccess: isLegalSuccess
+    } = useGetLegalPersonsProfileByIdQuery(
+        userInfo?.signInType === 'LEGAL_PERSON' ? userInfo.accountId : null,
+        { skip: userInfo?.signInType !== 'LEGAL_PERSON' }
+    );
+
+    const {
+        data: naturalData,
+        error: naturalError,
+        isSuccess: isNaturalSuccess
+    } = useGetNaturalPersonsProfileByIdQuery(
+        userInfo?.signInType === 'NATURAL_PERSON' ? userInfo.accountId : null,
+        { skip: userInfo?.signInType !== 'NATURAL_PERSON' }
+    );
+
+    let profileData = null;
+    let profileError = null;
+    if (isIndividualSuccess) {
+        profileData = individualData;
+        profileError = individualError;
+    } else if (isLegalSuccess) {
+        profileData = legalData;
+        profileError = legalError;
+    } else if (isNaturalSuccess) {
+        profileData = naturalData;
+        profileError = naturalError;
+    }
+
+
 
     const openProfileInfo = () => {
         document.querySelector('.profile-user-block').classList.add('open');
@@ -74,8 +108,8 @@ const ProfileLayout = () => {
                     </a>
                 </div>
             </div>
-            <ProfileUserInfoBlock/>
-            <ProfileDetailsBlock/>
+            <ProfileUserInfoBlock profile={profileData}/>
+            <ProfileDetailsBlock profile={profileData} userType={userInfo?.signInType}/>
             <ProfileNotification/>
         </div>
     );

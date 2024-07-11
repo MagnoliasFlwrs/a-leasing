@@ -163,6 +163,15 @@
       font-weight: 500;
       line-height: 120%; /* 20.4px */
     }
+    .chakra-tabs__tablist {
+      overflow-x: unset;
+      flex-wrap: wrap;
+      gap: 12px;
+      @media (max-width: 1024px) {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+    }
     .tab {
       @media (max-width: 743px) {
         font-size: 12px;

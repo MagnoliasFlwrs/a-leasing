@@ -605,7 +605,7 @@ body {
   flex-grow: 1;
   position: relative;
 }
-@media (max-width: 743px) {
+@media (max-width: 745px) {
   .subject-details-container {
     display: none !important;
   }
@@ -617,7 +617,7 @@ body {
   flex-direction: column;
   gap: 24px;
 }
-@media (max-width: 745px) {
+@media (max-width: 743px) {
   .contracts-mobile-details .subject-details-container {
     display: flex !important;
   }

@@ -1,10 +1,46 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../styles/profile.css'
 import ProfileUserInfoBlock from "../components/profile/ProfileUserInfoBlock.jsx";
 import ProfileDetailsBlock from "../components/profile/ProfileDetailsBlock.jsx";
 import ProfileNotification from "../components/profile/ProfileNotification.jsx";
+import {useGetIndividualEntrepreneursProfileByIdQuery} from "../services/auth/index.js";
+
 
 const ProfileLayout = () => {
+    const [userInfo, setUserInfo] = useState(null);
+    const accessToken = localStorage.getItem('access-token');
+    const parts = accessToken.split('.');
+
+    const [getIndividualEntrepreneursProfileById ,{ data, error, isSuccess}]  = useGetIndividualEntrepreneursProfileByIdQuery();
+
+    const base64urlDecode = (str) => {
+        const base64 = str.replace(/-/g, '+').replace(/_/g, '/');
+        return atob(base64);
+    };
+
+    useEffect(() => {
+        if (parts.length === 3 && parts[1]) {
+            let decodedToken = base64urlDecode(parts[1]);
+            let userInfo = JSON.parse(decodedToken);
+            setUserInfo(userInfo);
+        } else {
+            console.error('Некорректный формат access token');
+        }
+    }, []);
+
+    // useEffect(() => {
+    //     if (userInfo?.signInType === 'INDIVIDUAL_ENTREPRENEUR') {
+    //         getIndividualEntrepreneursProfileById(userInfo?.userId);
+    //     }
+    // }, [userInfo]);
+
+    useEffect(() => {
+        if (isSuccess ) {
+
+            console.log('Профиль:', data);
+        }
+    }, [isSuccess, data]);
+
     const openProfileInfo = () => {
         document.querySelector('.profile-user-block').classList.add('open');
     }

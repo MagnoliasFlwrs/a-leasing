@@ -11,7 +11,13 @@ export const authApi = api.injectEndpoints({
     changePassword: builder.mutation({
       query: (body) => ({ url: "auth/change-password", method: "POST", body }),
     }),
+    getIndividualEntrepreneursProfileById: builder.query({
+      query: (id) => `individual-entrepreneurs/${id}`,
+    }),
   }),
 });
 
-export const { useSignInMutation, useChangePasswordMutation , useGetAccountsMutation } = authApi;
+export const { useSignInMutation,
+                useChangePasswordMutation ,
+                useGetAccountsMutation ,
+                useGetIndividualEntrepreneursProfileByIdQuery  } = authApi;

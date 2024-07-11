@@ -4,8 +4,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
-import img1 from '../../../images/login1.png';
-import img2 from '../../../images/login2.png';
+import img1 from '../../images/login1.png';
+import img2 from '../../images/login2.png';
 
 const LoginSlider = () => {
     return (

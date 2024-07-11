@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {Checkbox, PinInput, PinInputField} from "@chakra-ui/react";
-import {useGetAccountsMutation, useSignInMutation} from "../../../services/auth/index.js";
+import {useGetAccountsMutation, useSignInMutation} from "../../services/auth/index.js";
 import {useDispatch, useSelector} from "react-redux";
-import {setTokens} from "../../../lib/store/features/auth/index.js";
+import {setTokens} from "../../lib/store/features/auth/index.js";
 
 const LoginForm = () => {
     const [login, setLogin] = useState('');
@@ -303,7 +303,7 @@ const LoginForm = () => {
                                         )}
                                         {account[0] === 'INDIVIDUAL_ENTREPRENEUR' && (
                                             <>
-                                                ИП {account[1].profile?.generalInfo?.fullName?.firstname} {account[1].profile?.generalInfo?.fullName?.middlename} {account[1].profile?.generalInfo?.fullName?.lastname}
+                                                ИП {account[1].profile?.generalInfo?.fullName?.lastname} {account[1].profile?.generalInfo?.fullName?.firstname} {account[1].profile?.generalInfo?.fullName?.middlename}
                                             </>
                                         )}
                                     </Checkbox>

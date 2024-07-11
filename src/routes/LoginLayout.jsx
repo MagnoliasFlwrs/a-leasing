@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from "../components/contracts/loginPage/Footer.jsx";
+import Footer from "../components/loginPage/Footer.jsx";
 import '../styles/loginLayout.css'
-import LoginSlider from "../components/contracts/loginPage/LoginSlider.jsx";
-import LoginForm from "../components/contracts/loginPage/LoginForm.jsx";
+import LoginSlider from "../components/loginPage/LoginSlider.jsx";
+import LoginForm from "../components/loginPage/LoginForm.jsx";
 
 const LoginLayout = () => {
     return (

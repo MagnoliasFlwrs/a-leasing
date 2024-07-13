@@ -1,13 +1,51 @@
 import React from 'react';
 import '../../styles/privateInfo.css'
 
-const PrivateInfo = () => {
+const PrivateInfoNaturalPerson = ({data}) => {
+    console.log(data)
+
+    const {
+        employmentAndIncomeInfo,
+        generalInfo:
+            {
+                fullName: {
+                    lastname, firstname, middlename, citizenship, birthday, birthplace , gender
+                },
+                placeOfResidence: {
+                    regAddressCountry,
+                    regAddressRegion,
+                    regAddressLocality,
+                    regAddressStreet,
+                    livingAddressIsDifferent,
+                    livingAddressCountry,
+                    livingAddressRegion ,
+                    livingAddressLocality ,
+                    livingAddressStreet
+                },
+                identityDocument: {
+                    documentSeries,
+                    documentNumber,
+                    personalNumber,
+                    dateOfIssue,
+                    validityPeriod,
+                    issuedAuthority
+                },
+                contacts : {
+                    phoneNumber , email ,additionalPhoneNumber
+                }
+            },
+        maritalStatusAndPropertyInfo : {
+            maritalStatus: {
+                maritalStatus
+            }
+        }
+    } = data;
 
     function boxHandler(e) {
         e.preventDefault();
         let currentBox = e.target.closest(".box");
         let currentContent = currentBox.querySelector('.content .info-container');
-        let currentHide =  e.target.closest(".box").querySelector('.hide');
+        let currentHide = e.target.closest(".box").querySelector('.hide');
 
         console.log(currentHide);
 
@@ -30,58 +68,55 @@ const PrivateInfo = () => {
                             <ul className='info-container'>
                                 <li>
                                     <span>ФИО</span>
-                                    <span>Иванов Иван Иванович</span>
+                                    <span>{lastname} {firstname} {middlename}</span>
                                 </li>
                                 <li>
                                     <span>Дата рождения</span>
-                                    <span>01.01.1876</span>
+                                    <span>{birthday}</span>
                                 </li>
                                 <li>
                                     <span>Пол</span>
-                                    <span>мужской</span>
+                                    <span> {gender === 'Ж' ? 'Женский' : 'Мужской'}</span>
                                 </li>
-                                <li>
-                                    <span>Дата рождения</span>
-                                    <span>01.01.1900</span>
-                                </li>
+
                                 <li>
                                     <span>Серия и номер паспорта</span>
-                                    <span>MP0000000</span>
+                                    <span>{documentSeries}{documentNumber}</span>
                                 </li>
                                 <li>
                                     <span>Идентификационный номер</span>
-                                    <span>01.01.1900</span>
+                                    <span>{personalNumber}</span>
                                 </li>
                                 <li>
                                     <span>Кем выдан паспорт</span>
-                                    <span>01.01.1900</span>
+                                    <span>{issuedAuthority}</span>
                                 </li>
                                 <li>
                                     <span>Дата выдачи</span>
-                                    <span>01.01.1900</span>
+                                    <span>{dateOfIssue}</span>
                                 </li>
                                 <li>
                                     <span>Срок действия паспорта</span>
-                                    <span>01.01.1900</span>
+                                    <span>{validityPeriod}</span>
                                 </li>
                                 <li>
                                     <span>Семейное положение </span>
-                                    <span>01.01.1900</span>
+                                    <span>{maritalStatus}</span>
                                 </li>
                                 <li>
                                     <span>Гражданство</span>
-                                    <span>01.01.1900</span>
+                                    <span>{citizenship}</span>
                                 </li>
                                 <li>
                                     <span>Место рождения</span>
-                                    <span>01.01.1900</span>
+                                    <span>{birthplace}</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div className="label">
                         <div className="label-cont">
-                            <span>Редактировать</span>
+                        <span>Редактировать</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11"
                                  fill="none">
                                 <path
@@ -107,53 +142,18 @@ const PrivateInfo = () => {
                             <p className="title">Контактные данные</p>
                             <ul className='info-container'>
                                 <li>
-                                    <span>ФИО</span>
-                                    <span>Иванов Иван Иванович</span>
+                                    <span>Основной номер телефона (МСИ, вход и тд)</span>
+                                    <span>{phoneNumber}</span>
                                 </li>
                                 <li>
-                                    <span>Дата рождения</span>
-                                    <span>01.01.1876</span>
+                                    <span>Email</span>
+                                    <span>{email}</span>
                                 </li>
                                 <li>
-                                    <span>Пол</span>
-                                    <span>мужской</span>
+                                    <span>Дополнительный контактный номер телефона</span>
+                                    <span>{additionalPhoneNumber}</span>
                                 </li>
-                                <li>
-                                    <span>Дата рождения</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Серия и номер паспорта</span>
-                                    <span>MP0000000</span>
-                                </li>
-                                <li>
-                                    <span>Идентификационный номер</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Кем выдан паспорт</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Дата выдачи</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Срок действия паспорта</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Семейное положение </span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Гражданство</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Место рождения</span>
-                                    <span>01.01.1900</span>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -185,53 +185,14 @@ const PrivateInfo = () => {
                             <p className="title">Адрес регистрации и проживания</p>
                             <ul className='info-container'>
                                 <li>
-                                    <span>ФИО</span>
-                                    <span>Иванов Иван Иванович</span>
+                                    <span>Адрес регистрации (полный адрес)</span>
+                                    <span>{regAddressCountry} {regAddressRegion} {regAddressLocality} {regAddressStreet}</span>
                                 </li>
                                 <li>
-                                    <span>Дата рождения</span>
-                                    <span>01.01.1876</span>
+                                    <span>Место жительства (полный адрес)</span>
+                                    <span>{livingAddressCountry} {livingAddressRegion} {livingAddressLocality} {livingAddressStreet}</span>
                                 </li>
-                                <li>
-                                    <span>Пол</span>
-                                    <span>мужской</span>
-                                </li>
-                                <li>
-                                    <span>Дата рождения</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Серия и номер паспорта</span>
-                                    <span>MP0000000</span>
-                                </li>
-                                <li>
-                                    <span>Идентификационный номер</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Кем выдан паспорт</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Дата выдачи</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Срок действия паспорта</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Семейное положение </span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Гражданство</span>
-                                    <span>01.01.1900</span>
-                                </li>
-                                <li>
-                                    <span>Место рождения</span>
-                                    <span>01.01.1900</span>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -259,4 +220,4 @@ const PrivateInfo = () => {
         </div>
     );
 };
-export default PrivateInfo;
+export default PrivateInfoNaturalPerson;

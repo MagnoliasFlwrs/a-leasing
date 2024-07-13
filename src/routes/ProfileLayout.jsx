@@ -13,6 +13,7 @@ const ProfileLayout = () => {
     const [userInfo, setUserInfo] = useState(null);
     const accessToken = localStorage.getItem('access-token');
     const parts = accessToken.split('.');
+    const [profileData , setProfileData] = useState(null)
 
 
 
@@ -60,20 +61,18 @@ const ProfileLayout = () => {
         { skip: userInfo?.signInType !== 'NATURAL_PERSON' }
     );
 
-    let profileData = null;
-    let profileError = null;
-    if (isIndividualSuccess) {
-        profileData = individualData;
-        profileError = individualError;
-    } else if (isLegalSuccess) {
-        profileData = legalData;
-        profileError = legalError;
-    } else if (isNaturalSuccess) {
-        profileData = naturalData;
-        profileError = naturalError;
-    }
+    useEffect(() => {
+        if (isIndividualSuccess) {
+            setProfileData(individualData)
+        } else if (isLegalSuccess) {
+            setProfileData(legalData)
+        } else if (isNaturalSuccess) {
+            setProfileData(naturalData)
+        }
+    }, [individualData, naturalData,legalData]);
 
 
+    console.log(profileData)
 
     const openProfileInfo = () => {
         document.querySelector('.profile-user-block').classList.add('open');

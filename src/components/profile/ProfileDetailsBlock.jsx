@@ -2,6 +2,8 @@ import React from 'react';
 import {Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
 import PrivateInfoNaturalPerson from "./PrivateInfoNaturalPerson.jsx";
 import GeneralInfoIndividualEntrepreneur from "./GeneralInfoIndividualEntrepreneur.jsx";
+import WorkingPlaceNaturalPerson from "./WorkingPlaceNaturalPerson.jsx";
+import PropertyNaturalPerson from "./PropertyNaturalPerson.jsx";
 
 const ProfileDetailsBlock = ({profile , userType}) => {
     const tabStyle = {
@@ -60,10 +62,10 @@ const ProfileDetailsBlock = ({profile , userType}) => {
                                 <PrivateInfoNaturalPerson data={profile?.profile}/>
                             </TabPanel>
                             <TabPanel style={{padding: '0'}}>
-                                <PrivateInfoNaturalPerson data={profile?.profile}/>
+                                <WorkingPlaceNaturalPerson data={profile?.profile}/>
                             </TabPanel>
                             <TabPanel style={{padding: '0'}}>
-                                <PrivateInfoNaturalPerson data={profile?.profile}/>
+                                <PropertyNaturalPerson data={profile?.profile}/>
                             </TabPanel>
                         </TabPanels>
                     </Tabs>

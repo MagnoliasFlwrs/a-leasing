@@ -4,6 +4,12 @@ import PrivateInfoNaturalPerson from "./PrivateInfoNaturalPerson.jsx";
 import GeneralInfoIndividualEntrepreneur from "./GeneralInfoIndividualEntrepreneur.jsx";
 import WorkingPlaceNaturalPerson from "./WorkingPlaceNaturalPerson.jsx";
 import PropertyNaturalPerson from "./PropertyNaturalPerson.jsx";
+import OrganizationInfoIp from "./OrganizationInfoIP.jsx";
+import IPAdminisrtativeInfo from "./IPAdminisrtativeInfo.jsx";
+import ULAdministrativeInfo from "./ULAdministrativeInfo.jsx";
+import ULGeneralInfo from "./ULGeneralInfo.jsx";
+import ULActivityOrganizationInfo from "./ULActivityOrganizationInfo.jsx";
+import ULOfficials from "./ULOfficials.jsx";
 
 const ProfileDetailsBlock = ({profile , userType}) => {
     const tabStyle = {
@@ -29,7 +35,6 @@ const ProfileDetailsBlock = ({profile , userType}) => {
                         <TabList gap='24px' overflowX='auto' className='contract-tablist'>
                             <Tab {...tabStyle} className='tab'>Общая информация</Tab>
                             <Tab {...tabStyle} className='tab'>Сведения о деятельности организации</Tab>
-                            <Tab {...tabStyle} className='tab'>Сведения о должностных лицах организации</Tab>
                             <Tab {...tabStyle} className='tab'>Административно-финансовая информация</Tab>
                         </TabList>
                         <TabPanels style={{paddingTop: '24px'}}>
@@ -37,13 +42,10 @@ const ProfileDetailsBlock = ({profile , userType}) => {
                                 <GeneralInfoIndividualEntrepreneur data={profile?.profile?.generalInfo}/>
                             </TabPanel>
                             <TabPanel style={{padding: '0'}}>
-                                <PrivateInfoNaturalPerson data={profile?.profile}/>
+                                <OrganizationInfoIp data={profile?.profile}/>
                             </TabPanel>
                             <TabPanel style={{padding: '0'}}>
-                                <PrivateInfoNaturalPerson data={profile?.profile}/>
-                            </TabPanel>
-                            <TabPanel style={{padding: '0'}}>
-                                <PrivateInfoNaturalPerson data={profile?.profile}/>
+                                <IPAdminisrtativeInfo data={profile?.profile}/>
                             </TabPanel>
                         </TabPanels>
                     </Tabs>
@@ -82,18 +84,19 @@ const ProfileDetailsBlock = ({profile , userType}) => {
                         </TabList>
                         <TabPanels style={{paddingTop: '24px'}}>
                             <TabPanel style={{padding: '0'}}>
-                                <PrivateInfoNaturalPerson data={profile?.profile}/>
+                                <ULGeneralInfo data={profile?.profile}/>
                             </TabPanel>
                             <TabPanel style={{padding: '0'}}>
-                                <PrivateInfoNaturalPerson data={profile?.profile}/>
+                                <ULActivityOrganizationInfo data={profile?.profile}/>
                             </TabPanel>
                             <TabPanel style={{padding: '0'}}>
-                                <PrivateInfoNaturalPerson data={profile?.profile}/>
+                                <ULOfficials data={profile?.profile}/>
                             </TabPanel>
                             <TabPanel style={{padding: '0'}}>
-                                <PrivateInfoNaturalPerson data={profile?.profile}/>
+                                <ULAdministrativeInfo data={profile?.profile}/>
                             </TabPanel>
                         </TabPanels>
+
                     </Tabs>
                 )
             }

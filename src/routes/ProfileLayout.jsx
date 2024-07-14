@@ -16,7 +16,6 @@ const ProfileLayout = () => {
     const [profileData , setProfileData] = useState(null)
 
 
-
     const base64urlDecode = (str) => {
         const base64 = str.replace(/-/g, '+').replace(/_/g, '/');
         return atob(base64);
@@ -32,7 +31,6 @@ const ProfileLayout = () => {
         }
     }, []);
 
-    console.log(userInfo)
 
     const {
         data: individualData,

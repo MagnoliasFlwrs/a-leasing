@@ -3,6 +3,7 @@ import {Checkbox, PinInput, PinInputField} from "@chakra-ui/react";
 import {useGetAccountsMutation, useSignInMutation} from "../../services/auth/index.js";
 import {useDispatch, useSelector} from "react-redux";
 import {setTokens} from "../../lib/store/features/auth/index.js";
+import {useMask} from "@react-input/mask";
 
 const LoginForm = () => {
     const [login, setLogin] = useState('');
@@ -20,68 +21,14 @@ const LoginForm = () => {
     const dispatch = useDispatch();
     const isAuth = useSelector((state) => state.auth.isAuth);
 
-    useEffect(() => {
-        const input = document.querySelector('.login-input');
-        if (input) {
-            input.addEventListener("input", mask, false);
-            input.addEventListener("focus", mask, false);
-            input.addEventListener("blur", mask, false);
-        }
-        return () => {
-            if (input) {
-                input.removeEventListener("input", mask, false);
-                input.removeEventListener("focus", mask, false);
-                input.removeEventListener("blur", mask, false);
-            }
-        };
-    }, []);
-    useEffect(() => {
-        const input = document.querySelector('.new-input');
-        if (input) {
-            input.addEventListener("input", mask, false);
-            input.addEventListener("focus", mask, false);
-            input.addEventListener("blur", mask, false);
-        }
-        return () => {
-            if (input) {
-                input.removeEventListener("input", mask, false);
-                input.removeEventListener("focus", mask, false);
-                input.removeEventListener("blur", mask, false);
-            }
-        };
-    }, []);
-
-    function setCursorPosition(pos, elem) {
-        elem.focus();
-        if (elem.setSelectionRange) elem.setSelectionRange(pos, pos);
-        else if (elem.createTextRange) {
-            let range = elem.createTextRange();
-            range.collapse(true);
-            range.moveEnd("character", pos);
-            range.moveStart("character", pos);
-            range.select();
-        }
-    }
-
-    function mask(event) {
-        let matrix = "+375 (__) ___-__-__",
-            i = 0,
-            def = matrix.replace(/\D/g, ""),
-            val = event.target.value.replace(/\D/g, "");
-
-        if (def.length >= val.length) val = def;
-
-        event.target.value = matrix.replace(/./g, function (a) {
-            return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a;
-        });
-
-        if (event.type === "blur") {
-            if (event.target.value.length === 7) event.target.value = "";
-        } else setCursorPosition(event.target.value.length, event.target);
-
-        setLogin(event.target.value);
-    }
-
+    const inputRef = useMask({
+        mask: "+375 (__) ___-__-__",
+        replacement: { _: /\d/ },
+    });
+    const newInputRef = useMask({
+        mask: "+375 (__) ___-__-__",
+        replacement: { _: /\d/ },
+    });
     const handleLogin = (e) => {
         const { value } = e.target;
         setLogin(value);
@@ -198,6 +145,8 @@ const LoginForm = () => {
                     <div className="row">
                         <div className="input-box">
                             <input
+                                ref={inputRef}
+                                placeholder="+375 (__) ___-__-__"
                                 type="text"
                                 className={loginErr ? 'login-input error' : 'login-input'}
                                 onChange={(e) => handleLogin(e)}
@@ -378,6 +327,8 @@ const LoginForm = () => {
                     <div className="row">
                         <div className="input-box">
                             <input
+                                ref={newInputRef}
+                                placeholder="+375 (__) ___-__-__"
                                 type="text"
                                 className={loginErr ? 'new-input error' : 'new-input'}
                                 onChange={(e) => handleLogin(e)}

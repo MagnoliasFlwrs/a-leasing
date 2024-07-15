@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileUserInfoBlock = () => {
+const ProfileUserInfoBlock = ({profile , userType}) => {
     const hideProfileInfo = () => {
         document.querySelector('.profile-user-block').classList.remove('open');
     }
@@ -45,12 +45,86 @@ const ProfileUserInfoBlock = () => {
                     </a>
                 </div>
             </div>
+            {
+                userType === 'LEGAL_PERSON' && (
+                    <p>{profile?.profile?.generalInfo?.generalInfo?.shortName}</p>
+                )
+            }
+            {
+                userType === 'NATURAL_PERSON' && (
+                    <p>{profile?.profile?.generalInfo?.fullName?.lastname} {profile?.profile?.generalInfo?.fullName?.firstname} {profile?.profile?.generalInfo?.fullName?.middlename}</p>
+                )
+            }
+            {
+                userType === 'INDIVIDUAL_ENTREPRENEUR' && (
+                    <p>ИП {profile?.profile?.generalInfo?.fullName?.lastname} {profile?.profile?.generalInfo?.fullName?.firstname} {profile?.profile?.generalInfo?.fullName?.middlename}</p>
+                )
+            }
+            {
+                userType === 'LEGAL_PERSON' && (
+                    <div className="user-info">
+                        <p>Директор:</p>
+                        <p className="info">
+                            <span>Эл.почта:</span> {profile?.profile?.generalInfo?.legalAddress?.email}
+                        </p>
+                        <p className="info">
+                            <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.legalAddress?.phoneNumbers}
+                        </p>
+                        <p className="info">
+                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.legalAddress?.zipCode} {profile?.profile?.generalInfo?.legalAddress?.country} {profile?.profile?.generalInfo?.legalAddress?.region} {profile?.profile?.generalInfo?.legalAddress?.locality} {profile?.profile?.generalInfo?.legalAddress?.street ? '' : profile?.profile?.generalInfo?.legalAddress?.street } {profile?.profile?.generalInfo?.legalAddress?.building}
+                        </p>
 
-            <div className="user-info">
-                <p>Иванов Иван Иванович</p>
-                <span>mail@mail.com</span>
-                <span>+345 29 000 00 00</span>
-            </div>
+                    </div>
+                )
+            }
+            {
+                userType === 'LEGAL_PERSON' && (
+                    <div className="user-info">
+                        <p>Бухгалтер:</p>
+                        <p className="info">
+                            <span>Эл.почта:</span> {profile?.profile?.generalInfo?.legalAddress?.email}
+                        </p>
+                        <p className="info">
+                            <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.legalAddress?.phoneNumbers}
+                        </p>
+                        <p className="info">
+                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.legalAddress?.zipCode} {profile?.profile?.generalInfo?.legalAddress?.country} {profile?.profile?.generalInfo?.legalAddress?.region} {profile?.profile?.generalInfo?.legalAddress?.locality} {profile?.profile?.generalInfo?.legalAddress?.street ? '' : profile?.profile?.generalInfo?.legalAddress?.street } {profile?.profile?.generalInfo?.legalAddress?.building}
+                        </p>
+
+                    </div>
+                )
+            }
+            {
+                userType === 'NATURAL_PERSON' && (
+                    <div className="user-info">
+                        <p className="info">
+                            <span>Эл.почта:</span> {profile?.profile?.generalInfo?.contacts?.email}
+                        </p>
+                        <p className="info">
+                            <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.contacts?.phoneNumber}
+                        </p>
+                        <p className="info">
+                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressCountry} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressRegion} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressLocality} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressStreet}
+                        </p>
+                    </div>
+                )
+            }
+            {
+                userType === 'INDIVIDUAL_ENTREPRENEUR' && (
+                    <div className="user-info">
+                        <p className="info">
+                            <span>Эл.почта:</span> {profile?.profile?.generalInfo?.contacts?.email}
+                        </p>
+                        <p className="info">
+                            <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.contacts?.phoneNumber}
+                        </p>
+                        <p className="info">
+                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressCountry} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressRegion} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressLocality} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressStreet}
+                        </p>
+                    </div>
+                )
+            }
+
             <div className="btns">
                 <div className="edit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
@@ -62,6 +136,17 @@ const ProfileUserInfoBlock = () => {
                               fill="#0070C9"/>
                     </svg>
                     <span>Редактировать анкету</span>
+                </div>
+                <div className="edit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                        <path fillRule="evenodd" clipRule="evenodd"
+                              d="M1.25253 3.08579C1.62761 2.71071 2.13632 2.5 2.66675 2.5H7.33341C7.7016 2.5 8.00008 2.79848 8.00008 3.16667C8.00008 3.53486 7.7016 3.83333 7.33341 3.83333H2.66675C2.48994 3.83333 2.32037 3.90357 2.19534 4.0286C2.07032 4.15362 2.00008 4.32319 2.00008 4.5V13.8333C2.00008 14.0101 2.07032 14.1797 2.19534 14.3047C2.32037 14.4298 2.48994 14.5 2.66675 14.5H12.0001C12.1769 14.5 12.3465 14.4298 12.4715 14.3047C12.5965 14.1797 12.6667 14.0101 12.6667 13.8333V9.16667C12.6667 8.79848 12.9652 8.5 13.3334 8.5C13.7016 8.5 14.0001 8.79848 14.0001 9.16667V13.8333C14.0001 14.3638 13.7894 14.8725 13.4143 15.2475C13.0392 15.6226 12.5305 15.8333 12.0001 15.8333H2.66675C2.13631 15.8333 1.62761 15.6226 1.25253 15.2475C0.877462 14.8725 0.666748 14.3638 0.666748 13.8333V4.5C0.666748 3.96957 0.877462 3.46086 1.25253 3.08579Z"
+                              fill="#0070C9"/>
+                        <path fillRule="evenodd" clipRule="evenodd"
+                              d="M13.3334 2.41927C13.1352 2.41927 12.945 2.49803 12.8048 2.63822L6.60207 8.84098L6.24967 10.2506L7.65926 9.89818L13.862 3.69541C14.0022 3.55522 14.081 3.36508 14.081 3.16682C14.081 2.96856 14.0022 2.77841 13.862 2.63822C13.7218 2.49803 13.5317 2.41927 13.3334 2.41927ZM11.862 1.69541C12.2523 1.30517 12.7815 1.08594 13.3334 1.08594C13.8853 1.08594 14.4146 1.30517 14.8048 1.69541C15.1951 2.08565 15.4143 2.61493 15.4143 3.16682C15.4143 3.7187 15.1951 4.24798 14.8048 4.63822L8.4715 10.9716C8.38606 11.057 8.27901 11.1176 8.16179 11.1469L5.49512 11.8136C5.26794 11.8704 5.02761 11.8038 4.86202 11.6382C4.69644 11.4726 4.62987 11.2323 4.68667 11.0051L5.35333 8.33846C5.38264 8.22124 5.44325 8.11419 5.52869 8.02875L11.862 1.69541Z"
+                              fill="#0070C9"/>
+                    </svg>
+                    <span>Редактировать анкету через МСИ</span>
                 </div>
                 <div className="change-pass">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
@@ -89,6 +174,7 @@ const ProfileUserInfoBlock = () => {
                     <span>Выйти из учетной записи</span>
                 </div>
             </div>
+            <div className="red-btn">Подать заявку на лизинг</div>
         </div>
     );
 };

@@ -64,7 +64,7 @@ const PrivateInfoNaturalPerson = ({data}) => {
                                 </li>
                                 <li>
                                     <span>Семейное положение </span>
-                                    <span>{data?.maritalStatusAndPropertyInfo?.maritalStatus}</span>
+                                    <span>{data?.maritalStatusAndPropertyInfo?.maritalStatus?.maritalStatus}</span>
                                 </li>
                                 <li>
                                     <span>Гражданство</span>

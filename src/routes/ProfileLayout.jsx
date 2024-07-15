@@ -105,7 +105,7 @@ const ProfileLayout = () => {
                     </a>
                 </div>
             </div>
-            <ProfileUserInfoBlock profile={profileData}/>
+            <ProfileUserInfoBlock profile={profileData} userType={userInfo?.signInType}/>
             <ProfileDetailsBlock profile={profileData} userType={userInfo?.signInType}/>
             <ProfileNotification/>
         </div>

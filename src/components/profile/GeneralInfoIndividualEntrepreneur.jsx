@@ -27,7 +27,7 @@ const GeneralInfoIndividualEntrepreneur = ({data}) => {
                             <ul className='info-container'>
                                 <li>
                                     <span>Полное наименование</span>
-                                    <span>{data?.fullName?.lastname} {data?.fullName?.firstname} {data?.fullName?.middlename}</span>
+                                    <span>ИП {data?.fullName?.lastname} {data?.fullName?.firstname} {data?.fullName?.middlename}</span>
                                 </li>
 
                                 <li>

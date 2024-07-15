@@ -49,6 +49,19 @@ ul, li {
 }
 html {
   scroll-behavior: smooth;
+  scrollbar-color: #b0b0b0 #e8e8e8;
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #f3faf7;
 }
 
 body {

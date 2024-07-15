@@ -44,6 +44,7 @@
   align-items: flex-start;
   gap: 24px;
   flex-shrink: 0;
+  position: relative;
 }
 @media (max-width: 1120px) {
   .profile-container .profile-user-block {
@@ -100,7 +101,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 12px;
 }
 .profile-container .profile-user-block .user-info p {
   color: #333;
@@ -109,6 +110,14 @@
   font-style: normal;
   font-weight: 500;
   line-height: 120%; /* 16.8px */
+}
+.profile-container .profile-user-block .user-info p.info {
+  color: #333;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
 }
 .profile-container .profile-user-block .user-info span {
   color: var(--grey_txt, rgba(143, 143, 148, 0.7));
@@ -150,6 +159,33 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 16.8px */
+}
+.profile-container .profile-user-block .red-btn {
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.28px;
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 100px;
+  background: var(--Red, #EA2119);
+  position: fixed;
+  bottom: 56px;
+  left: 24px;
+  max-width: 287px;
+  width: 100%;
+  cursor: pointer;
+}
+.profile-container .profile-user-block .red-btn:hover {
+  border-radius: 100px;
+  background: #DF140C;
 }
 .profile-container .profile-details-container {
   flex-grow: 1;

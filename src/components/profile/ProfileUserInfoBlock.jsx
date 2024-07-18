@@ -1,11 +1,46 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {useSignOutMutation} from "../../services/auth/index.js";
+import {logout} from "../../lib/store/features/auth/index.js";
+import {useDispatch} from "react-redux";
 
 const ProfileUserInfoBlock = ({profile , userType}) => {
+    const [signOut] = useSignOutMutation();
+    const dispatch = useDispatch();
+    const [activeAccordion, setActiveAccordion] = useState(0);
     const hideProfileInfo = () => {
         document.querySelector('.profile-user-block').classList.remove('open');
     }
     const openNotifications = () => {
         document.querySelector('.profile-notification-container').classList.add('open');
+    }
+    const handleSignOut = async () => {
+        const refresh = localStorage.getItem('refresh-token');
+        if (!refresh) {
+            console.error('Refresh token is missing');
+            return;
+        }
+        try {
+            const response = await signOut({ "refreshToken": refresh }).unwrap();
+            dispatch(logout());
+        } catch (error) {
+            console.error('Sign-out failed:', error);
+        }
+    };
+    // useEffect(() => {
+    //     setActiveAccordion(0);
+    // }, []);
+    function boxHandler(e) {
+        e.preventDefault();
+        let currentBox = e.target.closest(".box");
+        let currentContent = currentBox.querySelector('.content .info-container');
+
+        currentBox.classList.toggle("active");
+
+        if (currentBox.classList.contains("active")) {
+            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+        } else {
+            currentContent.style.maxHeight = 0;
+        }
     }
     return (
         <div className='profile-user-block'>
@@ -60,6 +95,51 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                     <p>ИП {profile?.profile?.generalInfo?.fullName?.lastname} {profile?.profile?.generalInfo?.fullName?.firstname} {profile?.profile?.generalInfo?.fullName?.middlename}</p>
                 )
             }
+            {/*{*/}
+            {/*    userType === 'LEGAL_PERSON' && (*/}
+            {/*        <div className='accordeons'>*/}
+            {/*            <div className="accordeon">*/}
+            {/*                <div className="box" onClick={(event) => boxHandler(event)}>*/}
+            {/*                    <div className="content">*/}
+            {/*                        <div className="box-content-wrapper">*/}
+            {/*                            <div className="user-info">*/}
+            {/*                                <p className="info">*/}
+            {/*                                    <span>Должность:</span> Директор*/}
+            {/*                                </p>*/}
+            {/*                                <p className="info">*/}
+            {/*                                    <span>Эл.почта:</span> {profile?.profile?.generalInfo?.legalAddress?.email}*/}
+            {/*                                </p>*/}
+            {/*                                <p className="info">*/}
+            {/*                                    <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.legalAddress?.phoneNumbers}*/}
+            {/*                                </p>*/}
+            {/*                                <p className="info">*/}
+            {/*                                    <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.legalAddress?.zipCode} {profile?.profile?.generalInfo?.legalAddress?.country} {profile?.profile?.generalInfo?.legalAddress?.region} {profile?.profile?.generalInfo?.legalAddress?.locality} {profile?.profile?.generalInfo?.legalAddress?.street ? '' : profile?.profile?.generalInfo?.legalAddress?.street} {profile?.profile?.generalInfo?.legalAddress?.building}*/}
+            {/*                                </p>*/}
+
+            {/*                            </div>*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                    <div className="label">*/}
+            {/*                        <div className="label-cont">*/}
+            {/*                            <span>Редактировать</span>*/}
+
+            {/*                        </div>*/}
+            {/*                        <div className="show-icon">*/}
+            {/*                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="11"*/}
+            {/*                                 viewBox="0 0 10 11"*/}
+            {/*                                 fill="none">*/}
+            {/*                                <path*/}
+            {/*                                    d="M9.98528 1.19831C9.98528 0.92217 9.76142 0.698312 9.48528 0.698312L4.98528 0.698313C4.70914 0.698312 4.48528 0.92217 4.48528 1.19831C4.48528 1.47445 4.70914 1.69831 4.98528 1.69831L8.98528 1.69831L8.98528 5.69831C8.98528 5.97445 9.20914 6.19831 9.48528 6.19831C9.76142 6.19831 9.98528 5.97445 9.98528 5.69831L9.98528 1.19831ZM1.35355 10.0371L9.83883 1.55187L9.13173 0.844759L0.646447 9.33004L1.35355 10.0371Z"*/}
+            {/*                                    fill="#0070C9"/>*/}
+            {/*                            </svg>*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+
+            {/*    )*/}
+            {/*}*/}
             {
                 userType === 'LEGAL_PERSON' && (
                     <div className="user-info">
@@ -71,7 +151,7 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                             <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.legalAddress?.phoneNumbers}
                         </p>
                         <p className="info">
-                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.legalAddress?.zipCode} {profile?.profile?.generalInfo?.legalAddress?.country} {profile?.profile?.generalInfo?.legalAddress?.region} {profile?.profile?.generalInfo?.legalAddress?.locality} {profile?.profile?.generalInfo?.legalAddress?.street ? '' : profile?.profile?.generalInfo?.legalAddress?.street } {profile?.profile?.generalInfo?.legalAddress?.building}
+                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.legalAddress?.zipCode} {profile?.profile?.generalInfo?.legalAddress?.country} {profile?.profile?.generalInfo?.legalAddress?.region} {profile?.profile?.generalInfo?.legalAddress?.locality} {profile?.profile?.generalInfo?.legalAddress?.street ? '' : profile?.profile?.generalInfo?.legalAddress?.street} {profile?.profile?.generalInfo?.legalAddress?.building}
                         </p>
 
                     </div>
@@ -88,7 +168,7 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                             <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.legalAddress?.phoneNumbers}
                         </p>
                         <p className="info">
-                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.legalAddress?.zipCode} {profile?.profile?.generalInfo?.legalAddress?.country} {profile?.profile?.generalInfo?.legalAddress?.region} {profile?.profile?.generalInfo?.legalAddress?.locality} {profile?.profile?.generalInfo?.legalAddress?.street ? '' : profile?.profile?.generalInfo?.legalAddress?.street } {profile?.profile?.generalInfo?.legalAddress?.building}
+                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.legalAddress?.zipCode} {profile?.profile?.generalInfo?.legalAddress?.country} {profile?.profile?.generalInfo?.legalAddress?.region} {profile?.profile?.generalInfo?.legalAddress?.locality} {profile?.profile?.generalInfo?.legalAddress?.street ? '' : profile?.profile?.generalInfo?.legalAddress?.street} {profile?.profile?.generalInfo?.legalAddress?.building}
                         </p>
 
                     </div>
@@ -159,7 +239,7 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                     </svg>
                     <span>Сменить пароль</span>
                 </div>
-                <div className="logout">
+                <div className="logout" onClick={()=> handleSignOut()}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
                               d="M3.33325 3.16732C3.15644 3.16732 2.98687 3.23756 2.86185 3.36258C2.73682 3.4876 2.66659 3.65717 2.66659 3.83398V13.1673C2.66659 13.3441 2.73682 13.5137 2.86185 13.6387C2.98687 13.7637 3.15644 13.834 3.33325 13.834H5.99992C6.36811 13.834 6.66658 14.1325 6.66658 14.5007C6.66658 14.8688 6.36811 15.1673 5.99992 15.1673H3.33325C2.80282 15.1673 2.29411 14.9566 1.91904 14.5815C1.54397 14.2065 1.33325 13.6978 1.33325 13.1673V3.83398C1.33325 3.30355 1.54397 2.79484 1.91904 2.41977C2.29411 2.0447 2.80282 1.83398 3.33325 1.83398H5.99992C6.36811 1.83398 6.66658 2.13246 6.66658 2.50065C6.66658 2.86884 6.36811 3.16732 5.99992 3.16732H3.33325Z"

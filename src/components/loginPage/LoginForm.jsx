@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {Checkbox, PinInput, PinInputField} from "@chakra-ui/react";
 import {useGetAccountsMutation, useSignInMutation} from "../../services/auth/index.js";
 import {useDispatch, useSelector} from "react-redux";
@@ -20,6 +20,7 @@ const LoginForm = () => {
     const [accounts, setAccounts] = useState([]);
     const dispatch = useDispatch();
     const isAuth = useSelector((state) => state.auth.isAuth);
+    const passRef = useRef()
 
     const inputRef = useMask({
         mask: "+375 (__) ___-__-__",
@@ -32,12 +33,10 @@ const LoginForm = () => {
     const handleLogin = (e) => {
         const { value } = e.target;
         setLogin(value);
-        console.log(value)
     }
     const handleNewLogin = (e) => {
         const { value } = e.target;
         setNewLogin(value);
-        console.log(newLogin)
     }
 
     const handlePass = (e) => {
@@ -50,11 +49,17 @@ const LoginForm = () => {
         if (regex.test(newLogin)) {
             setIsValidLogin(true);
             setLoginErr(false);
+
         } else {
             setIsValidLogin(false);
             setLoginErr(true);
         }
     }
+    useEffect(() => {
+        if (isValidLogin) {
+            passRef.current.focus();
+        }
+    }, [isValidLogin]);
     const handleSubmit = async  ()=> {
         const newLogin = login.replace(/[\s()+-]/g, '');
         try {
@@ -136,6 +141,16 @@ const LoginForm = () => {
     const hideChooseAccountBlock = () => {
         document.querySelector('.choose-account-block').classList.remove('open');
     }
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            validateLogin();
+        }
+    };
+    const handleKeySubmit = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit()
+        }
+    }
 
     return (
         <div className='login-form'>
@@ -150,6 +165,7 @@ const LoginForm = () => {
                                 type="text"
                                 className={loginErr ? 'login-input error' : 'login-input'}
                                 onChange={(e) => handleLogin(e)}
+                                onKeyDown={(e)=> handleKeyDown(e)}
                                 value={login}
                             />
                             {
@@ -176,10 +192,12 @@ const LoginForm = () => {
                             <div className="input-box">
                                 <input
                                     type="password"
+                                    ref={passRef}
                                     className={passwordErr ? 'pass-input error' : 'pass-input'}
                                     onChange={(e) => handlePass(e)}
                                     placeholder='Введите пароль'
                                     value={password}
+                                    onKeyDown={(e)=> handleKeySubmit(e)}
                                 />
                                 {
                                     passwordErr && <span>Неверный логин или пароль</span>
@@ -333,6 +351,7 @@ const LoginForm = () => {
                                 className={loginErr ? 'new-input error' : 'new-input'}
                                 onChange={(e) => handleLogin(e)}
                                 value={login}
+                                onKeyDown={(e)=> handleKeyDown(e)}
                             />
                             {
                                 loginErr && <span>Неверный формат номера телефона</span>

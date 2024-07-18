@@ -20,11 +20,15 @@ export const authApi = api.injectEndpoints({
     getNaturalPersonsProfileById: builder.query({
       query: (id) => `natural-persons/${id}`,
     }),
+      signOut: builder.mutation({
+          query: (body) => ({ url: "auth/sign-out", method: "POST", body }),
+      }),
   }),
 });
 
 export const { useSignInMutation,
                 useChangePasswordMutation ,
+                useSignOutMutation ,
                 useGetAccountsMutation ,
                 useGetIndividualEntrepreneursProfileByIdQuery ,
                 useGetLegalPersonsProfileByIdQuery ,

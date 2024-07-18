@@ -177,6 +177,96 @@
         background: #DF140C;
       }
     }
+    .accordeons {
+      display: flex;
+      flex-direction: column;
+      .accordeon {
+        .box {
+          width: 100%;
+          border-bottom: 1px solid rgba(149, 149, 149, 0.40);
+          &.active {
+            .label {
+              .show-icon {
+                transform:rotate(225deg);
+              }
+            }
+          }
+          .label {
+            display: flex;
+            padding: 24px 18px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 56px;
+            align-self: stretch;
+            cursor: pointer;
+            .label-cont {
+              color: #333;
+              font-family: Roboto;
+              font-size: 17px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 120%; /* 20.4px */
+            }
+          }
+          .content {
+            position: relative;
+            overflow: hidden;
+            max-height: 0;
+            transition: 0.3s;
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            .box-content-wrapper {
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              align-items: flex-start;
+              padding: 0 18px 24px;
+
+              .procuratory-item {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                padding-left: 6px;
+                @media (max-width: 745px) {
+                  padding-bottom: 24px;
+                  border-bottom: 1px solid rgba(149, 149, 149, 0.40);
+                  &:last-child {
+                    border-bottom: none;
+                    padding-bottom: 0;
+                  }
+                }
+                span {
+                  color: #333;
+                  font-family: Roboto;
+                  font-size: 14px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 120%; /* 16.8px */
+                  @media (max-width: 745px) {
+                    order: 1;
+                  }
+                }
+                .watch {
+                  cursor: pointer;
+                  @media (max-width: 745px) {
+                    order: 3;
+                  }
+                }
+                .download {
+                  cursor: pointer;
+                  @media (max-width: 745px) {
+                    order: 2;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
   .profile-details-container {
     flex-grow: 1;

@@ -17,7 +17,7 @@ const MainLayout = () => {
         document.querySelector('.box-shadow').classList.remove('open');
     }
     return (
-       <Flex style={{minHeight: '100vh' , height: '100%' , flexDirection: 'column'}}>
+       <Flex style={{height: '100vh' , overflow:'hidden', flexDirection: 'column'}}>
            <div className="overlay" onClick={()=>hideModal()}></div>
            <div className="box-shadow" onClick={()=>hideFilterModal()}></div>
            <Header/>

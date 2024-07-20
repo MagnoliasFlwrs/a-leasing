@@ -2,6 +2,8 @@
   display: flex;
   flex-grow: 1;
   position: relative;
+  height: 100%;
+  overflow: hidden;
 
   @media (max-width: 1120px) {
     flex-direction: column;
@@ -126,6 +128,14 @@
         gap: 12px;
         align-items: center;
         cursor: pointer;
+        &:hover {
+          span {
+            color: #0067B9;
+          }
+          svg path {
+            fill: #0067B9;
+          }
+        }
         span {
           color: var(--blue, #0070C9);
           font-family: Roboto;
@@ -140,6 +150,14 @@
         gap: 12px;
         align-items: center;
         cursor: pointer;
+        &:hover {
+          span {
+            color: #E01D16;
+          }
+          svg path {
+            fill: #E01D16;
+          }
+        }
         span {
           color: var(--Red, #EA2119);
           font-family: Roboto;
@@ -167,7 +185,7 @@
       border-radius: 100px;
       background: var(--Red, #EA2119);
       position: fixed;
-      bottom: 56px;
+      bottom: 24px;
       left: 24px;
       max-width: 287px;
       width: 100%;
@@ -177,89 +195,82 @@
         background: #DF140C;
       }
     }
-    .accordeons {
+    .legal-person-info-container {
       display: flex;
       flex-direction: column;
-      .accordeon {
-        .box {
-          width: 100%;
-          border-bottom: 1px solid rgba(149, 149, 149, 0.40);
-          &.active {
-            .label {
-              .show-icon {
-                transform:rotate(225deg);
+      gap: 24px;
+      padding: 0 12px;
+      .title {
+        color: #333;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%; /* 16.8px */
+      }
+      .accordeons {
+        display: flex;
+        flex-direction: column;
+        .accordeon {
+          transition: .5s ease;
+          &:first-child {
+            .box {
+              .label {
+                padding: 0 0 24px ;
               }
             }
-          }
-          .label {
-            display: flex;
-            padding: 24px 18px;
-            align-items: center;
-            justify-content: space-between;
-            gap: 56px;
-            align-self: stretch;
-            cursor: pointer;
-            .label-cont {
-              color: #333;
-              font-family: Roboto;
-              font-size: 17px;
-              font-style: normal;
-              font-weight: 500;
-              line-height: 120%; /* 20.4px */
-            }
-          }
-          .content {
-            position: relative;
-            overflow: hidden;
-            max-height: 0;
-            transition: 0.3s;
-            width: 100%;
 
-            display: flex;
-            flex-direction: column;
-            .box-content-wrapper {
+          }
+          &.active {
+            .box {
+              .label {
+                padding-bottom: 12px;
+                .show-icon {
+                  transition: 0.3s linear;
+                  transform:rotate(180deg);
+                }
+              }
+            }
+
+          }
+          .box {
+            width: 100%;
+            border-bottom: 1px solid rgba(149, 149, 149, 0.40);
+            transition: .5s ease;
+
+            .label {
+              display: flex;
+              padding: 24px 0;
+              align-items: center;
+              justify-content: space-between;
+              gap: 20px;
+              align-self: stretch;
+              cursor: pointer;
+              .label-cont {
+                color: #333;
+                font-family: Roboto;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 120%; /* 16.8px */
+              }
+            }
+            .content {
+              position: relative;
+              overflow: hidden;
+              max-height: 0;
+              transition: 0.5s linear;
+              width: 100%;
+
               display: flex;
               flex-direction: column;
-              gap: 12px;
-              align-items: flex-start;
-              padding: 0 18px 24px;
-
-              .procuratory-item {
+              .box-content-wrapper {
+                transition: .5s linear;
                 display: flex;
-                gap: 10px;
-                align-items: center;
-                padding-left: 6px;
-                @media (max-width: 745px) {
-                  padding-bottom: 24px;
-                  border-bottom: 1px solid rgba(149, 149, 149, 0.40);
-                  &:last-child {
-                    border-bottom: none;
-                    padding-bottom: 0;
-                  }
-                }
-                span {
-                  color: #333;
-                  font-family: Roboto;
-                  font-size: 14px;
-                  font-style: normal;
-                  font-weight: 400;
-                  line-height: 120%; /* 16.8px */
-                  @media (max-width: 745px) {
-                    order: 1;
-                  }
-                }
-                .watch {
-                  cursor: pointer;
-                  @media (max-width: 745px) {
-                    order: 3;
-                  }
-                }
-                .download {
-                  cursor: pointer;
-                  @media (max-width: 745px) {
-                    order: 2;
-                  }
-                }
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+                padding: 0 0 24px;
               }
             }
           }
@@ -267,15 +278,17 @@
       }
     }
 
+
   }
   .profile-details-container {
     flex-grow: 1;
     display: flex;
-    padding: 30px 38px 0px 38px;
+    padding: 30px 38px ;
     flex-direction: column;
     gap: 24px;
     background: #F5F5F7;
     min-width: 450px;
+
     @media (max-width: 1200px) {
       padding: 30px 18px 0px 18px;
       min-width: 150px;
@@ -289,6 +302,7 @@
       font-weight: 500;
       line-height: 120%; /* 20.4px */
     }
+
     .chakra-tabs__tablist {
       overflow-x: unset;
       flex-wrap: wrap;
@@ -296,6 +310,25 @@
       @media (max-width: 1024px) {
         overflow-x: auto;
         flex-wrap: nowrap;
+      }
+
+    }
+    .chakra-tabs__tab-panels {
+      max-height: 65vh;
+      height: 100%;
+      overflow-y: auto;
+      scrollbar-width: none;
+      padding-right: 10px;
+      scrollbar-color: transparent transparent;
+      &::-webkit-scrollbar {
+        height: 12px;
+        width: 12px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
       }
     }
     .tab {

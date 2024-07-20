@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {useSignOutMutation} from "../../services/auth/index.js";
 import {logout} from "../../lib/store/features/auth/index.js";
 import {useDispatch} from "react-redux";
+import LegalPersonInfoBlockPart from "./LegalPersonInfoBlockPart.jsx";
 
 const ProfileUserInfoBlock = ({profile , userType}) => {
     const [signOut] = useSignOutMutation();
     const dispatch = useDispatch();
-    const [activeAccordion, setActiveAccordion] = useState(0);
     const hideProfileInfo = () => {
         document.querySelector('.profile-user-block').classList.remove('open');
     }
@@ -26,9 +26,6 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
             console.error('Sign-out failed:', error);
         }
     };
-    // useEffect(() => {
-    //     setActiveAccordion(0);
-    // }, []);
     function boxHandler(e) {
         e.preventDefault();
         let currentBox = e.target.closest(".box");
@@ -81,11 +78,6 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                 </div>
             </div>
             {
-                userType === 'LEGAL_PERSON' && (
-                    <p>{profile?.profile?.generalInfo?.generalInfo?.shortName}</p>
-                )
-            }
-            {
                 userType === 'NATURAL_PERSON' && (
                     <p>{profile?.profile?.generalInfo?.fullName?.lastname} {profile?.profile?.generalInfo?.fullName?.firstname} {profile?.profile?.generalInfo?.fullName?.middlename}</p>
                 )
@@ -95,83 +87,14 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                     <p>ИП {profile?.profile?.generalInfo?.fullName?.lastname} {profile?.profile?.generalInfo?.fullName?.firstname} {profile?.profile?.generalInfo?.fullName?.middlename}</p>
                 )
             }
-            {/*{*/}
-            {/*    userType === 'LEGAL_PERSON' && (*/}
-            {/*        <div className='accordeons'>*/}
-            {/*            <div className="accordeon">*/}
-            {/*                <div className="box" onClick={(event) => boxHandler(event)}>*/}
-            {/*                    <div className="content">*/}
-            {/*                        <div className="box-content-wrapper">*/}
-            {/*                            <div className="user-info">*/}
-            {/*                                <p className="info">*/}
-            {/*                                    <span>Должность:</span> Директор*/}
-            {/*                                </p>*/}
-            {/*                                <p className="info">*/}
-            {/*                                    <span>Эл.почта:</span> {profile?.profile?.generalInfo?.legalAddress?.email}*/}
-            {/*                                </p>*/}
-            {/*                                <p className="info">*/}
-            {/*                                    <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.legalAddress?.phoneNumbers}*/}
-            {/*                                </p>*/}
-            {/*                                <p className="info">*/}
-            {/*                                    <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.legalAddress?.zipCode} {profile?.profile?.generalInfo?.legalAddress?.country} {profile?.profile?.generalInfo?.legalAddress?.region} {profile?.profile?.generalInfo?.legalAddress?.locality} {profile?.profile?.generalInfo?.legalAddress?.street ? '' : profile?.profile?.generalInfo?.legalAddress?.street} {profile?.profile?.generalInfo?.legalAddress?.building}*/}
-            {/*                                </p>*/}
-
-            {/*                            </div>*/}
-            {/*                        </div>*/}
-            {/*                    </div>*/}
-            {/*                    <div className="label">*/}
-            {/*                        <div className="label-cont">*/}
-            {/*                            <span>Редактировать</span>*/}
-
-            {/*                        </div>*/}
-            {/*                        <div className="show-icon">*/}
-            {/*                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="11"*/}
-            {/*                                 viewBox="0 0 10 11"*/}
-            {/*                                 fill="none">*/}
-            {/*                                <path*/}
-            {/*                                    d="M9.98528 1.19831C9.98528 0.92217 9.76142 0.698312 9.48528 0.698312L4.98528 0.698313C4.70914 0.698312 4.48528 0.92217 4.48528 1.19831C4.48528 1.47445 4.70914 1.69831 4.98528 1.69831L8.98528 1.69831L8.98528 5.69831C8.98528 5.97445 9.20914 6.19831 9.48528 6.19831C9.76142 6.19831 9.98528 5.97445 9.98528 5.69831L9.98528 1.19831ZM1.35355 10.0371L9.83883 1.55187L9.13173 0.844759L0.646447 9.33004L1.35355 10.0371Z"*/}
-            {/*                                    fill="#0070C9"/>*/}
-            {/*                            </svg>*/}
-            {/*                        </div>*/}
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-
-            {/*    )*/}
-            {/*}*/}
             {
                 userType === 'LEGAL_PERSON' && (
-                    <div className="user-info">
-                        <p>Директор:</p>
-                        <p className="info">
-                            <span>Эл.почта:</span> {profile?.profile?.generalInfo?.legalAddress?.email}
-                        </p>
-                        <p className="info">
-                            <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.legalAddress?.phoneNumbers}
-                        </p>
-                        <p className="info">
-                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.legalAddress?.zipCode} {profile?.profile?.generalInfo?.legalAddress?.country} {profile?.profile?.generalInfo?.legalAddress?.region} {profile?.profile?.generalInfo?.legalAddress?.locality} {profile?.profile?.generalInfo?.legalAddress?.street ? '' : profile?.profile?.generalInfo?.legalAddress?.street} {profile?.profile?.generalInfo?.legalAddress?.building}
-                        </p>
 
+                    <div className='legal-person-info-container'>
+                        <p className='title'>{profile?.profile?.generalInfo?.generalInfo?.shortName}</p>
+                        <LegalPersonInfoBlockPart profile={profile}/>
                     </div>
-                )
-            }
-            {
-                userType === 'LEGAL_PERSON' && (
-                    <div className="user-info">
-                        <p>Бухгалтер:</p>
-                        <p className="info">
-                            <span>Эл.почта:</span> {profile?.profile?.generalInfo?.legalAddress?.email}
-                        </p>
-                        <p className="info">
-                            <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.legalAddress?.phoneNumbers}
-                        </p>
-                        <p className="info">
-                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.legalAddress?.zipCode} {profile?.profile?.generalInfo?.legalAddress?.country} {profile?.profile?.generalInfo?.legalAddress?.region} {profile?.profile?.generalInfo?.legalAddress?.locality} {profile?.profile?.generalInfo?.legalAddress?.street ? '' : profile?.profile?.generalInfo?.legalAddress?.street} {profile?.profile?.generalInfo?.legalAddress?.building}
-                        </p>
 
-                    </div>
                 )
             }
             {
@@ -184,7 +107,7 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                             <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.contacts?.phoneNumber}
                         </p>
                         <p className="info">
-                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressCountry} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressRegion} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressLocality} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressStreet}
+                        <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressCountry} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressRegion} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressLocality} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressStreet}
                         </p>
                     </div>
                 )

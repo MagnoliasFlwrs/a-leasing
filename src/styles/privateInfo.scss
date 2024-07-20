@@ -18,7 +18,7 @@
       &.active {
         .label {
           .show-icon {
-            transform:rotate(225deg);
+            transform:rotate(45deg);
           }
         }
       }
@@ -33,6 +33,14 @@
           flex-grow: 1;
           display: flex;
           align-items: center;
+          &:hover {
+            span {
+              color: #0067B9;
+            }
+            svg path {
+              fill: #0067B9;
+            }
+          }
           span {
             color: var(--blue, #0070C9);
             font-family: Roboto;

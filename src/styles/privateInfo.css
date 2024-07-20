@@ -17,7 +17,7 @@
   background: #FFF;
 }
 .private-info-block .accordeon .box.active .label .show-icon {
-  transform: rotate(225deg);
+  transform: rotate(45deg);
 }
 .private-info-block .accordeon .box .label {
   display: flex;
@@ -31,6 +31,12 @@
   flex-grow: 1;
   display: flex;
   align-items: center;
+}
+.private-info-block .accordeon .box .label .label-cont:hover span {
+  color: #0067B9;
+}
+.private-info-block .accordeon .box .label .label-cont:hover svg path {
+  fill: #0067B9;
 }
 .private-info-block .accordeon .box .label .label-cont span {
   color: var(--blue, #0070C9);

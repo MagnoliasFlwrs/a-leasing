@@ -84,6 +84,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 14.4px */
+  min-width: 115px;
 }
 .private-info-block .accordeon .box .content .box-content-wrapper .info-container li span:last-child {
   color: #333;
@@ -92,6 +93,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 14.4px */
+  text-align: right;
 }
 
 /*# sourceMappingURL=privateInfo.css.map */

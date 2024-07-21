@@ -200,6 +200,7 @@
       flex-direction: column;
       gap: 24px;
       padding: 0 12px;
+      width: 100%;
       .title {
         color: #333;
         font-family: Roboto;
@@ -374,6 +375,21 @@
       line-height: 120%; /* 20.4px */
     }
     .notification-list {
+      flex-grow: 1;
+      overflow-y: auto;
+      scrollbar-width: none;
+      padding-right: 10px;
+      scrollbar-color: transparent transparent;
+      &::-webkit-scrollbar {
+        height: 12px;
+        width: 12px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
       li {
         display: flex;
         padding: 12px 0px 12px 24px;

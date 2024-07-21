@@ -206,6 +206,7 @@
   flex-direction: column;
   gap: 24px;
   padding: 0 12px;
+  width: 100%;
 }
 .profile-container .profile-user-block .legal-person-info-container .title {
   color: #333;
@@ -368,6 +369,23 @@
   font-style: normal;
   font-weight: 500;
   line-height: 120%; /* 20.4px */
+}
+.profile-container .profile-notification-container .notification-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding-right: 10px;
+  scrollbar-color: transparent transparent;
+}
+.profile-container .profile-notification-container .notification-list::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+}
+.profile-container .profile-notification-container .notification-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.profile-container .profile-notification-container .notification-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 .profile-container .profile-notification-container .notification-list li {
   display: flex;

@@ -7,6 +7,8 @@ import LegalPersonInfoBlockPart from "./LegalPersonInfoBlockPart.jsx";
 const ProfileUserInfoBlock = ({profile , userType}) => {
     const [signOut] = useSignOutMutation();
     const dispatch = useDispatch();
+
+    console.log(profile)
     const hideProfileInfo = () => {
         document.querySelector('.profile-user-block').classList.remove('open');
     }
@@ -77,18 +79,9 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                     </a>
                 </div>
             </div>
+
             {
-                userType === 'NATURAL_PERSON' && (
-                    <p>{profile?.profile?.generalInfo?.fullName?.lastname} {profile?.profile?.generalInfo?.fullName?.firstname} {profile?.profile?.generalInfo?.fullName?.middlename}</p>
-                )
-            }
-            {
-                userType === 'INDIVIDUAL_ENTREPRENEUR' && (
-                    <p>ИП {profile?.profile?.generalInfo?.fullName?.lastname} {profile?.profile?.generalInfo?.fullName?.firstname} {profile?.profile?.generalInfo?.fullName?.middlename}</p>
-                )
-            }
-            {
-                userType === 'LEGAL_PERSON' && (
+                userType === 'LEGAL_PERSON' && profile?.contactPersons && (
 
                     <div className='legal-person-info-container'>
                         <p className='title'>{profile?.profile?.generalInfo?.generalInfo?.shortName}</p>
@@ -98,33 +91,41 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                 )
             }
             {
-                userType === 'NATURAL_PERSON' && (
-                    <div className="user-info">
-                        <p className="info">
-                            <span>Эл.почта:</span> {profile?.profile?.generalInfo?.contacts?.email}
-                        </p>
-                        <p className="info">
-                            <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.contacts?.phoneNumber}
-                        </p>
-                        <p className="info">
-                        <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressCountry} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressRegion} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressLocality} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressStreet}
-                        </p>
-                    </div>
+                userType === 'NATURAL_PERSON' && profile?.contactPersons[0] && (
+                    <>
+                        <p>{profile?.contactPersons[0]?.fullName}</p>
+                        <div className="user-info">
+                            <p className="info">
+                                <span>Эл.почта:</span> {profile?.contactPersons[0]?.email}
+                            </p>
+                            <p className="info">
+                                <span>Телефон для связи:</span> {profile?.contactPersons[0]?.phoneNumber}
+                            </p>
+                            <p className="info">
+                                <span>Почтовый адрес:</span> {profile?.contactPersons[0]?.address}
+                            </p>
+                        </div>
+                    </>
+
                 )
             }
+
             {
-                userType === 'INDIVIDUAL_ENTREPRENEUR' && (
-                    <div className="user-info">
-                        <p className="info">
-                            <span>Эл.почта:</span> {profile?.profile?.generalInfo?.contacts?.email}
-                        </p>
-                        <p className="info">
-                            <span>Телефон для связи:</span> {profile?.profile?.generalInfo?.contacts?.phoneNumber}
-                        </p>
-                        <p className="info">
-                            <span>Почтовый адрес:</span> {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressCountry} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressRegion} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressLocality} {profile?.profile?.generalInfo?.placeOfResidence?.livingAddressStreet}
-                        </p>
-                    </div>
+                userType === 'INDIVIDUAL_ENTREPRENEUR' && profile?.contactPersons[0] && (
+                    <>
+                        <p>ИП {profile?.contactPersons[0]?.fullName}</p>
+                        <div className="user-info">
+                            <p className="info">
+                                <span>Эл.почта:</span> {profile?.contactPersons[0]?.email}
+                            </p>
+                            <p className="info">
+                                <span>Телефон для связи:</span> {profile?.contactPersons[0]?.phoneNumber}
+                            </p>
+                            <p className="info">
+                                <span>Почтовый адрес:</span> {profile?.contactPersons[0]?.address}
+                            </p>
+                        </div>
+                    </>
                 )
             }
 

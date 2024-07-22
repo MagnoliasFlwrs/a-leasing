@@ -1,0 +1,142 @@
+.main-page-container {
+  display: flex;
+  flex-direction: column;
+  background: #F5F5F7;
+  flex-grow:1 ;
+  overflow: hidden;
+  .wrapper {
+    overflow-y: auto;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      width: 1px;
+      height:1px;
+      background-color: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: transparent;
+    }
+    .head-block {
+      padding: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @media (max-width: 745px) {
+        padding: 24px 24px 56px;
+        flex-direction: column;
+        gap: 24px;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        font-family: Roboto;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%; /* 40.8px */
+      }
+      .btn {
+        color: #FFF;
+        font-family: Roboto;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.34px;
+        display: flex;
+        padding: 12px 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 100px;
+        background: var(--Red, #EA2119);
+        &:hover {
+          background: #E01D16;
+        }
+      }
+    }
+    .about-block {
+      background: #FFF;
+      padding: 56px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      @media (max-width: 1133px) {
+        padding: 24px;
+      }
+      .title {
+        color: #333;
+        font-family: Roboto;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%; /* 38.4px */
+        @media (max-width: 745px) {
+          color: #333;
+          font-family: Roboto;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 120%; /* 28.8px */
+        }
+      }
+      .text-block {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: relative;
+        z-index: 1;
+        p {
+          color: #000;
+          font-family: Roboto;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%;
+          span {
+            color: #000;
+            font-family: Roboto;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120%; /* 20.4px */
+          }
+          @media (max-width: 768px) {
+            &:nth-child(5) {
+              max-width: 85%;
+            }
+            &:last-child {
+              max-width: 80%;
+            }
+          }
+        }
+      }
+      img {
+        width: 489px;
+        height: 414px;
+        position: absolute;
+        right: -62px;
+        top: -8px;
+        @media (max-width: 1133px) {
+          width: 321px;
+          height: 272px;
+          top: unset;
+          bottom: 0;
+        }
+        @media (max-width: 768px) {
+          width: 262px;
+          height: 222px;
+          right: -102px;
+        }
+      }
+    }
+  }
+
+}

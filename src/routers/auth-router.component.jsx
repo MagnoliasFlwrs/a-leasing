@@ -12,12 +12,17 @@ import NewDocumentLayout from "../routes/NewDocumentLayout";
 import EditingProfileLayout from "../routes/EditingProfileLayout";
 import ProcuratoryLayout from "../routes/ProcuratoryLayout";
 import { useSelector } from "react-redux";
+import MainPageLayout from "../routes/MainPageLayout.jsx";
 
 const authRoutes = [
   {
     path: "/",
     element: <MainLayout />,
     children: [
+      {
+        index: true,
+        element: <MainPageLayout/>,
+      },
       {
         path: "/contracts",
         element: <ContractsLayout />,
@@ -27,9 +32,8 @@ const authRoutes = [
         element: <ContractsMobileLayout />,
       },
       {
-        // path: "/profile",
+        path: "/profile",
         element: <ProfileLayout />,
-        index: true,
       },
       {
         path: "/applications-details",

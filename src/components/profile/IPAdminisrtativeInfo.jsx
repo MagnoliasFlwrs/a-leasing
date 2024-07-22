@@ -1,19 +1,32 @@
 import React, {useEffect, useState} from 'react';
 
 const IpAdminisrtativeInfo = ({data}) => {
-    console.log(data)
+    const [visibleNote, setVisibleNote] = useState(null);
+
+    const toggleNoteVisibility = (note) => {
+        setVisibleNote(visibleNote === note ? null : note);
+    };
+    const { administrativeFinancialInfo:
+        {   hadEconomicSanctions,
+            hadEconomicSanctionsNote ,
+            isDefendantOrDebtor,
+            isDefendantOrDebtorNote ,
+            notComplyWithCourtOrders,
+            notComplyWithCourtOrdersNote,
+            participationInTheStageOfLiquidation,
+            participationInTheStageOfLiquidationNote } = {} } = data || {};
     function boxHandler(e) {
         e.preventDefault();
         let currentBox = e.target.closest(".box");
         let currentContent = currentBox.querySelector('.content .info-container');
-        let currentHide =  e.target.closest(".box").querySelector('.hide');
-
 
         currentBox.classList.toggle("active");
 
         if (currentBox.classList.contains("active")) {
-            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+            currentContent.style.transition = '.8s ease;'
+            currentContent.style.maxHeight = '2000px';
         } else {
+            currentContent.style.transition = '.8s ease;'
             currentContent.style.maxHeight = 0;
         }
     }
@@ -55,31 +68,118 @@ const IpAdminisrtativeInfo = ({data}) => {
                 </div>
             </div>
             <div className="accordeon">
-                <div className="box" onClick={(event) => boxHandler(event)}>
+                <div className="box" >
                     <div className="content">
                         <div className="box-content-wrapper">
                             <p className="title">Административно-финансовый блок</p>
                             <ul className='info-container'>
-                                <li>
-                                    <span>Наличие случаев привлечения руководителей к уголовной ответственности(укажите причины, если "да")</span>
-                                    <span>{data?.administrativeFinancialInfo?.hadEconomicSanctionsNote}</span>
-                                </li>
-                                <li>
-                                    <span>Является ли ИПответчиком, должником в хозяйственном, уголовном процессе, гражданском судопроизводстве либо лицом, в отношении которого ведётся административный процесс? (укажите причины, если "да")</span>
-                                    <span>{data?.administrativeFinancialInfo?.isDefendantOrDebtorNote}</span>
-                                </li>
-                                <li>
-                                    <span>Применялись ли к ИП экономические (финансовые) санкции в течение календарного года?(укажите причины, если "да")</span>
-                                    <span>{data?.administrativeFinancialInfo?.hadEconomicSanctionsNote}</span>
-                                </li>
-                                <li>
-                                    <span>Участие ИП, его учредителей и руководителей в субъектах хозяйствования находящихся в стадии ликвидации (банкротства).  (укажите причины, если "да")</span>
-                                    <span>{data?.administrativeFinancialInfo?.participationInTheStageOfLiquidationNote}</span>
-                                </li>
+                                {notComplyWithCourtOrders?.toLowerCase() === 'да' ? (
+                                    <li className='adm-block'>
+                                        <div className="head-block">
+                                            <span>Имеются ли судебные постановления, приговоры, постановления об административном правонарушении, которые Клиент не исполнил?</span>
+                                            <div className="wrap">
+                                                <span className='val'>{notComplyWithCourtOrders}</span>
+                                                <span
+                                                    className="btn"
+                                                    onClick={() => toggleNoteVisibility('notComplyWithCourtOrdersNote')}
+                                                >
+                                Подробнее
+                            </span>
+                                            </div>
+                                        </div>
+                                        <div
+                                            className={`note ${visibleNote === 'notComplyWithCourtOrdersNote' ? 'visible' : ''}`}>
+                                            <span>{notComplyWithCourtOrdersNote}</span>
+                                        </div>
+                                    </li>
+                                ) : (
+                                    <li>
+                                        <span>Имеются ли судебные постановления, приговоры, постановления об административном правонарушении, которые Клиент не исполнил?</span>
+                                        <span>{notComplyWithCourtOrders}</span>
+                                    </li>
+                                )}
+
+                                {isDefendantOrDebtor?.toLowerCase() === 'да' ? (
+                                    <li className='adm-block'>
+                                        <div className="head-block">
+                                            <span>Является ли Клиент/поручитель ответчиком, должником в хозяйственном, уголовном процессе, гражданском судопроизводстве либо лицом, в отношении которого ведётся административный процесс? </span>
+                                            <div className="wrap">
+                                                <span className='val'>{isDefendantOrDebtor}</span>
+                                                <span
+                                                    className="btn"
+                                                    onClick={() => toggleNoteVisibility('isDefendantOrDebtorNote')}
+                                                >
+                                Подробнее
+                            </span>
+                                            </div>
+                                        </div>
+                                        <div
+                                            className={`note ${visibleNote === 'isDefendantOrDebtorNote' ? 'visible' : ''}`}>
+                                            <span>{isDefendantOrDebtorNote}</span>
+                                        </div>
+                                    </li>
+                                ) : (
+                                    <li>
+                                        <span>Является ли Клиент/поручитель ответчиком, должником в хозяйственном, уголовном процессе, гражданском судопроизводстве либо лицом, в отношении которого ведётся административный процесс? </span>
+                                        <span>{isDefendantOrDebtor}</span>
+                                    </li>
+                                )}
+
+                                {hadEconomicSanctions?.toLowerCase() === 'да' ? (
+                                    <li className='adm-block'>
+                                        <div className="head-block">
+                                            <span>Применялись ли к Клиенту/поручителю экономические (финансовые) санкции в течение календарного года?</span>
+                                            <div className="wrap">
+                                                <span className='val'>{hadEconomicSanctions}</span>
+                                                <span
+                                                    className="btn"
+                                                    onClick={() => toggleNoteVisibility('hadEconomicSanctionsNote')}
+                                                >
+                                Подробнее
+                            </span>
+                                            </div>
+                                        </div>
+                                        <div
+                                            className={`note ${visibleNote === 'hadEconomicSanctionsNote' ? 'visible' : ''}`}>
+                                            <span>{hadEconomicSanctionsNote}</span>
+                                        </div>
+                                    </li>
+                                ) : (
+                                    <li>
+                                        <span>Применялись ли к Клиенту/поручителю экономические (финансовые) санкции в течение календарного года?</span>
+                                        <span>{hadEconomicSanctions}</span>
+                                    </li>
+                                )}
+
+                                {participationInTheStageOfLiquidation?.toLowerCase() === 'да' ? (
+                                    <li className='adm-block'>
+                                        <div className="head-block">
+                                            <span>Участие Клиента/поручителя в субъектах хозяйствования находящихся в стадии ликвидации (банкротства).</span>
+                                            <div className="wrap">
+                                                <span className='val'>{participationInTheStageOfLiquidation}</span>
+                                                <span
+                                                    className="btn"
+                                                    onClick={() => toggleNoteVisibility('participationInTheStageOfLiquidationNote')}
+                                                >
+                                Подробнее
+                            </span>
+                                            </div>
+                                        </div>
+                                        <div
+                                            className={`note ${visibleNote === 'participationInTheStageOfLiquidationNote' ? 'visible' : ''}`}>
+                                            <span>{participationInTheStageOfLiquidationNote}</span>
+                                        </div>
+                                    </li>
+                                ) : (
+                                    <li>
+                                        <span>Участие Клиента/поручителя в субъектах хозяйствования находящихся в стадии ликвидации (банкротства).</span>
+                                        <span>{participationInTheStageOfLiquidation}</span>
+                                    </li>
+                                )}
                             </ul>
                         </div>
                     </div>
-                    <div className="label">
+                    <div className="label" onClick={(event) => boxHandler(event)}>
                         <div className="label-cont">
                             <span>Редактировать</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11"

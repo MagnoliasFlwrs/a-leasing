@@ -312,7 +312,7 @@
   overflow-y: auto;
   scrollbar-width: none;
   scrollbar-color: transparent transparent;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
 }
 .profile-container .profile-details-container .chakra-tabs__tab-panels::-webkit-scrollbar {
   height: 12px;

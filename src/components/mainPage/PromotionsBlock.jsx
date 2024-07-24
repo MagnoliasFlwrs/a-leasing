@@ -1,5 +1,11 @@
 import React from 'react';
 import promo1 from '../../images/promo1.png'
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper/core";
+import {Navigation} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import newsImg from "../../images/newsimg.png";
 
 const PromotionsBlock = () => {
     return (
@@ -53,6 +59,78 @@ const PromotionsBlock = () => {
                             <span>Гарантия обратного выкупа автомобиля</span>
                         </div>
                         <a href="#">Узнать подробности</a>
+                    </div>
+                </div>
+            </div>
+            <div className="promotions-swiper-container">
+                <Swiper
+                    navigation={{
+                        nextEl: '.promotions-arrows .arrow-next',
+                        prevEl: '.promotions-arrows .arrow-prev'
+                    }}
+                    className="promotions-swiper"
+                >
+                    <SwiperSlide>
+                        <div className="promotion-card">
+                            <div className="img">
+                                <img src={promo1} alt="promo-image"/>
+                            </div>
+                            <div className="promotion-card-content">
+                                <div className="row">
+                                    <p>Премиальный кроссовер
+                                        по спецценам</p>
+                                    <span>Гарантия обратного выкупа автомобиля</span>
+                                </div>
+                                <a href="#">Узнать подробности</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="promotion-card">
+                            <div className="img">
+                                <img src={promo1} alt="promo-image"/>
+                            </div>
+                            <div className="promotion-card-content">
+                                <div className="row">
+                                    <p>Премиальный кроссовер
+                                        по спецценам</p>
+                                    <span>Гарантия обратного выкупа автомобиля</span>
+                                </div>
+                                <a href="#">Узнать подробности</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="promotion-card">
+                            <div className="img">
+                                <img src={promo1} alt="promo-image"/>
+                            </div>
+                            <div className="promotion-card-content">
+                                <div className="row">
+                                    <p>Премиальный кроссовер
+                                        по спецценам</p>
+                                    <span>Гарантия обратного выкупа автомобиля</span>
+                                </div>
+                                <a href="#">Узнать подробности</a>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+
+                </Swiper>
+                <div className="promotions-arrows" >
+                    <div className="arrow arrow-prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path fillRule="evenodd" clipRule="evenodd"
+                                  d="M15.7071 5.79289C15.3166 5.40237 14.6834 5.40237 14.2929 5.79289L8.29289 11.7929C7.90237 12.1834 7.90237 12.8166 8.29289 13.2071L14.2929 19.2071C14.6834 19.5976 15.3166 19.5976 15.7071 19.2071C16.0976 18.8166 16.0976 18.1834 15.7071 17.7929L10.4142 12.5L15.7071 7.20711C16.0976 6.81658 16.0976 6.18342 15.7071 5.79289Z"
+                                  fill="#333333"/>
+                        </svg>
+                    </div>
+                    <div className="arrow arrow-next">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                            <path fillRule="evenodd" clipRule="evenodd"
+                                  d="M8.29289 5.79289C8.68342 5.40237 9.31658 5.40237 9.70711 5.79289L15.7071 11.7929C16.0976 12.1834 16.0976 12.8166 15.7071 13.2071L9.70711 19.2071C9.31658 19.5976 8.68342 19.5976 8.29289 19.2071C7.90237 18.8166 7.90237 18.1834 8.29289 17.7929L13.5858 12.5L8.29289 7.20711C7.90237 6.81658 7.90237 6.18342 8.29289 5.79289Z"
+                                  fill="#333333"/>
+                        </svg>
                     </div>
                 </div>
             </div>

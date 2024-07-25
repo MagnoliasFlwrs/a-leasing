@@ -1,10 +1,7 @@
 import React, {useEffect} from 'react';
 import {Swiper, SwiperSlide} from "swiper/react";
-import SwiperCore from "swiper/core";
-import {Navigation} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import catalogImg from '../../images/catalogimage.png'
 import ReviewCard from "./ReviewCard.jsx";
 
 const ReviewsBlock = () => {

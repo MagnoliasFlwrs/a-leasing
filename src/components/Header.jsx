@@ -10,7 +10,7 @@ const Header = () => {
                         <p className='logo-title'>а</p>
                     </li>
                     <li>
-                        <a href="/">Профиль</a>
+                        <a href="/profile">Профиль</a>
                     </li>
                     <li>
                         <a href="/contracts">Договоры лизинга</a>

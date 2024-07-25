@@ -1106,7 +1106,6 @@
   background: #E01D16;
 }
 .main-page-container .wrapper .reviews-block {
-  padding: 56px 0 0;
   margin-bottom: 100px;
 }
 @media (max-width: 1133px) {
@@ -1206,6 +1205,7 @@
 .main-page-container .wrapper .reviews-block .reviews-swiper-row .review-swiper {
   height: 311px;
   width: 100%;
+  overflow: unset;
 }
 .main-page-container .wrapper .reviews-block .reviews-swiper-row .review-swiper .swiper-slide .review-card {
   width: 100%;
@@ -1244,6 +1244,9 @@
   display: flex;
   gap: 8px;
 }
+.main-page-container .wrapper .reviews-block .reviews-swiper-row .review-swiper .swiper-slide .review-card .text {
+  position: relative;
+}
 .main-page-container .wrapper .reviews-block .reviews-swiper-row .review-swiper .swiper-slide .review-card .text p {
   color: #000;
   font-family: Roboto;
@@ -1251,6 +1254,41 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 16.8px */
+}
+.main-page-container .wrapper .reviews-block .reviews-swiper-row .review-swiper .swiper-slide .review-card .text p span {
+  color: rgba(143, 143, 148, 0.8);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+.main-page-container .wrapper .reviews-block .reviews-swiper-row .review-swiper .swiper-slide .review-card .text .hidden-text-modal {
+  position: absolute;
+  right: -215px;
+  top: 110%;
+  display: flex;
+  width: 286px;
+  padding: 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 14px;
+  background: #FBFBFD;
+  box-shadow: 2px 4px 12px 0px rgba(0, 0, 0, 0.14);
+  z-index: 1000;
+  display: none;
+}
+.main-page-container .wrapper .reviews-block .reviews-swiper-row .review-swiper .swiper-slide .review-card .text .hidden-text-modal span {
+  color: rgba(51, 51, 51, 0.9);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
 }
 .main-page-container .wrapper .reviews-block .reviews-arrows-mobile {
   display: flex;

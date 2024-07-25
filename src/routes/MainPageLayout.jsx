@@ -7,6 +7,7 @@ import HistoryCompanyBlock from "../components/mainPage/HistoryCompanyBlock.jsx"
 import CatalogBlock from "../components/mainPage/CatalogBlock.jsx";
 import Footer from "../components/loginPage/Footer.jsx";
 import ContactForm from "../components/mainPage/ContactForm.jsx";
+import ReviewsBlock from "../components/mainPage/ReviewsBlock.jsx";
 
 const MainPageLayout = () => {
     return (
@@ -25,6 +26,7 @@ const MainPageLayout = () => {
                     <h2>Информация об осуществляемой лизинговой деятельности и финансовом состоянии ООО «А-Лизинг»</h2>
                     <a href="#">Читать подробнее</a>
                 </div>
+                <ReviewsBlock/>
                 <ContactForm/>
                 <Footer/>
             </div>

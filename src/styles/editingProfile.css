@@ -44,8 +44,73 @@
   border-radius: 100px;
   background: #DF140C;
 }
+.editing-profile-layout .chakra-tabs__tab-panel {
+  max-height: 59vh;
+  overflow-y: auto;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: none;
+}
+.editing-profile-layout .chakra-tabs__tab-panel::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+}
+.editing-profile-layout .chakra-tabs__tab-panel::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.editing-profile-layout .ul-edit-tabs {
+  flex-shrink: 1;
+}
+.editing-profile-layout .ul-edit-tabs .add-tab {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--blue, #0070C9);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+  cursor: pointer;
+}
+.editing-profile-layout .ul-edit-tabs .add-tab:hover {
+  color: #0067B9;
+}
 .editing-profile-layout .profile-info-form {
   display: flex;
+  margin-top: 24px;
+}
+.editing-profile-layout .profile-info-form-wrapper .form-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.editing-profile-layout .profile-info-form-wrapper .form-head p {
+  color: #000;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.editing-profile-layout .profile-info-form-wrapper .form-head .btn {
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+}
+.editing-profile-layout .profile-info-form-wrapper .form-head .btn span {
+  color: var(--Red, #EA2119);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.editing-profile-layout .profile-info-form-wrapper .form-head .btn:hover svg path {
+  fill: #E01D16;
+}
+.editing-profile-layout .profile-info-form-wrapper .form-head .btn:hover span {
+  color: #E01D16;
 }
 .editing-profile-layout .column {
   display: flex;
@@ -60,6 +125,40 @@
   flex-direction: column;
   gap: 12px;
 }
+.editing-profile-layout .column .chapter .title-row {
+  display: flex;
+  flex-direction: column;
+}
+.editing-profile-layout .column .chapter .title-row .title {
+  color: #000;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.editing-profile-layout .column .chapter .title-row .adress {
+  color: var(--grey_txt, rgba(143, 143, 148, 0.7));
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+  display: block;
+  margin: 4px 0 12px;
+}
+.editing-profile-layout .column .chapter .title-row .btn {
+  cursor: pointer;
+  color: var(--blue, #0070C9);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.editing-profile-layout .column .chapter .title-row .btn:hover {
+  color: #0067B9;
+}
 .editing-profile-layout .column .chapter .title {
   color: #000;
   font-family: Roboto;
@@ -67,6 +166,18 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+.editing-profile-layout .column .chapter .custom-switch {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
 }
 
 /*# sourceMappingURL=editingProfile.css.map */

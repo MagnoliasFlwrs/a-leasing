@@ -1,29 +1,79 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../styles/editingProfile.css'
-import {Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
-import FLPrivateInfo from "../components/contracts/editingProfile/editingProfile-FL/FLPrivateInfo.jsx";
-
+import {
+    useGetIndividualEntrepreneursProfileByIdQuery,
+    useGetLegalPersonsProfileByIdQuery, useGetNaturalPersonsProfileByIdQuery
+} from "../services/auth/index.js";
+import ULTabs from "../components/contracts/editingProfile/ULTabs.jsx";
 
 const EditingProfileLayout = () => {
-    const tabStyle = {
-        borderRadius: '30px',
-        bg: 'rgba(51, 51, 51, 0.06)',
-        color: '#333',
-        fontSize: '13px',
-        p: '6px 12px',
-        whiteSpace:'nowrap',
-        _selected: {
-            color: 'white',
-            bg: '#333',
-            padding: '6px 12px',
-            borderRadius: '30px'
-        }
+    const [userInfo, setUserInfo] = useState(null);
+    const accessToken = localStorage.getItem('access-token');
+    const parts = accessToken.split('.');
+    const [profileData , setProfileData] = useState(null)
+
+
+    const base64urlDecode = (str) => {
+        const base64 = str.replace(/-/g, '+').replace(/_/g, '/');
+        return atob(base64);
     };
+
+    useEffect(() => {
+        if (parts.length === 3 && parts[1]) {
+            let decodedToken = base64urlDecode(parts[1]);
+            let userInfo = JSON.parse(decodedToken);
+            setUserInfo(userInfo);
+        } else {
+            console.error('Некорректный формат access token');
+        }
+    }, []);
+
+
+    const {
+        data: individualData,
+        error: individualError,
+        isSuccess: isIndividualSuccess
+    } = useGetIndividualEntrepreneursProfileByIdQuery(
+        userInfo?.signInType === 'INDIVIDUAL_ENTREPRENEUR' ? userInfo.accountId : null,
+        { skip: userInfo?.signInType !== 'INDIVIDUAL_ENTREPRENEUR' }
+    );
+
+    const {
+        data: legalData,
+        error: legalError,
+        isSuccess: isLegalSuccess
+    } = useGetLegalPersonsProfileByIdQuery(
+        userInfo?.signInType === 'LEGAL_PERSON' ? userInfo.accountId : null,
+        { skip: userInfo?.signInType !== 'LEGAL_PERSON' }
+    );
+
+    const {
+        data: naturalData,
+        error: naturalError,
+        isSuccess: isNaturalSuccess
+    } = useGetNaturalPersonsProfileByIdQuery(
+        userInfo?.signInType === 'NATURAL_PERSON' ? userInfo.accountId : null,
+        { skip: userInfo?.signInType !== 'NATURAL_PERSON' }
+    );
+
+    useEffect(() => {
+        if (isIndividualSuccess) {
+            setProfileData(individualData)
+        } else if (isLegalSuccess) {
+            setProfileData(legalData)
+        } else if (isNaturalSuccess) {
+            setProfileData(naturalData)
+        }
+    }, [individualData, naturalData,legalData]);
+
+    console.log(profileData)
+
+
     return (
         <div className='editing-profile-layout'>
             <div className="head-row">
                 <div className="col">
-                    <a href="#" className="back-btn">
+                    <a href="/profile" className="back-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                             <path fillRule="evenodd" clipRule="evenodd"
                                   d="M2.66675 8.49967C2.66675 8.13148 2.96522 7.83301 3.33341 7.83301H12.6667C13.0349 7.83301 13.3334 8.13148 13.3334 8.49967C13.3334 8.86786 13.0349 9.16634 12.6667 9.16634H3.33341C2.96522 9.16634 2.66675 8.86786 2.66675 8.49967Z"
@@ -40,24 +90,10 @@ const EditingProfileLayout = () => {
                     Сохранить изменения
                 </div>
             </div>
-            <Tabs variant='unstyled' width='100%'>
-                <TabList gap='24px' flexWrap='wrap' className='contract-tablist'>
-                    <Tab {...tabStyle} className='tab'>Личные данные</Tab>
-                    <Tab {...tabStyle} className='tab'>Место работы и доход</Tab>
-                    <Tab {...tabStyle} className='tab'>Имущество в собсвенности</Tab>
-                </TabList>
-                <TabPanels style={{paddingTop: '24px'}}>
-                    <TabPanel style={{padding: '0'}}>
-                        <FLPrivateInfo/>
-                    </TabPanel>
-                    <TabPanel style={{padding: '0'}}>
+            {
+                userInfo?.signInType === 'LEGAL_PERSON' && <ULTabs profile={profileData?.contactPersons}/>
+            }
 
-                    </TabPanel>
-                    <TabPanel style={{padding: '0'}}>
-
-                    </TabPanel>
-                </TabPanels>
-            </Tabs>
         </div>
     );
 };

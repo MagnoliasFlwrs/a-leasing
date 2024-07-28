@@ -42,8 +42,81 @@
       }
     }
   }
+  .ul-edit-block {
+
+  }
+  .chakra-tabs__tab-panel {
+    max-height: 59vh;
+    overflow-y: auto;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 1px;
+      height: 1px;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+  }
+  .ul-edit-tabs {
+    flex-shrink: 1;
+    .add-tab {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--blue, #0070C9);
+      font-family: Roboto;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; /* 16.8px */
+      cursor: pointer;
+      &:hover {
+        color: #0067B9;
+      }
+    }
+  }
   .profile-info-form {
     display: flex;
+    margin-top: 24px;
+  }
+  .profile-info-form-wrapper {
+    .form-head {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      p{
+        color: #000;
+        font-family: Roboto;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+      .btn {
+        display: flex;
+        gap: 12px;
+        cursor: pointer;
+        span {
+          color: var(--Red, #EA2119);
+          font-family: Roboto;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%; /* 16.8px */
+        }
+        &:hover {
+          svg path {
+            fill: #E01D16;
+          }
+          span {
+            color: #E01D16;
+          }
+        }
+      }
+    }
   }
   .column {
     display: flex;
@@ -56,6 +129,41 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      .title-row {
+        display: flex;
+        flex-direction: column;
+        .title {
+          color: #000;
+          font-family: Roboto;
+          font-size: 17px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+
+        }
+        .adress {
+          color: var(--grey_txt, rgba(143, 143, 148, 0.70));
+          font-family: Roboto;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%; /* 14.4px */
+          display: block;
+          margin: 4px 0 12px;
+        }
+        .btn {
+          cursor: pointer;
+          color: var(--blue, #0070C9);
+          font-family: Roboto;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%; /* 16.8px */
+          &:hover {
+            color: #0067B9;
+          }
+        }
+      }
       .title {
         color: #000;
         font-family: Roboto;
@@ -63,6 +171,18 @@
         font-style: normal;
         font-weight: 500;
         line-height: normal;
+      }
+      .custom-switch {
+        margin-top: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(0, 0, 0, 0.80);
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 16.8px */
       }
     }
   }

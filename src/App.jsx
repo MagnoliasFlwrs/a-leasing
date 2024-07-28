@@ -5,10 +5,11 @@ import { Provider } from "react-redux";
 import { store } from "./lib/store";
 import AuthRouter from "./routers/auth-router.component.jsx";
 import NotAuthRouter from "./routers/not-auth-router.component.jsx";
+import theme from "./utils/theme.js";
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Provider store={store}>
         <NotAuthRouter />
         <AuthRouter />

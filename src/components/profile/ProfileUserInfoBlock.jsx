@@ -41,6 +41,7 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
             currentContent.style.maxHeight = 0;
         }
     }
+
     return (
         <div className='profile-user-block'>
             <div className="back-btn" onClick={()=> hideProfileInfo()}>
@@ -130,7 +131,7 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
             }
 
             <div className="btns">
-                <div className="edit">
+                <a href='/edit-profile' className="edit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
                               d="M1.25253 3.08579C1.62761 2.71071 2.13632 2.5 2.66675 2.5H7.33341C7.7016 2.5 8.00008 2.79848 8.00008 3.16667C8.00008 3.53486 7.7016 3.83333 7.33341 3.83333H2.66675C2.48994 3.83333 2.32037 3.90357 2.19534 4.0286C2.07032 4.15362 2.00008 4.32319 2.00008 4.5V13.8333C2.00008 14.0101 2.07032 14.1797 2.19534 14.3047C2.32037 14.4298 2.48994 14.5 2.66675 14.5H12.0001C12.1769 14.5 12.3465 14.4298 12.4715 14.3047C12.5965 14.1797 12.6667 14.0101 12.6667 13.8333V9.16667C12.6667 8.79848 12.9652 8.5 13.3334 8.5C13.7016 8.5 14.0001 8.79848 14.0001 9.16667V13.8333C14.0001 14.3638 13.7894 14.8725 13.4143 15.2475C13.0392 15.6226 12.5305 15.8333 12.0001 15.8333H2.66675C2.13631 15.8333 1.62761 15.6226 1.25253 15.2475C0.877462 14.8725 0.666748 14.3638 0.666748 13.8333V4.5C0.666748 3.96957 0.877462 3.46086 1.25253 3.08579Z"
@@ -140,7 +141,7 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                               fill="#0070C9"/>
                     </svg>
                     <span>Редактировать профиль</span>
-                </div>
+                </a>
                 <div className="edit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"

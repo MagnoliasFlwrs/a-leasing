@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 const ReviewCard = () => {
-    const [modalActivity , setModalActivity] = useState(false)
+    const [modalActivity , setModalActivity] = useState(false);
+    const hiddenTextRef = useRef(null);
     const text = 'Огромное спасибо Лаппо Елене за профессионализм, за оперативность и легкость ' +
         'в принятии решений и подготовке документации. Вежливая, приятная, образованная,' +
         ' по больше бы таких специалистов и мастеров своего дела. Премию выпишите дополнительнуюОгромное' +
@@ -12,7 +13,18 @@ const ReviewCard = () => {
     let shortText = text.length > 243 ? text.slice(0 , 243) : text;
     let hiddenText  =  text.slice(0 , 243) ? text.slice(243 ,  (text.length)) : null;
 
+    const handleClickOutside = (event) => {
+        if (hiddenTextRef.current && !hiddenTextRef.current.contains(event.target)) {
+            setModalActivity(false);
+        }
+    };
 
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+        };
+    }, []);
 
     return (
         <div className='review-card'>
@@ -59,7 +71,7 @@ const ReviewCard = () => {
                         {modalActivity ? 'Скрыть' : 'Читать далее' }
                     </span> : ''}
                 </p>
-                <div className="hidden-text-modal" style={{display: modalActivity? 'flex' : 'none'}}>
+                <div className="hidden-text-modal" ref={hiddenTextRef} style={{display: modalActivity? 'flex' : 'none'}}>
                     <span>{hiddenText}</span>
                 </div>
             </div>

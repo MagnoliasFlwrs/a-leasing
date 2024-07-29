@@ -1,8 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Spinner, Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
 import EditForm from "./EditForm.jsx";
 
 const UlTabs = ({profile , mainperson}) => {
+    const [profileState, setProfileState] = useState(null);
+    useEffect(() => {
+        setProfileState(profile)
+    }, [profile]);
+
+    const addNewContact = () => {
+        if (profileState.length < 3) {
+            setProfileState([...profileState,
+                { position: 'Новое контактное лицо',
+                    address:'',
+                    email:'',
+                    fullName:'',
+                    isMain:'',
+                    isRecipient:'',
+                    phoneNumber:''
+                }]);
+        }
+    };
     const tabStyle = {
         borderRadius: '30px',
         color: '#333',
@@ -19,19 +37,19 @@ const UlTabs = ({profile , mainperson}) => {
     return (
         <div className='ul-edit-block'>
             {
-                profile ?
+                profileState ?
                     <Tabs variant='unstyled' width='100%' className='ul-edit-tabs'>
                         <TabList gap='24px' flexWrap='wrap' className='contract-tablist'>
                             {
-                                profile.map((item , index) => {
+                                profileState.map((item , index) => {
                                     return (
                                         <Tab {...tabStyle} key={index} className='tab'>{item.position}</Tab>
                                     )
                                 })
                             }
                             {
-                                profile.length < 3 &&
-                                <div className='add-tab'>
+                                profileState.length < 3 &&
+                                <div className='add-tab' onClick={addNewContact}>
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="#0070C9"/>
@@ -49,7 +67,7 @@ const UlTabs = ({profile , mainperson}) => {
                         </TabList>
                         <TabPanels style={{paddingTop: '24px'}}>
                             {
-                                profile.map((item , index) => {
+                                profileState.map((item , index) => {
                                     return (
                                         <TabPanel key={index} style={{padding: '0'}}>
                                             <EditForm person={item} mainPerson={mainperson}/>

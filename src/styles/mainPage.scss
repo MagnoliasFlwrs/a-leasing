@@ -201,6 +201,8 @@
         }
         .news-swiper {
           flex-grow: 1;
+          width: 100%;
+          overflow: unset;
           .swiper-slide {
             border-radius: 14px;
             background: #FFF;
@@ -272,6 +274,13 @@
                   margin-top: auto;
                   display: flex;
                   justify-content: flex-end;
+                  position: relative;
+                  z-index: 2;
+                  &:hover {
+                    svg path {
+                      fill-opacity: .9;
+                    }
+                  }
                 }
               }
 
@@ -843,11 +852,12 @@
         .catalog-swiper {
           height: 418px;
           width: 100%;
+          overflow: unset;
           @media (max-width: 745px) {
             height: 247px;
           }
           .swiper-slide {
-            padding: 5px;
+            padding: 5px 5px 10px;
             .catalog-card {
               display: flex;
               width: 100%;
@@ -965,6 +975,9 @@
           gap: 10px;
           border-radius: 1000px;
           background: #EFEFEF;
+          &:hover {
+            background: #EAEAEA;
+          }
         }
       }
     }
@@ -1308,7 +1321,7 @@
             background: #FFF;
             display: flex;
             height: 56px;
-            padding: 10px 16px;
+            padding: 24px 16px 10px;
             align-items: center;
             gap: 4px;
             align-self: stretch;
@@ -1380,13 +1393,18 @@
           font-weight: 400;
           line-height: 30px; /* 250% */
           &:last-child {
-            color: rgba(0, 0, 0, 0.56);
+            color: var(--blue, #0070C9);
             font-family: Roboto;
             font-size: 12px;
             font-style: normal;
             font-weight: 400;
-            line-height: 30px; /* 250% */
+            line-height: 30px;
+            text-decoration-line: underline;
+            &:hover {
+              color: #0067B9;
+            }
           }
+
         }
       }
       .line {

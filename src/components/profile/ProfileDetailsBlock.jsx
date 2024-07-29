@@ -37,7 +37,7 @@ const ProfileDetailsBlock = ({profile , userType}) => {
                             <Tab {...tabStyle} className='tab'>Сведения о деятельности организации</Tab>
                             <Tab {...tabStyle} className='tab'>Административно-финансовая информация</Tab>
                         </TabList>
-                        <TabPanels style={{paddingTop: '24px'}}>
+                        <TabPanels >
                             <TabPanel style={{padding: '0'}}>
                                 <GeneralInfoIndividualEntrepreneur data={profile?.profile?.generalInfo}/>
                             </TabPanel>
@@ -59,7 +59,7 @@ const ProfileDetailsBlock = ({profile , userType}) => {
                             <Tab {...tabStyle} className='tab'>Место работы и доход</Tab>
                             <Tab {...tabStyle} className='tab'>Имущество в собсвенности</Tab>
                         </TabList>
-                        <TabPanels style={{paddingTop: '24px'}}>
+                        <TabPanels >
                             <TabPanel style={{padding: '0'}}>
                                 <PrivateInfoNaturalPerson data={profile?.profile}/>
                             </TabPanel>
@@ -82,7 +82,7 @@ const ProfileDetailsBlock = ({profile , userType}) => {
                             <Tab {...tabStyle} className='tab'>Сведения о должностных лицах организации</Tab>
                             <Tab {...tabStyle} className='tab'>Административно-финансовая информация</Tab>
                         </TabList>
-                        <TabPanels style={{paddingTop: '24px'}}>
+                        <TabPanels >
                             <TabPanel style={{padding: '0'}}>
                                 <ULGeneralInfo data={profile?.profile}/>
                             </TabPanel>

@@ -7,7 +7,7 @@ const Header = () => {
             <header className='header'>
                 <ul>
                     <li>
-                        <p className='logo-title'>а</p>
+                        <a href='/' className='logo-title'>а</a>
                     </li>
                     <li>
                         <a href="/profile">Профиль</a>

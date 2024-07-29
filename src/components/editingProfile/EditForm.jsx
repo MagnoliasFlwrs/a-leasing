@@ -140,7 +140,7 @@ const EditForm = ({person , mainPerson}) => {
                                    type="text"
                                    id="position"
                                    value={userPosition}
-                                   placeholder="text" onChange={() => handleChangePosition()}/>
+                                   placeholder="text" onChange={(e) => handleChangePosition(e)}/>
                             <label className="text-field__label" htmlFor="position">Роль <span>*</span></label>
                         </div>
                         <div className="text-field text-field_floating">
@@ -148,7 +148,7 @@ const EditForm = ({person , mainPerson}) => {
                                    type="text"
                                    id="tel"
                                    value={userNumber}
-                                   placeholder="text" onChange={() => handleChangeNumber()}/>
+                                   placeholder="text" onChange={(e) => handleChangeNumber(e)}/>
                             <label className="text-field__label" htmlFor="tel">Контактный номер телефона <span>*</span></label>
                         </div>
                         <div className="text-field text-field_floating">
@@ -156,7 +156,7 @@ const EditForm = ({person , mainPerson}) => {
                                    type="text"
                                    id="email"
                                    value={userEmail}
-                                   placeholder="text" onChange={() => handleChangeEmail()}/>
+                                   placeholder="text" onChange={(e) => handleChangeEmail(e)}/>
                             <label className="text-field__label" htmlFor="email">Адрес электронной почты</label>
                         </div>
                     </div>

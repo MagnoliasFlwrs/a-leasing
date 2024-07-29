@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import newsImg from '../../images/newsimg.png'
 
-// install Swiper modules
 SwiperCore.use([Navigation]);
 
 const NewsBlock = () => {

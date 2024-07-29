@@ -369,7 +369,6 @@ const ReviewsBlock = () => {
                             </div>
                         </div>
                     </SwiperSlide>
-
                 </Swiper>
             </div>
             <div className="link">

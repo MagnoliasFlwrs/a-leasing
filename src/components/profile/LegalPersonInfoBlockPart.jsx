@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import './Accordion.css';
 
 const LegalPersonInfoBlockPart = ({ profile }) => {
     const [activeIndex, setActiveIndex] = useState(null);

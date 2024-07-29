@@ -36,11 +36,14 @@
         justify-content: space-between;
         width: 100%;
         margin-top: 24px;
+        transition: .8s ease;
         .label-cont {
           flex-grow: 1;
           display: flex;
           align-items: center;
+          transition: .8s ease;
           &:hover {
+
             span {
               color: #0067B9;
             }
@@ -61,6 +64,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        transition: .8s ease;
         .box-content-wrapper {
           transition: .8s ease;
           .title {
@@ -86,6 +90,7 @@
               align-items: center;
               justify-content: space-between;
               gap: 24px;
+              transition: .8s ease;
               &:first-child {
                 margin-top: 24px;
               }
@@ -114,11 +119,13 @@
                 flex-direction: column;
                 gap: 0;
                 align-items: flex-start;
+                transition: .8s ease;
                 .head-block {
                   display: flex;
                   gap: 24px;
                   align-items: flex-start;
                   width: 100%;
+                  transition: .8s ease;
                   span {
                     color: var(--grey_txt, rgba(143, 143, 148, 0.70));
                     font-family: Roboto;
@@ -160,7 +167,7 @@
                 .note {
                   max-height: 0;
                   overflow: hidden;
-                  transition: max-height 0.5s ease;
+                  transition: .8s ease;
                   span {
                     max-width: 519px;
                     color: #333;
@@ -172,7 +179,7 @@
                   }
                   &.visible {
                     max-height: 2000px;
-                    transition: max-height 0.5s ease;
+                    transition: .8s ease;
                   }
 
                 }

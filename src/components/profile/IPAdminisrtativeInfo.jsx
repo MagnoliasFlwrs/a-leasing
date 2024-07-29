@@ -24,7 +24,7 @@ const IpAdminisrtativeInfo = ({data}) => {
 
         if (currentBox.classList.contains("active")) {
             currentContent.style.transition = '.8s ease;'
-            currentContent.style.maxHeight = '2000px';
+            currentContent.style.maxHeight = '800px';
         } else {
             currentContent.style.transition = '.8s ease;'
             currentContent.style.maxHeight = 0;
@@ -83,8 +83,9 @@ const IpAdminisrtativeInfo = ({data}) => {
                                                     className="btn"
                                                     onClick={() => toggleNoteVisibility('notComplyWithCourtOrdersNote')}
                                                 >
-                                Подробнее
-                            </span>
+                                                    {visibleNote === 'notComplyWithCourtOrdersNote' ? 'Свернуть' : 'Подробнее'}
+
+                                                </span>
                                             </div>
                                         </div>
                                         <div
@@ -109,7 +110,7 @@ const IpAdminisrtativeInfo = ({data}) => {
                                                     className="btn"
                                                     onClick={() => toggleNoteVisibility('isDefendantOrDebtorNote')}
                                                 >
-                                Подробнее
+                                {visibleNote === 'isDefendantOrDebtorNote' ? 'Свернуть' : 'Подробнее'}
                             </span>
                                             </div>
                                         </div>
@@ -135,7 +136,7 @@ const IpAdminisrtativeInfo = ({data}) => {
                                                     className="btn"
                                                     onClick={() => toggleNoteVisibility('hadEconomicSanctionsNote')}
                                                 >
-                                Подробнее
+                                {visibleNote === 'hadEconomicSanctionsNote' ? 'Свернуть' : 'Подробнее'}
                             </span>
                                             </div>
                                         </div>
@@ -161,7 +162,7 @@ const IpAdminisrtativeInfo = ({data}) => {
                                                     className="btn"
                                                     onClick={() => toggleNoteVisibility('participationInTheStageOfLiquidationNote')}
                                                 >
-                                Подробнее
+                                {visibleNote === 'participationInTheStageOfLiquidationNote' ? 'Свернуть' : 'Подробнее'}
                             </span>
                                             </div>
                                         </div>

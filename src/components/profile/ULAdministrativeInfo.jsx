@@ -26,7 +26,7 @@ const ULAdministrativeInfo = ({data}) => {
 
         if (currentBox.classList.contains("active")) {
             currentContent.style.transition = '.8s ease;'
-            currentContent.style.maxHeight = '2000px';
+            currentContent.style.maxHeight = '800px';
         } else {
             currentContent.style.transition = '.8s ease;'
             currentContent.style.maxHeight = 0;
@@ -89,8 +89,8 @@ const ULAdministrativeInfo = ({data}) => {
                                                     className="btn"
                                                     onClick={() => toggleNoteVisibility('bringingManagersToCriminalLiabilityNote')}
                                                 >
-                                Подробнее
-                            </span>
+                                                    {visibleNote === 'bringingManagersToCriminalLiabilityNote' ? 'Свернуть' : 'Подробнее'}
+                                                </span>
                                             </div>
                                         </div>
                                         <div
@@ -115,8 +115,8 @@ const ULAdministrativeInfo = ({data}) => {
                                                     className="btn"
                                                     onClick={() => toggleNoteVisibility('isDefendantOrDebtorNote')}
                                                 >
-                                Подробнее
-                            </span>
+                                                    {visibleNote === 'isDefendantOrDebtorNote' ? 'Свернуть' : 'Подробнее'}
+                                                </span>
                                             </div>
                                         </div>
                                         <div
@@ -141,8 +141,8 @@ const ULAdministrativeInfo = ({data}) => {
                                                     className="btn"
                                                     onClick={() => toggleNoteVisibility('hadEconomicSanctionsNote')}
                                                 >
-                                Подробнее
-                            </span>
+                                                    {visibleNote === 'hadEconomicSanctionsNote' ? 'Свернуть' : 'Подробнее'}
+                                                </span>
                                             </div>
                                         </div>
                                         <div
@@ -167,8 +167,8 @@ const ULAdministrativeInfo = ({data}) => {
                                                     className="btn"
                                                     onClick={() => toggleNoteVisibility('participationInTheStageOfLiquidationNote')}
                                                 >
-                                Подробнее
-                            </span>
+                                                    {visibleNote === 'participationInTheStageOfLiquidationNote' ? 'Свернуть' : 'Подробнее'}
+                                                </span>
                                             </div>
                                         </div>
                                         <div

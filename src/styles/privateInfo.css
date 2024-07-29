@@ -37,11 +37,13 @@
   justify-content: space-between;
   width: 100%;
   margin-top: 24px;
+  transition: 0.8s ease;
 }
 .private-info-block .accordeon .box .label .label-cont {
   flex-grow: 1;
   display: flex;
   align-items: center;
+  transition: 0.8s ease;
 }
 .private-info-block .accordeon .box .label .label-cont:hover span {
   color: #0067B9;
@@ -60,6 +62,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  transition: 0.8s ease;
 }
 .private-info-block .accordeon .box .content .box-content-wrapper {
   transition: 0.8s ease;
@@ -87,6 +90,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  transition: 0.8s ease;
 }
 .private-info-block .accordeon .box .content .box-content-wrapper .info-container li:first-child {
   margin-top: 24px;
@@ -114,12 +118,14 @@
   flex-direction: column;
   gap: 0;
   align-items: flex-start;
+  transition: 0.8s ease;
 }
 .private-info-block .accordeon .box .content .box-content-wrapper .info-container li.adm-block .head-block {
   display: flex;
   gap: 24px;
   align-items: flex-start;
   width: 100%;
+  transition: 0.8s ease;
 }
 .private-info-block .accordeon .box .content .box-content-wrapper .info-container li.adm-block .head-block span {
   color: var(--grey_txt, rgba(143, 143, 148, 0.7));
@@ -161,7 +167,7 @@
 .private-info-block .accordeon .box .content .box-content-wrapper .info-container li.adm-block .note {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transition: 0.8s ease;
 }
 .private-info-block .accordeon .box .content .box-content-wrapper .info-container li.adm-block .note span {
   max-width: 519px;
@@ -174,7 +180,7 @@
 }
 .private-info-block .accordeon .box .content .box-content-wrapper .info-container li.adm-block .note.visible {
   max-height: 2000px;
-  transition: max-height 0.5s ease;
+  transition: 0.8s ease;
 }
 
 /*# sourceMappingURL=privateInfo.css.map */

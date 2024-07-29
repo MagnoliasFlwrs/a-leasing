@@ -117,7 +117,7 @@
   color: #0067B9;
 }
 .editing-profile-layout .chakra-tabs__tab-panel {
-  max-height: 59vh;
+  max-height: 65vh;
   overflow-y: auto;
   scrollbar-color: transparent transparent;
   scrollbar-width: none;

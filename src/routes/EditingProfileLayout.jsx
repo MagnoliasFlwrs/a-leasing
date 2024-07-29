@@ -75,7 +75,9 @@ const EditingProfileLayout = () => {
     console.log(profileData)
 
 
-
+    const onStateChange = (i , obj) => {
+        profileData.contactPersons[i] = obj
+    }
 
     return (
         <div className='editing-profile-layout'>

@@ -28,7 +28,7 @@
         }
       }
       &.floating {
-        top: 12px;
+        top: 18px;
         left: 16px;
         p {
           font-size: 12px;
@@ -44,7 +44,7 @@
       border: 1px solid rgba(0, 0, 0, 0.40);
       display: flex;
       height: 56px;
-      padding: 26px 16px 10px;
+      padding: 26px 16px 12px;
       justify-content: space-between;
       align-items: center;
       color: #333;
@@ -53,10 +53,11 @@
       font-style: normal;
       font-weight: 400;
       line-height: 120%; /* 16.8px */
+      position: relative;
 
       &.open {
         .custom-select__icon {
-          transform: rotate(180deg);
+          transform:translateY(-50%) rotate(180deg);
         }
       }
       .custom-select__icon {
@@ -67,6 +68,10 @@
         width: 16px;
         height: 16px;
         transition: transform 0.3s;
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
       }
     }
   }

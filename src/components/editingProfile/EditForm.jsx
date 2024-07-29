@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {FormControl, FormLabel, Switch} from "@chakra-ui/react";
-import CustomSelect from "../../CustomSelect.jsx";
-import FloatingCustomSelect from "../../FloatingCustomSelect.jsx";
+import {Select, Switch} from "@chakra-ui/react";
+import FloatingCustomSelect from "../FloatingCustomSelect.jsx";
+import ChangeMainPersonModal from "./ChangeMainPersonModal.jsx";
 
-const EditForm = ({person}) => {
+const EditForm = ({person , mainPerson}) => {
     const {address , email , fullName , isMain , isRecipient , phoneNumber , position} = person;
     const [fio , setFio] = useState('');
     const [switchState , setSwitchState] = useState(false);
@@ -20,6 +20,7 @@ const EditForm = ({person}) => {
     const [building , setBuilding] = useState('');
     const [flat , setFlat] = useState('');
     const [postcode , setPostcode] = useState('');
+    const [openModal , setOpenModal] = useState(false)
 
 
 
@@ -41,6 +42,9 @@ const EditForm = ({person}) => {
     const handleChangeSwitch = (e)=> {
         const { value } = e.target;
         setSwitchState(value);
+        if( !switchState) {
+            setOpenModal(true)
+        }
     }
     const handleChangePosition = (e)=> {
         const { value } = e.target;
@@ -62,10 +66,25 @@ const EditForm = ({person}) => {
         const { value } = e.target;
         setCity(value);
     }
-
     const handleChangeStreet = (e) => {
         const { value } = e.target;
         setStreet(value);
+    }
+    const handleChangeHouse = (e) => {
+        const { value } = e.target;
+        setHouseNumber(value);
+    }
+    const handleChangeBuilding = (e) => {
+        const { value } = e.target;
+        setBuilding(value);
+    }
+    const handleChangeFlat = (e) => {
+        const { value } = e.target;
+        setFlat(value);
+    }
+    const handleChangePostcode = (e) => {
+        const { value } = e.target;
+        setPostcode(value);
     }
     const options = [
         { value: 'Улица', label: 'Улица' },
@@ -74,6 +93,7 @@ const EditForm = ({person}) => {
         { value: 'Бульвар', label: 'Бульвар' },
         { value: 'Тракт', label: 'Тракт' },
         { value: 'Тупик', label: 'Тупик' },
+
     ];
     useEffect(() => {
         console.log(streetType)
@@ -108,7 +128,7 @@ const EditForm = ({person}) => {
                                     size='lg'
                                     id='is-main-switch'
                                     value={switchState}
-                                    onChange={(e)=>handleChangeSwitch(e)}/>
+                                    onChange={(e) => handleChangeSwitch(e)}/>
                             <label htmlFor="is-main-switch">Основное контактное лицо</label>
                         </div>
 
@@ -140,14 +160,13 @@ const EditForm = ({person}) => {
                             <label className="text-field__label" htmlFor="email">Адрес электронной почты</label>
                         </div>
                     </div>
-
                 </div>
                 <div className="column">
                     <div className="chapter">
                         <div className="title-row">
                             <p className="title">Почтовый адрес</p>
                             <span className='adress'>Ваш текущий адрес: {userAddress} </span>
-                            <span className="btn" onClick={()=>setAddressFieldsVisibility(!addressFieldsVisibility)}>Изменить адрес</span>
+                            <span className="btn" onClick={() => setAddressFieldsVisibility(!addressFieldsVisibility)}>Изменить адрес</span>
                         </div>
 
                         {
@@ -164,17 +183,50 @@ const EditForm = ({person}) => {
                                         <label className="text-field__label" htmlFor="city">Населенный
                                             пункт<span>*</span></label>
                                     </div>
-                                    <FloatingCustomSelect
-                                        options={options}
-                                        value={streetType}
-                                        onChange={setStreetType}
-                                        label='Тип улицы'
-                                    />
+                                    {
+                                        window.innerWidth > 745 ?
+                                            <FloatingCustomSelect
+                                                options={options}
+                                                value={streetType}
+                                                onChange={setStreetType}
+                                                label='Тип улицы'
+                                            /> :
+                                            <Select placeholder='Тип улицы'>
+                                                <option value='Улица'>Улица</option>
+                                                <option value='Переулок'>Переулок</option>
+                                                <option value='Проспект'>Проспект</option>
+                                                <option value='Бульвар'>Бульвар</option>
+                                                <option value='Тракт'>Тракт</option>
+                                                <option value='Тупик'>Тупик</option>
+                                            </Select>
+                                    }
+
 
                                     <div className="text-field text-field_floating">
                                         <input className="text-field__input" type="email" id="street"
                                                placeholder="mymail@mail.com" onChange={() => handleChangeStreet()}/>
                                         <label className="text-field__label" htmlFor="street">Улица<span>*</span></label>
+                                    </div>
+
+                                    <div className="text-field text-field_floating">
+                                        <input className="text-field__input" type="text" id="house"
+                                               placeholder="mymail@mail.com" onChange={() => handleChangeHouse()}/>
+                                        <label className="text-field__label" htmlFor="house">Дом<span>*</span></label>
+                                    </div>
+                                    <div className="text-field text-field_floating">
+                                        <input className="text-field__input" type="text" id="building"
+                                               placeholder="mymail@mail.com" onChange={() => handleChangeBuilding()}/>
+                                        <label className="text-field__label" htmlFor="building">Строение/корпус</label>
+                                    </div>
+                                    <div className="text-field text-field_floating">
+                                        <input className="text-field__input" type="text" id="flat"
+                                               placeholder="mymail@mail.com" onChange={() => handleChangeFlat()}/>
+                                        <label className="text-field__label" htmlFor="flat">Квартира<span>*</span></label>
+                                    </div>
+                                    <div className="text-field text-field_floating">
+                                        <input className="text-field__input" type="text" id="postcode"
+                                               placeholder="mymail@mail.com" onChange={() => handleChangePostcode()}/>
+                                        <label className="text-field__label" htmlFor="postcode">Индекс</label>
                                     </div>
                                 </>
                             )
@@ -184,6 +236,14 @@ const EditForm = ({person}) => {
 
                 </div>
             </div>
+            {
+                openModal &&
+                <ChangeMainPersonModal open={openModal}
+                                       oldPerson={mainPerson?.length ? mainPerson[0]?.fullName : ''}
+                                       newPerson={fullName}
+                                       close={()=>setOpenModal(false)}/>
+            }
+
         </div>
 
     );

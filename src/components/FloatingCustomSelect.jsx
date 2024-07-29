@@ -14,7 +14,7 @@ const FloatingCustomSelect = ({ options, value, onChange, label }) => {
                 <div
                     className={`custom-select__label ${value ? 'floating' : ''}`}
                 >
-                    {label}
+                    <p>{label} <span>*</span></p>
                 </div>
                 <div
                     className={`custom-select__selected ${isOpen ? 'open' : ''}`}

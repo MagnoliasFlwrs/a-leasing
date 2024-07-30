@@ -13,6 +13,7 @@ import EditingProfileLayout from "../routes/EditingProfileLayout";
 import ProcuratoryLayout from "../routes/ProcuratoryLayout";
 import { useSelector } from "react-redux";
 import MainPageLayout from "../routes/MainPageLayout.jsx";
+import ApplicationPageLayout from "../routes/ApplicationPageLayout.jsx";
 
 const authRoutes = [
   {
@@ -53,7 +54,7 @@ const authRoutes = [
       },
       {
         path: "/applications",
-        element: <p>applications</p>,
+        element: <ApplicationPageLayout/>,
       },
       {
         path: "*",

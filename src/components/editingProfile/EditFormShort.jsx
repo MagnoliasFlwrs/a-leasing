@@ -68,7 +68,6 @@ const EditFormShort = ({profile}) => {
         { value: 'Бульвар', label: 'Бульвар' },
         { value: 'Тракт', label: 'Тракт' },
         { value: 'Тупик', label: 'Тупик' },
-
     ];
     useEffect(() => {
         console.log(streetType)

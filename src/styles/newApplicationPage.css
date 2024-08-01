@@ -52,6 +52,17 @@
   flex-direction: column;
   flex-grow: 1;
 }
+.new-application-container .chakra-tabs .chakra-tabs__tablist {
+  overflow-x: auto;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+@media (max-width: 1024px) {
+  .new-application-container .chakra-tabs .chakra-tabs__tablist {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+}
 .new-application-container .chakra-tabs .chakra-tabs__tab-panels {
   flex-grow: 1;
   display: flex;
@@ -124,9 +135,21 @@
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
+  width: 100%;
 }
 .new-application-container .new-appl-block .chapter .row .custom-select, .new-application-container .new-appl-block .chapter .row .document-container-select {
   max-width: 206px;
+  width: 100%;
+}
+@media (max-width: 550px) {
+  .new-application-container .new-appl-block .chapter .row .custom-select, .new-application-container .new-appl-block .chapter .row .document-container-select {
+    max-width: 100%;
+  }
+}
+.new-application-container .new-appl-block .chapter .row .document-container-select {
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  outline: none;
 }
 .new-application-container .new-appl-block .chapter .row .appl-form-input {
   display: flex;
@@ -139,6 +162,11 @@
   border: 1px solid rgba(0, 0, 0, 0.4);
   outline: none;
   height: 38.4px;
+}
+@media (max-width: 550px) {
+  .new-application-container .new-appl-block .chapter .row .appl-form-input {
+    max-width: 100%;
+  }
 }
 .new-application-container .new-appl-block .chapter .row .appl-form-input::placeholder {
   color: #333;
@@ -196,6 +224,12 @@
   flex-direction: column;
   gap: 12px;
 }
+@media (max-width: 1024px) {
+  .new-application-container .new-appl-block .add-new-application {
+    position: static;
+    align-items: center;
+  }
+}
 .new-application-container .new-appl-block .add-new-application a {
   border-radius: 100px;
   background: var(--Red, #EA2119);
@@ -211,6 +245,11 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0.34px;
+}
+@media (max-width: 1024px) {
+  .new-application-container .new-appl-block .add-new-application a {
+    width: 100%;
+  }
 }
 .new-application-container .new-appl-block .add-new-application a:hover {
   background: #E01D16;

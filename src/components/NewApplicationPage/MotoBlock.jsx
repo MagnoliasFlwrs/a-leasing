@@ -66,7 +66,6 @@ const MotoBlock = () => {
                         isActive ?
                             <Select className='document-container-select'
                                     icon={<ChevronDownIcon/>}
-                                    width='161px'
                             >
                                 <option value='option1'>Новые</option>
                                 <option value='option2'>Старые</option>
@@ -84,7 +83,6 @@ const MotoBlock = () => {
                         isActive ?
                             <Select className='document-container-select'
                                     icon={<ChevronDownIcon/>}
-                                    width='161px'
                             >
                                 <option value='option1'>Новые</option>
                                 <option value='option2'>Старые</option>
@@ -102,7 +100,6 @@ const MotoBlock = () => {
                         isActive ?
                             <Select className='document-container-select'
                                     icon={<ChevronDownIcon/>}
-                                    width='161px'
                             >
                                 <option value='option1'>Новые</option>
                                 <option value='option2'>Старые</option>
@@ -135,7 +132,6 @@ const MotoBlock = () => {
                         isActive ?
                             <Select className='document-container-select'
                                     icon={<ChevronDownIcon/>}
-                                    width='161px'
                             >
                                 <option value='option1'>Новые</option>
                                 <option value='option2'>Старые</option>

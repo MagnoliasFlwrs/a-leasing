@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Select} from "@chakra-ui/react";
+import {Checkbox, Select} from "@chakra-ui/react";
 import {ChevronDownIcon} from "@chakra-ui/icons";
 import RequestsTable from "../contracts/requests/RequestsTable.jsx";
 import CustomSelect from "../CustomSelect.jsx";
@@ -9,7 +9,7 @@ const FiltersPanel = () => {
     const [newApplSort , setNewApplSort] = useState('')
 
     const openFiltersHandler = () => {
-        if (window.innerWidth > 743) {
+        if (window.innerWidth > 745) {
             if (openFilters) {
                 setOpenFilters(false)
             } else {
@@ -62,51 +62,88 @@ const FiltersPanel = () => {
                     </svg>
                     <span>{isActive ? 'Фильтры' : 'Показать фильтры'}</span>
                 </div>
-                <CustomSelect options={options}
-                              value={newApplSort}
-                              onChange={setNewApplSort}
-                                label='Новые'/>
-                <Select className='document-container-select'
-                        icon={<ChevronDownIcon/>}
-                        width='161px'
-                >
-                    <option value='option1'>Новые</option>
-                    <option value='option2'>Старые</option>
-                </Select>
+                <div className="sort-1">
+                    Сортировать
+                    {
+                        isActive ?
+                            <Select className='document-container-select'
+                                    icon={<ChevronDownIcon/>}
+                                    width='161px'
+                            >
+                                <option value='option1'>Новые</option>
+                                <option value='option2'>Старые</option>
+                            </Select>
+                            :
+                            <CustomSelect options={options}
+                                          value={newApplSort}
+                                          onChange={setNewApplSort}
+                                          label='Новые'/>
+                    }
+                </div>
+                <Checkbox colorScheme='red' >
+                    Показать только заявки на лизинг
+                </Checkbox>
+
+
+
             </div>
-            <div className={openFilters ? 'filter-row open' : 'filter-row'}>
-                <Select className='document-container-select'
-                        icon={<ChevronDownIcon/>}
-                        placeholder='Тип заявки'
-                        width='206px'
-                >
-                    <option value='option1'>Новые</option>
-                    <option value='option2'>Старые</option>
-                </Select>
-                <Select className='document-container-select'
-                        icon={<ChevronDownIcon/>}
-                        width='206px'
-                        placeholder='Статус'
-                >
-                    <option value='option1'>Новые</option>
-                    <option value='option2'>Старые</option>
-                </Select>
-                <Select className='document-container-select'
-                        icon={<ChevronDownIcon/>}
-                        width='206px'
-                >
-                    <option value='option1'>Апрель 2020</option>
-                    <option value='option2'>Апрель 2021</option>
-                </Select>
-                <Select className='document-container-select'
-                        icon={<ChevronDownIcon/>}
-                        width='206px'
-                        placeholder='Предмет лизинга'
-                >
-                    <option value='option1'>Новые</option>
-                    <option value='option2'>Старые</option>
-                </Select>
-            </div>
+            {
+                isActive ?
+                    <div className={openFilters ? 'filter-row open' : 'filter-row'}>
+                        <Select className='document-container-select'
+                                icon={<ChevronDownIcon/>}
+                                placeholder='Тип заявки'
+                                width='206px'
+                        >
+                            <option value='option1'>Новые</option>
+                            <option value='option2'>Старые</option>
+                        </Select>
+                        <Select className='document-container-select'
+                                icon={<ChevronDownIcon/>}
+                                width='206px'
+                                placeholder='Статус'
+                        >
+                            <option value='option1'>Новые</option>
+                            <option value='option2'>Старые</option>
+                        </Select>
+                        <Select className='document-container-select'
+                                icon={<ChevronDownIcon/>}
+                                width='206px'
+                        >
+                            <option value='option1'>Апрель 2020</option>
+                            <option value='option2'>Апрель 2021</option>
+                        </Select>
+                        <Select className='document-container-select'
+                                icon={<ChevronDownIcon/>}
+                                width='206px'
+                                placeholder='Предмет лизинга'
+                        >
+                            <option value='option1'>Новые</option>
+                            <option value='option2'>Старые</option>
+                        </Select>
+                    </div>
+                    :
+                    <div className={openFilters ? 'filter-row open' : 'filter-row'}>
+                        <CustomSelect options={options}
+                                      value={newApplSort}
+                                      onChange={setNewApplSort}
+                                      label='Тип заявки'/>
+                        <CustomSelect options={options}
+                                      value={newApplSort}
+                                      onChange={setNewApplSort}
+                                      label='Статус'/>
+                        <CustomSelect options={options}
+                                      value={newApplSort}
+                                      onChange={setNewApplSort}
+                                      label='Месяц'/>
+                        <CustomSelect options={options}
+                                      value={newApplSort}
+                                      onChange={setNewApplSort}
+                                      label='Предмет лизинга'/>
+
+                    </div>
+            }
+
         </div>
     );
 };

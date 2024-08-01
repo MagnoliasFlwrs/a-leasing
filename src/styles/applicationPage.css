@@ -45,6 +45,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 16.8px */
+  white-space: nowrap;
 }
 .application-page-container .head-row .apply:hover svg path {
   fill: #0067B9;
@@ -80,6 +81,7 @@
   display: flex;
   gap: 24px;
   align-items: center;
+  flex-wrap: wrap;
 }
 .application-page-container .filters-block .row .filters-btn {
   cursor: pointer;
@@ -93,6 +95,21 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+  white-space: nowrap;
+}
+.application-page-container .filters-block .row .sort-1 {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.application-page-container .filters-block .row .sort-1 .custom-select {
+  width: 161px;
 }
 .application-page-container .filters-block .row .document-container-select {
   display: flex;
@@ -110,6 +127,14 @@
   line-height: normal;
   outline-offset: 0;
 }
+.application-page-container .filters-block .row .chakra-checkbox .chakra-checkbox__label {
+  color: #000;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
 .application-page-container .filters-block .filter-row {
   display: flex;
   gap: 24px;
@@ -119,6 +144,9 @@
 }
 .application-page-container .filters-block .filter-row.open {
   display: flex;
+}
+.application-page-container .filters-block .filter-row .custom-select {
+  width: 206px;
 }
 .application-page-container .filters-block .filter-row .document-container-select {
   display: flex;

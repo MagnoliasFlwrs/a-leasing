@@ -14,6 +14,7 @@ import ProcuratoryLayout from "../routes/ProcuratoryLayout";
 import { useSelector } from "react-redux";
 import MainPageLayout from "../routes/MainPageLayout.jsx";
 import ApplicationPageLayout from "../routes/ApplicationPageLayout.jsx";
+import NewApplicationPage from "../routes/NewApplicationPage.jsx";
 
 const authRoutes = [
   {
@@ -55,6 +56,10 @@ const authRoutes = [
       {
         path: "/applications",
         element: <ApplicationPageLayout/>,
+      },
+      {
+        path: "/new-application",
+        element: <NewApplicationPage/>,
       },
       {
         path: "*",

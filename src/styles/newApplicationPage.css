@@ -1,0 +1,227 @@
+.new-application-container {
+  flex-grow: 1;
+  padding: 31px 56px 56px 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media (max-width: 1133px) {
+  .new-application-container {
+    padding: 24px;
+  }
+}
+@media (max-width: 745px) {
+  .new-application-container {
+    padding: 18px 24px;
+  }
+}
+.new-application-container .head {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.new-application-container .head a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.new-application-container .head a span {
+  color: var(--blue, #0070C9);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.new-application-container .head a:hover svg path {
+  fill: #0067B9;
+}
+.new-application-container .head a:hover span {
+  color: #0067B9;
+}
+.new-application-container .head h1 {
+  color: #333;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 20.4px */
+}
+.new-application-container .chakra-tabs {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.new-application-container .chakra-tabs .chakra-tabs__tab-panels {
+  flex-grow: 1;
+  display: flex;
+}
+.new-application-container .chakra-tabs .chakra-tabs__tab-panels .chakra-tabs__tab-panel {
+  flex-grow: 1;
+}
+.new-application-container .new-appl-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-height: 65vh;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: none;
+  padding-bottom: 56px;
+  position: relative;
+}
+.new-application-container .new-appl-block::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+}
+.new-application-container .new-appl-block ::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.new-application-container .new-appl-block ::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+}
+.new-application-container .new-appl-block .chapter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.new-application-container .new-appl-block .chapter .title {
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 16.8px */
+}
+.new-application-container .new-appl-block .chapter .text-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.new-application-container .new-appl-block .chapter .text-row span {
+  color: var(--grey_txt, rgba(143, 143, 148, 0.7));
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.new-application-container .new-appl-block .chapter .custom-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.new-application-container .new-appl-block .chapter .row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.new-application-container .new-appl-block .chapter .row .custom-select, .new-application-container .new-appl-block .chapter .row .document-container-select {
+  max-width: 206px;
+}
+.new-application-container .new-appl-block .chapter .row .appl-form-input {
+  display: flex;
+  max-width: 206px;
+  width: 100%;
+  padding: 10px 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  outline: none;
+  height: 38.4px;
+}
+.new-application-container .new-appl-block .chapter .row .appl-form-input::placeholder {
+  color: #333;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.new-application-container .new-appl-block .chapter .row .appl-form-input.address {
+  max-width: 412px;
+  width: 100%;
+}
+.new-application-container .new-appl-block .chapter .row .chakra-checkbox .chakra-checkbox__label {
+  color: #000;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+}
+.new-application-container .new-appl-block .chapter .row .txt {
+  display: flex;
+  flex-direction: column;
+}
+.new-application-container .new-appl-block .chapter .row .txt p.red {
+  color: var(--Red, #EA2119);
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 20.4px */
+}
+.new-application-container .new-appl-block .chapter .row .txt p.green {
+  color: #30D158;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 20.4px */
+}
+.new-application-container .new-appl-block .chapter .row .txt span {
+  color: var(--grey_txt, rgba(143, 143, 148, 0.7));
+  font-family: Roboto;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 9.6px */
+}
+.new-application-container .new-appl-block .add-new-application {
+  position: fixed;
+  bottom: 56px;
+  right: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.new-application-container .new-appl-block .add-new-application a {
+  border-radius: 100px;
+  background: var(--Red, #EA2119);
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.34px;
+}
+.new-application-container .new-appl-block .add-new-application a:hover {
+  background: #E01D16;
+}
+.new-application-container .new-appl-block .add-new-application span {
+  color: var(--grey_txt, rgba(143, 143, 148, 0.7));
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/*# sourceMappingURL=newApplicationPage.css.map */

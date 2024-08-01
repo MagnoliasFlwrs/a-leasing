@@ -3,7 +3,7 @@ import {Select, Switch} from "@chakra-ui/react";
 import FloatingCustomSelect from "../FloatingCustomSelect.jsx";
 import ChangeMainPersonModal from "./ChangeMainPersonModal.jsx";
 
-const EditForm = ({person , mainPerson}) => {
+const EditForm = ({person , mainPerson , i , onContactArrChange}) => {
     const {address , email , fullName , isMain , isRecipient , phoneNumber , position} = person;
     const [fio , setFio] = useState('');
     const [switchState , setSwitchState] = useState(false);
@@ -20,7 +20,17 @@ const EditForm = ({person , mainPerson}) => {
     const [building , setBuilding] = useState('');
     const [flat , setFlat] = useState('');
     const [postcode , setPostcode] = useState('');
-    const [openModal , setOpenModal] = useState(false)
+    const [openModal , setOpenModal] = useState(false);
+
+    let contactObj = {
+        address:'',
+        email:'',
+        fullName:'',
+        isMain:'',
+        phoneNumber:'',
+        position:'',
+        isRecipient:false
+    }
 
 
 
@@ -34,10 +44,10 @@ const EditForm = ({person , mainPerson}) => {
 
     }, [person]);
 
-
     const handleChangeFio = (e) => {
         const { value } = e.target;
         setFio(value);
+        contactObj.fullName = value
     }
     const handleChangeSwitch = (e)=> {
         const { value } = e.target;
@@ -45,18 +55,22 @@ const EditForm = ({person , mainPerson}) => {
         if( !switchState) {
             setOpenModal(true)
         }
+        contactObj.isMain = value
     }
     const handleChangePosition = (e)=> {
         const { value } = e.target;
         setUserPosition(value);
+        contactObj.position = value
     }
     const handleChangeEmail = (e) => {
         const { value } = e.target;
         setUserEmail(value);
+        contactObj.email = value
     }
     const handleChangeNumber = (e) => {
         const { value } = e.target;
         setUserNumber(value);
+        contactObj.phoneNumber = value
     }
     const handleChangeCountry = (e) => {
         const { value } = e.target;

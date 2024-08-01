@@ -21,7 +21,7 @@ const ApplicationPageLayout = () => {
                     </svg>
                     <span>Создать заявку</span>
                 </div>
-                <a href='#' className="new-application">
+                <a href='/new-application' className="new-application">
                     Заявка на лизинг
                 </a>
             </div>

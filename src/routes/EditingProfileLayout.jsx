@@ -5,7 +5,6 @@ import {
     useGetLegalPersonsProfileByIdQuery, useGetNaturalPersonsProfileByIdQuery
 } from "../services/auth/index.js";
 import ULTabs from "../components/editingProfile/ULTabs.jsx";
-import EditForm from "../components/editingProfile/EditForm.jsx";
 import EditFormShort from "../components/editingProfile/EditFormShort.jsx";
 
 const EditingProfileLayout = () => {
@@ -13,7 +12,8 @@ const EditingProfileLayout = () => {
     const accessToken = localStorage.getItem('access-token');
     const parts = accessToken.split('.');
     const [profileData , setProfileData] = useState(null);
-    const [mainContactPerson , setMainContactPerson] = useState(null)
+    const [mainContactPerson , setMainContactPerson] = useState(null);
+    const [contactPersonArr , setContactPersonArr] = useState(null);
 
 
     const base64urlDecode = (str) => {
@@ -61,22 +61,25 @@ const EditingProfileLayout = () => {
 
     useEffect(() => {
         if (isIndividualSuccess) {
-            setProfileData(individualData)
+            setProfileData(individualData);
+            setContactPersonArr(individualData)
         } else if (isLegalSuccess) {
             setProfileData(legalData);
             let mainPerson = legalData.contactPersons.map(item => item.isMain === true);
             setMainContactPerson(mainPerson)
+            setContactPersonArr(mainPerson)
 
         } else if (isNaturalSuccess) {
             setProfileData(naturalData)
+            setContactPersonArr(naturalData)
         }
     }, [individualData, naturalData, legalData]);
 
     console.log(profileData)
 
 
-    const onStateChange = (i , obj) => {
-        profileData.contactPersons[i] = obj
+    const onContactArrChange = (i , obj) => {
+        contactPersonArr.contactPersons[i] = obj;
     }
 
     return (
@@ -120,9 +123,9 @@ const EditingProfileLayout = () => {
             </div>
             {
                 userInfo?.signInType === 'LEGAL_PERSON' ?
-                <ULTabs profile={profileData?.contactPersons} mainperson={mainContactPerson}/>
+                <ULTabs profile={profileData?.contactPersons} mainperson={mainContactPerson} onContactArrChange={onContactArrChange}/>
                     :
-                    <EditFormShort profile={profileData}/>
+                    <EditFormShort profile={profileData} onContactArrChange={onContactArrChange}/>
             }
 
             <div className="r-btn">

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Spinner, Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
 import EditForm from "./EditForm.jsx";
 
-const UlTabs = ({profile , mainperson}) => {
+const UlTabs = ({profile , mainperson , onContactArrChange}) => {
     const [profileState, setProfileState] = useState(null);
     useEffect(() => {
         setProfileState(profile)
@@ -70,7 +70,10 @@ const UlTabs = ({profile , mainperson}) => {
                                 profileState.map((item , index) => {
                                     return (
                                         <TabPanel key={index} style={{padding: '0'}}>
-                                            <EditForm person={item} mainPerson={mainperson}/>
+                                            <EditForm person={item}
+                                                      i={index}
+                                                      onContactArrChange={onContactArrChange}
+                                                      mainPerson={mainperson}/>
                                         </TabPanel>
                                     )
                                 })

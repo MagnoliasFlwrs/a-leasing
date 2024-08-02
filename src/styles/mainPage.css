@@ -197,13 +197,18 @@
   display: flex;
   width: 36px;
   height: 36px;
-  padding-left: 2px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-radius: 100px;
   background: rgba(149, 149, 149, 0.2);
   cursor: pointer;
+}
+.main-page-container .wrapper .news-block .title-row .arrows .arrow:first-child {
+  padding-right: 2px;
+}
+.main-page-container .wrapper .news-block .title-row .arrows .arrow:last-child {
+  padding-left: 2px;
 }
 .main-page-container .wrapper .news-block .title-row .arrows .arrow.swiper-button-disabled {
   border-radius: 100px;

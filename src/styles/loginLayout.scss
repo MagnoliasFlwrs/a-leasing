@@ -5,12 +5,12 @@
   background: #F5F5F7;
   .form-row {
     flex-grow: 1;
-    padding: 84px 130px 55px 0;
+    padding: 45px 130px 45px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     @media (max-width: 1150px) {
-      padding: 84px 30px 55px 0;
+      padding: 50px 30px 55px 0;
     }
     @media (max-width: 1000px) {
       flex-direction: column;
@@ -19,7 +19,7 @@
     }
     .login-swiper {
       width: 495px;
-      height: 530px;
+      height: 450px;
       @media (max-width: 1000px) {
         max-width: 495px;
         width: 100%;
@@ -58,6 +58,16 @@
               font-style: normal;
               font-weight: 400;
               line-height: 120%; /* 20.4px */
+            }
+          }
+          .image {
+            width: 100%;
+            height: 340px;
+            flex-grow: 1;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
             }
           }
 

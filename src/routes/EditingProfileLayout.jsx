@@ -75,12 +75,18 @@ const EditingProfileLayout = () => {
         }
     }, [individualData, naturalData, legalData]);
 
-    console.log(profileData)
+
 
 
     const onContactArrChange = (i , obj) => {
-        contactPersonArr.contactPersons[i] = obj;
+        if (i === -1) {
+            contactPersonArr.contactPersons.push(obj)
+        } else {
+            contactPersonArr.contactPersons[i] = obj;
+        }
     }
+    console.log(contactPersonArr)
+
 
     return (
         <div className='editing-profile-layout'>

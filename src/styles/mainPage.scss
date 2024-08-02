@@ -176,13 +176,18 @@
             display: flex;
             width: 36px;
             height: 36px;
-            padding-left: 2px;
             justify-content: center;
             align-items: center;
             gap: 10px;
             border-radius: 100px;
             background: rgba(149, 149, 149, 0.20);
             cursor: pointer;
+            &:first-child {
+              padding-right: 2px;
+            }
+            &:last-child {
+              padding-left: 2px;
+            }
             &.swiper-button-disabled {
               border-radius: 100px;
               opacity: 0.3;

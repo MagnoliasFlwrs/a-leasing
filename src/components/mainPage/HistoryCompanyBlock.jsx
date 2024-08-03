@@ -2,7 +2,8 @@ import React from 'react';
 import greek from '../../images/aesthetic-background-with-greek-bust 1.png'
 import {Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
 
-const HistoryCompanyBlock = () => {
+const HistoryCompanyBlock = ({data}) => {
+    console.log(data)
     const tabStyle = {
         borderRadius: '30px',
         bg: 'rgba(149, 149, 149, 0.10);',

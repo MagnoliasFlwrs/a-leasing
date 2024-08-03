@@ -5,6 +5,10 @@
   transition: 0.3s ease;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
 }

@@ -8,11 +8,23 @@ export const mainPageApi = api.injectEndpoints({
         getPromotions: builder.query({
             query: ({ limit, page }) => `company-promotions?limit=${limit}&page=${page}`,
         }),
+        getHistory: builder.query({
+            query: ({ limit, page }) => `company-histories?limit=${limit}&page=${page}`,
+        }),
+        getCatalog: builder.query({
+            query: ({ limit, page }) => `catalog-elements?limit=${limit}&page=${page}`,
+        }),
+        getReviews: builder.query({
+            query: ({ limit, page }) => `company-reviews?limit=${limit}&page=${page}`,
+        }),
     }),
 });
 
 export const {
     useGetNewsQuery,
-    useGetPromotionsQuery
+    useGetPromotionsQuery,
+    useGetHistoryQuery,
+    useGetCatalogQuery,
+    useGetReviewsQuery
 } = mainPageApi;
 

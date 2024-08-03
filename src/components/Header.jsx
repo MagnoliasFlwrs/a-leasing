@@ -33,7 +33,7 @@ const Header = () => {
                         <a href="/contracts">FaQ</a>
                     </li>
                     <li>
-                        <a href="/contracts">О компании</a>
+                        <a href="/#about">О компании</a>
                     </li>
                     <li>
                         <p className='logo-subtitle'>А-Лизинг</p>

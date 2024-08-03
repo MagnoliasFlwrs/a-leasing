@@ -8,7 +8,12 @@ import CatalogBlock from "../components/mainPage/CatalogBlock.jsx";
 import Footer from "../components/loginPage/Footer.jsx";
 import ContactForm from "../components/mainPage/ContactForm.jsx";
 import ReviewsBlock from "../components/mainPage/ReviewsBlock.jsx";
-import {useGetNewsQuery, useGetPromotionsQuery} from "../services/mainPage/mainPage.service.js";
+import {
+    useGetCatalogQuery,
+    useGetHistoryQuery,
+    useGetNewsQuery,
+    useGetPromotionsQuery, useGetReviewsQuery
+} from "../services/mainPage/mainPage.service.js";
 
 const MainPageLayout = () => {
 
@@ -18,27 +23,37 @@ const MainPageLayout = () => {
     const { data: promotionsData,
             error: promotionsError,
             isSuccess: isPromotionsSuccess } = useGetPromotionsQuery({ limit: 3, page: 1 });
+    const {
+        data: historyData,
+        error: historyError,
+        isSuccess : isHistorySuccess } = useGetHistoryQuery({ limit: 20, page: 1 });
+    const {
+        data: catalogData,
+        error: catalogError,
+        isSuccess : isCatalogSuccess } = useGetCatalogQuery({ limit: 20, page: 1 });
+    const {
+        data: reviewsData,
+        error: reviewsError,
+        isSuccess : isReviewsSuccess } = useGetReviewsQuery({ limit: 20, page: 1 });
 
-    console.log(newsData)
-    console.log(promotionsData)
 
     return (
         <div className='main-page-container'>
             <div className="wrapper">
                 <div className="head-block">
                     <h1>А-Лизинг</h1>
-                    <a href="#" className="btn">Оформить лизинг онлайн</a>
+                    <a href="/new-application" className="btn">Оформить лизинг онлайн</a>
                 </div>
                 <MainPageAboutBlock/>
                 <NewsBlock data={newsData}/>
                 <PromotionsBlock data={promotionsData}/>
-                <HistoryCompanyBlock/>
-                <CatalogBlock/>
+                <HistoryCompanyBlock data={historyData}/>
+                <CatalogBlock data={catalogData}/>
                 <div className="info-block">
                     <h2>Информация об осуществляемой лизинговой деятельности и финансовом состоянии ООО «А-Лизинг»</h2>
                     <a href="#">Читать подробнее</a>
                 </div>
-                <ReviewsBlock/>
+                <ReviewsBlock data={reviewsData}/>
                 <ContactForm/>
                 <Footer/>
             </div>

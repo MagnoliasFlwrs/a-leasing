@@ -3,7 +3,7 @@ import letter from '../../images/letter.png'
 
 const MainPageAboutBlock = () => {
     return (
-        <div className='about-block'>
+        <div className='about-block' id='about'>
             <p className="title">А-Лизинг - 8 лет успешного развития</p>
             <div className="text-block">
                 <p>

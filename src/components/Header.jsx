@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <>
             <header className='header'>
-                <ul>
+                <ul className='header-list'>
                     <li>
                         <a href='/' className='logo-title'>а</a>
                     </li>
@@ -19,7 +19,7 @@ const Header = () => {
                         <a href="/applications">Мои заявки</a>
                     </li>
                 </ul>
-                <ul>
+                <ul className='header-list'>
                     <li>
                         <a href="/contracts">Курсы валют</a>
                     </li>
@@ -30,7 +30,7 @@ const Header = () => {
                         <a href="/contracts">Контакты</a>
                     </li>
                     <li>
-                        <a href="/contracts">FaQ</a>
+                        <a href="/faq">FaQ</a>
                     </li>
                     <li>
                         <a href="/#about">О компании</a>

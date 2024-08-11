@@ -756,6 +756,9 @@
     padding: 0 18px;
   }
 }
+.main-page-container .wrapper .history-block .tabs-container .history-tabs .chakra-tabs__tab-panels {
+  flex-grow: 1;
+}
 @media (max-width: 768px) {
   .main-page-container .wrapper .history-block .tabs-container .history-tabs .chakra-tabs__tab-panels {
     margin-top: 24px;

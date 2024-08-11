@@ -38,20 +38,31 @@ const MobileMenu = () => {
     }
 
     return(
-        <nav>
+        <nav className='burger-menu'>
             <div className="mobile_nav">
-                <p className='logo-title'>а</p>
+                <p className='logo-title'></p>
                 <MenuButton type="button" onClick={toggleMenu} open={open}>
                     <span />
                     <span />
                 </MenuButton>
             </div>
 
-            <ul className={open ? "show" : ""}>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+            <div className={open ? "burger-content show" : "burger-content"}>
+                <div className="block">
+                    <a href="/profile" className='link'>Профиль</a>
+                    <a href="/contracts" className='link'>Договоры лизинга</a>
+                    <a href="/applications" className='link'>Мои заявки</a>
+                </div>
+                <div className="block">
+                    <a href="#" className='link'>Курсы валют</a>
+                    <a href="#" className='link'>Страховой случай</a>
+                    <a href="#" className='link'>Контакты</a>
+                    <a href="#" className='link'>FaQ</a>
+                    <a href="#" className='link'>О компании</a>
+                    <a href="#" className='link'>Сайт А-Лизинг</a>
+                    <a href="#" className="red-btn">Заявка на лизинг</a>
+                </div>
+            </div>
         </nav>
     )
 }

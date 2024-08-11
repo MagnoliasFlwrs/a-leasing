@@ -707,7 +707,7 @@
             }
           }
           .chakra-tabs__tab-panels {
-
+            flex-grow: 1;
             @media (max-width: 768px) {
               margin-top: 24px;
               padding: 24px 18px;

@@ -19,6 +19,9 @@ const ProfileDetailsBlock = ({profile , userType}) => {
         fontSize: '13px',
         p: '6px 12px',
         whiteSpace:'nowrap',
+        _hover: {
+            bg: 'rgba(51, 51, 51, 0.2)',
+        },
         _selected: {
             color: 'white',
             bg: '#333',

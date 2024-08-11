@@ -6,7 +6,7 @@ import ReviewCard from "./ReviewCard.jsx";
 import {Spinner} from "@chakra-ui/react";
 
 const ReviewsBlock = ({data}) => {
-    console.log(data)
+
     useEffect(() => {
         const updateNavigationVisibility = () => {
             const arrows = document.querySelectorAll('.reviews-arrows');
@@ -59,7 +59,7 @@ const ReviewsBlock = ({data}) => {
 
                             </a>
                             <div className="reviews-arrows"
-                                 style={{display: window.innerWidth > 745 ? 'block' : 'none'}}>
+                                 style={{display: window.innerWidth > 745 ? 'flex' : 'none'}}>
                                 <div className="arrow reviews-arrow-prev">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
                                          fill="none">

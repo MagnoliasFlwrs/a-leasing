@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import MainPageLayout from "../routes/MainPageLayout.jsx";
 import ApplicationPageLayout from "../routes/ApplicationPageLayout.jsx";
 import NewApplicationPage from "../routes/NewApplicationPage.jsx";
+import FaqLayout from "../routes/FaqLayout.jsx";
 
 const authRoutes = [
   {
@@ -60,6 +61,10 @@ const authRoutes = [
       {
         path: "/new-application",
         element: <NewApplicationPage/>,
+      },
+      {
+        path: "/faq",
+        element: <FaqLayout/>,
       },
       {
         path: "*",

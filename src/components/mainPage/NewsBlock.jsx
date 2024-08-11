@@ -11,7 +11,6 @@ SwiperCore.use([Navigation]);
 
 const NewsBlock = ({data}) => {
 
-    console.log(data)
     useEffect(() => {
         const updateNavigationVisibility = () => {
             const arrows = document.querySelectorAll('.arrows');
@@ -47,7 +46,7 @@ const NewsBlock = ({data}) => {
                     <div className='news-block'>
                         <div className="title-row">
                             <h2>Новости компании</h2>
-                            <div className="arrows" style={{display: window.innerWidth > 745 ? 'block' : 'none'}}>
+                            <div className="arrows" style={{display: window.innerWidth > 745 ? 'flex' : 'none'}}>
                                 <div className="arrow arrow-prev">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
                                          fill="none">

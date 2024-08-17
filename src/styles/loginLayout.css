@@ -149,6 +149,7 @@
   .login-layout .form-row .login-form .form {
     max-width: 500px;
     width: 100%;
+    flex: 1;
   }
 }
 .login-layout .form-row .login-form .form-inner {

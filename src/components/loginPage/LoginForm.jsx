@@ -163,6 +163,8 @@ const LoginForm = () => {
 
             if (!isMobile) return;
 
+            let isHandlingTouch = false;
+
             const handleTouchStart = (e) => {
                 const activeElement = document.activeElement;
                 const isInputFocused = activeElement && activeElement.tagName === 'INPUT';
@@ -180,12 +182,21 @@ const LoginForm = () => {
                 }
             };
 
+            const handleInputFocus = () => {
+                isHandlingTouch = true;
+                setTimeout(() => {
+                    isHandlingTouch = false;
+                }, 300); // Задержка, чтобы избежать немедленного закрытия клавиатуры
+            };
+
             document.addEventListener('touchstart', handleTouchStart);
             window.addEventListener('scroll', handleScroll);
+            document.addEventListener('focusin', handleInputFocus);
 
             return () => {
                 document.removeEventListener('touchstart', handleTouchStart);
                 window.removeEventListener('scroll', handleScroll);
+                document.removeEventListener('focusin', handleInputFocus);
             };
         }, []);
     }

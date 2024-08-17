@@ -133,7 +133,7 @@
 }
 @media (max-width: 745px) {
   .login-layout .form-row .login-form {
-    height: 350px;
+    flex-grow: 1;
   }
 }
 .login-layout .form-row .login-form .form {

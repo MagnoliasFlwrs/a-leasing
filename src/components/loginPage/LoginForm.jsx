@@ -157,35 +157,34 @@ const LoginForm = () => {
             handleSubmit()
         }
     }
-    const handleScroll = () => {
-        // Скрытие клавиатуры при прокрутке
-        if (document.activeElement) {
-            document.activeElement.blur();
-        }
-    };
+    function useMobileKeyboardHandler() {
+        useEffect(() => {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-    const handleClickOutside = (event) => {
-        // Проверка, что клик произошел не на поле ввода
-        if (
-            inputRef.current && !inputRef.current.contains(event.target) &&
-            passRef.current && !passRef.current.contains(event.target)
-        ) {
-            document.activeElement.blur();
-        }
-    };
+            if (!isMobile) return;
 
-    useEffect(() => {
-        if(window.innerWidth <746) {
+            const handleTouchStart = (e) => {
+                if (document.activeElement.tagName === 'INPUT' && !e.target.closest('input')) {
+                    document.activeElement.blur();
+                }
+            };
+
+            const handleScroll = () => {
+                if (document.activeElement.tagName === 'INPUT') {
+                    document.activeElement.blur();
+                }
+            };
+
+            document.addEventListener('touchstart', handleTouchStart);
             window.addEventListener('scroll', handleScroll);
-            document.addEventListener('click', handleClickOutside, true);
-        }
 
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            document.removeEventListener('click', handleClickOutside, true);
-        };
-    }, []);
+            return () => {
+                document.removeEventListener('touchstart', handleTouchStart);
+                window.removeEventListener('scroll', handleScroll);
+            };
+        }, []);
+    }
+    useMobileKeyboardHandler()
 
     return (
         <div className='login-form'>

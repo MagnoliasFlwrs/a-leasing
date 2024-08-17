@@ -116,7 +116,7 @@
         padding: 24px 18px;
       }
       @media (max-width: 745px) {
-        height: 350px;
+        flex-grow: 1;
       }
       .form {
         width: 100%;

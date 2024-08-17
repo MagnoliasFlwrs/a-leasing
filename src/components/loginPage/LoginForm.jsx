@@ -157,50 +157,7 @@ const LoginForm = () => {
             handleSubmit()
         }
     }
-    function useMobileKeyboardHandler() {
-        useEffect(() => {
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-            if (!isMobile) return;
-
-            let isHandlingTouch = false;
-
-            const handleTouchStart = (e) => {
-                const activeElement = document.activeElement;
-                const isInputFocused = activeElement && activeElement.tagName === 'INPUT';
-                const clickedOutsideInput = !e.target.closest('input');
-
-                if (isInputFocused && clickedOutsideInput) {
-                    activeElement.blur(); // Закрывает клавиатуру
-                }
-            };
-
-            const handleScroll = () => {
-                const activeElement = document.activeElement;
-                if (activeElement && activeElement.tagName === 'INPUT') {
-                    activeElement.blur(); // Закрывает клавиатуру
-                }
-            };
-
-            const handleInputFocus = () => {
-                isHandlingTouch = true;
-                setTimeout(() => {
-                    isHandlingTouch = false;
-                }, 300); // Задержка, чтобы избежать немедленного закрытия клавиатуры
-            };
-
-            document.addEventListener('touchstart', handleTouchStart);
-            window.addEventListener('scroll', handleScroll);
-            document.addEventListener('focusin', handleInputFocus);
-
-            return () => {
-                document.removeEventListener('touchstart', handleTouchStart);
-                window.removeEventListener('scroll', handleScroll);
-                document.removeEventListener('focusin', handleInputFocus);
-            };
-        }, []);
-    }
-    useMobileKeyboardHandler()
 
     return (
         <div className='login-form'>

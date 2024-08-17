@@ -6,6 +6,7 @@
   overflow: hidden;
 }
 .main-page-container .wrapper {
+  overflow: hidden;
   overflow-y: auto;
   scrollbar-color: transparent transparent;
   scrollbar-width: none;
@@ -770,6 +771,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-width: 80%;
 }
 @media (max-width: 1390px) {
   .main-page-container .wrapper .history-block .tabs-container .history-tabs .chakra-tabs__tab-panels ul {
@@ -1315,7 +1317,7 @@
 }
 .main-page-container .wrapper .reviews-block .reviews-swiper-row .review-swiper .swiper-slide .review-card .text .hidden-text-modal {
   position: absolute;
-  right: -215px;
+  right: -115px;
   top: 110%;
   display: flex;
   width: 286px;

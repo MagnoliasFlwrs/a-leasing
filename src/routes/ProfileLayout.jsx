@@ -7,13 +7,19 @@ import {
     useGetIndividualEntrepreneursProfileByIdQuery,
     useGetLegalPersonsProfileByIdQuery, useGetNaturalPersonsProfileByIdQuery
 } from "../services/auth/index.js";
+import LogoutModal from "../components/LogoutModal.jsx";
 
 
 const ProfileLayout = () => {
     const [userInfo, setUserInfo] = useState(null);
     const accessToken = localStorage.getItem('access-token');
     const parts = accessToken.split('.');
-    const [profileData , setProfileData] = useState(null)
+    const [profileData , setProfileData] = useState(null);
+    const [openLogoutModal, setOpenLogoutModal] = useState(false);
+
+    const handleOpenlogoutModal = (value) => {
+        setOpenLogoutModal(value)
+    }
 
 
     const base64urlDecode = (str) => {
@@ -105,9 +111,13 @@ const ProfileLayout = () => {
                     </a>
                 </div>
             </div>
-            <ProfileUserInfoBlock profile={profileData} userType={userInfo?.signInType}/>
+            <ProfileUserInfoBlock openLogoutModal={(value) => handleOpenlogoutModal(value)} profile={profileData} userType={userInfo?.signInType}/>
             <ProfileDetailsBlock profile={profileData} userType={userInfo?.signInType}/>
             <ProfileNotification/>
+            {
+                openLogoutModal && <LogoutModal openLogoutModal={(value) => handleOpenlogoutModal(value)}/>
+            }
+
         </div>
     );
 };

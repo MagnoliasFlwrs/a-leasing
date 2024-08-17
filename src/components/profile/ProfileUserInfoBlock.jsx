@@ -1,12 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {useSignOutMutation} from "../../services/auth/index.js";
-import {logout} from "../../lib/store/features/auth/index.js";
-import {useDispatch} from "react-redux";
+import React from 'react';
 import LegalPersonInfoBlockPart from "./LegalPersonInfoBlockPart.jsx";
 
-const ProfileUserInfoBlock = ({profile , userType}) => {
-    const [signOut] = useSignOutMutation();
-    const dispatch = useDispatch();
+const ProfileUserInfoBlock = ({openLogoutModal , profile , userType}) => {
+
 
     console.log(profile)
     const hideProfileInfo = () => {
@@ -15,19 +11,7 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
     const openNotifications = () => {
         document.querySelector('.profile-notification-container').classList.add('open');
     }
-    const handleSignOut = async () => {
-        const refresh = localStorage.getItem('refresh-token');
-        if (!refresh) {
-            console.error('Refresh token is missing');
-            return;
-        }
-        try {
-            const response = await signOut({ "refreshToken": refresh }).unwrap();
-            dispatch(logout());
-        } catch (error) {
-            console.error('Sign-out failed:', error);
-        }
-    };
+
     function boxHandler(e) {
         e.preventDefault();
         let currentBox = e.target.closest(".box");
@@ -164,7 +148,7 @@ const ProfileUserInfoBlock = ({profile , userType}) => {
                     </svg>
                     <span>Сменить пароль</span>
                 </div>
-                <div className="logout" onClick={()=> handleSignOut()}>
+                <div className="logout" onClick={()=> openLogoutModal(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                         <path fillRule="evenodd" clipRule="evenodd"
                               d="M3.33325 3.16732C3.15644 3.16732 2.98687 3.23756 2.86185 3.36258C2.73682 3.4876 2.66659 3.65717 2.66659 3.83398V13.1673C2.66659 13.3441 2.73682 13.5137 2.86185 13.6387C2.98687 13.7637 3.15644 13.834 3.33325 13.834H5.99992C6.36811 13.834 6.66658 14.1325 6.66658 14.5007C6.66658 14.8688 6.36811 15.1673 5.99992 15.1673H3.33325C2.80282 15.1673 2.29411 14.9566 1.91904 14.5815C1.54397 14.2065 1.33325 13.6978 1.33325 13.1673V3.83398C1.33325 3.30355 1.54397 2.79484 1.91904 2.41977C2.29411 2.0447 2.80282 1.83398 3.33325 1.83398H5.99992C6.36811 1.83398 6.66658 2.13246 6.66658 2.50065C6.66658 2.86884 6.36811 3.16732 5.99992 3.16732H3.33325Z"

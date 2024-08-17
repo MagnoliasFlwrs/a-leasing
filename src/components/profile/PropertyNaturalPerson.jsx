@@ -5,15 +5,33 @@ const PropertyNaturalPerson = ({data}) => {
         e.preventDefault();
         let currentBox = e.target.closest(".box");
         let currentContent = currentBox.querySelector('.content .info-container');
-        let currentHide = e.target.closest(".box").querySelector('.hide');
 
-        console.log(currentHide);
+        let currentTab = currentBox.closest('.chakra-tabs__tab-panel');
 
         currentBox.classList.toggle("active");
 
         if (currentBox.classList.contains("active")) {
-            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+            currentContent.style.transition = '.8s ease 0.5s';
+            currentContent.style.maxHeight = '800px';
+
+            // Delay the scroll to ensure content is expanded first
+            setTimeout(() => {
+                const boxTop = currentBox.offsetTop;
+                const boxBottom = boxTop + currentBox.offsetHeight;
+                const tabScrollTop = currentTab.scrollTop;
+                const tabHeight = currentTab.clientHeight;
+
+                // Check if the box is partially or completely out of view
+                const isAboveView = boxTop < tabScrollTop;
+                const isBelowView = boxBottom > (tabScrollTop + tabHeight);
+
+                if (isAboveView || isBelowView) {
+                    // Scroll to the end of the box
+                    currentTab.scrollTo({ top: boxBottom - tabHeight, behavior: "smooth" });
+                }
+            }, 900); // Adjust timeout to ensure the content has expanded
         } else {
+            currentContent.style.transition = '.8s ease 0.5s';
             currentContent.style.maxHeight = 0;
         }
     }

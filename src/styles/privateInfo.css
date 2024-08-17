@@ -18,17 +18,17 @@
   align-self: stretch;
   border-radius: 14px;
   background: #FFF;
-  transition: 0.8s ease;
+  transition: 0.8s ease 0.3s;
 }
 .private-info-block .accordeon .box.active {
-  transition: 0.8s ease;
+  transition: 0.8s ease 0.3s;
 }
 .private-info-block .accordeon .box.active .label .show-icon {
-  transition: 0.8s ease;
+  transition: 0.3s ease;
   transform: rotate(45deg);
 }
 .private-info-block .accordeon .box.active .info-container {
-  transition: 0.8s ease;
+  transition: 0.8s ease 0.3s;
 }
 .private-info-block .accordeon .box .label {
   display: flex;
@@ -62,10 +62,10 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  transition: 0.8s ease;
+  transition: 0.8s ease 0.3s;
 }
 .private-info-block .accordeon .box .content .box-content-wrapper {
-  transition: 0.8s ease;
+  transition: 0.8s ease 0.3s;
 }
 .private-info-block .accordeon .box .content .box-content-wrapper .title {
   color: #333;
@@ -78,7 +78,7 @@
   position: relative;
   overflow: hidden;
   max-height: 0;
-  transition: 0.8s ease;
+  transition: 0.8s ease 0.3s;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -90,7 +90,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  transition: 0.8s ease;
+  transition: 0.8s ease 0.3s;
 }
 .private-info-block .accordeon .box .content .box-content-wrapper .info-container li:first-child {
   margin-top: 24px;

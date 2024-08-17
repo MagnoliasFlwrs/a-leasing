@@ -41,13 +41,13 @@ const ProfileDetailsBlock = ({profile , userType}) => {
                             <Tab {...tabStyle} className='tab'>Административно-финансовая информация</Tab>
                         </TabList>
                         <TabPanels >
-                            <TabPanel style={{padding: '0'}}>
+                            <TabPanel style={{padding: '0', paddingBottom:'30px'}}>
                                 <GeneralInfoIndividualEntrepreneur data={profile?.profile?.generalInfo}/>
                             </TabPanel>
-                            <TabPanel style={{padding: '0'}}>
+                            <TabPanel style={{padding: '0', paddingBottom:'30px'}}>
                                 <OrganizationInfoIp data={profile?.profile}/>
                             </TabPanel>
-                            <TabPanel style={{padding: '0'}}>
+                            <TabPanel style={{padding: '0', paddingBottom:'30px'}}>
                                 <IPAdminisrtativeInfo data={profile?.profile}/>
                             </TabPanel>
                         </TabPanels>
@@ -63,13 +63,13 @@ const ProfileDetailsBlock = ({profile , userType}) => {
                             <Tab {...tabStyle} className='tab'>Имущество в собсвенности</Tab>
                         </TabList>
                         <TabPanels >
-                            <TabPanel style={{padding: '0'}}>
+                            <TabPanel style={{padding: '0', paddingBottom:'30px'}}>
                                 <PrivateInfoNaturalPerson data={profile?.profile}/>
                             </TabPanel>
-                            <TabPanel style={{padding: '0'}}>
+                            <TabPanel style={{padding: '0', paddingBottom:'30px'}}>
                                 <WorkingPlaceNaturalPerson data={profile?.profile}/>
                             </TabPanel>
-                            <TabPanel style={{padding: '0'}}>
+                            <TabPanel style={{padding: '0', paddingBottom:'30px'}}>
                                 <PropertyNaturalPerson data={profile?.profile}/>
                             </TabPanel>
                         </TabPanels>
@@ -86,16 +86,16 @@ const ProfileDetailsBlock = ({profile , userType}) => {
                             <Tab {...tabStyle} className='tab'>Административно-финансовая информация</Tab>
                         </TabList>
                         <TabPanels >
-                            <TabPanel style={{padding: '0'}}>
+                            <TabPanel style={{padding: '0', paddingBottom:'30px'}}>
                                 <ULGeneralInfo data={profile?.profile}/>
                             </TabPanel>
-                            <TabPanel style={{padding: '0'}}>
+                            <TabPanel style={{padding: '0', paddingBottom:'30px'}}>
                                 <ULActivityOrganizationInfo data={profile?.profile}/>
                             </TabPanel>
-                            <TabPanel style={{padding: '0'}}>
+                            <TabPanel style={{padding: '0', paddingBottom:'30px'}}>
                                 <ULOfficials data={profile?.profile}/>
                             </TabPanel>
-                            <TabPanel style={{padding: '0'}}>
+                            <TabPanel style={{padding: '0', paddingBottom:'30px'}}>
                                 <ULAdministrativeInfo data={profile?.profile}/>
                             </TabPanel>
                         </TabPanels>

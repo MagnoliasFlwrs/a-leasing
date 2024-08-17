@@ -4,6 +4,7 @@ import {Spinner, Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react
 
 const HistoryCompanyBlock = ({data}) => {
 
+
     const tabStyle = {
         borderRadius: '30px',
         bg: 'rgba(149, 149, 149, 0.10);',
@@ -34,7 +35,7 @@ const HistoryCompanyBlock = ({data}) => {
                             <Tabs className='history-tabs' variant='unstyled' width='100%'>
                                 <TabList gap='24px' overflowX='auto' className='history-tablist'>
                                     {
-                                        data?.data.map((item , index) => {
+                                        [...data?.data].reverse().map((item, index) => {
                                             return (
                                                 <Tab key={index} {...tabStyle}>{item.year}</Tab>
                                             )
@@ -45,7 +46,7 @@ const HistoryCompanyBlock = ({data}) => {
 
                                 <TabPanels>
                                     {
-                                        data?.data.map((item , index) => {
+                                        [...data?.data].reverse().map((item , index) => {
                                             return (
                                                 <TabPanel key={index} style={{padding: '0'}}>
                                                     <ul>

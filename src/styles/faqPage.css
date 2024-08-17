@@ -38,8 +38,8 @@
   }
 }
 .faq-container .faq-tabs .faq-tablist::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
+  width: 0;
+  height: 0;
   background-color: transparent;
 }
 .faq-container .faq-tabs .faq-tablist ::-webkit-scrollbar-thumb {

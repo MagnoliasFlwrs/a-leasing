@@ -129,8 +129,8 @@
   }
 }
 .editing-profile-layout .chakra-tabs__tab-panel::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
+  width: 0;
+  height: 0;
   background-color: transparent;
 }
 .editing-profile-layout .chakra-tabs__tab-panel::-webkit-scrollbar-thumb {

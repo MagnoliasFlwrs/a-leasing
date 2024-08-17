@@ -50,8 +50,8 @@
   scrollbar-width: none;
 }
 .custom-modal .custom-modal-body::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
+  width: 0;
+  height: 0;
   background-color: transparent;
 }
 .custom-modal .custom-modal-body::-webkit-scrollbar-thumb {

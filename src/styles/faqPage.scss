@@ -27,8 +27,8 @@
         justify-content: unset;
       }
       &::-webkit-scrollbar {
-        width: 1px;
-        height:1px;
+        width: 0;
+        height:0;
         background-color: transparent;
       }
       ::-webkit-scrollbar-thumb {

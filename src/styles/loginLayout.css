@@ -3,6 +3,7 @@
   flex-direction: column;
   min-height: 100vh;
   background: #F5F5F7;
+  overflow: hidden;
 }
 .login-layout .form-row {
   flex-grow: 1;
@@ -133,6 +134,7 @@
 }
 @media (max-width: 745px) {
   .login-layout .form-row .login-form {
+    height: auto;
     flex-grow: 1;
   }
 }

@@ -164,14 +164,19 @@ const LoginForm = () => {
             if (!isMobile) return;
 
             const handleTouchStart = (e) => {
-                if (document.activeElement.tagName === 'INPUT' && !e.target.closest('input')) {
-                    document.activeElement.blur();
+                const activeElement = document.activeElement;
+                const isInputFocused = activeElement && activeElement.tagName === 'INPUT';
+                const clickedOutsideInput = !e.target.closest('input');
+
+                if (isInputFocused && clickedOutsideInput) {
+                    activeElement.blur(); // Закрывает клавиатуру
                 }
             };
 
             const handleScroll = () => {
-                if (document.activeElement.tagName === 'INPUT') {
-                    document.activeElement.blur();
+                const activeElement = document.activeElement;
+                if (activeElement && activeElement.tagName === 'INPUT') {
+                    activeElement.blur(); // Закрывает клавиатуру
                 }
             };
 

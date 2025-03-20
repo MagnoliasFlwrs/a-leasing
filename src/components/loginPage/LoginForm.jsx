@@ -271,12 +271,14 @@ const LoginForm = () => {
                                         >
                                             {account[0] === 'NATURAL_PERSON' && (
                                                 <>
-                                                    {account[1].profile?.generalInfo?.fullName?.firstname} {account[1].profile?.generalInfo?.fullName?.middlename} {account[1].profile?.generalInfo?.fullName?.lastname}
+                                                    {/*{account[1].profile?.generalInfo?.fullName?.firstname} {account[1].profile?.generalInfo?.fullName?.middlename} {account[1].profile?.generalInfo?.fullName?.lastname}*/}
+                                                    Физ. лицо
                                                 </>
                                             )}
                                             {account[0] === 'LEGAL_PERSON' && (
                                                 <>
-                                                    {account[1][0].profile?.generalInfo?.generalInfo?.shortName}
+                                                    {/*{account[1][0].profile?.generalInfo?.generalInfo?.shortName}*/}
+                                                    Юр. лицо
                                                 </>
                                             )}
                                             {account[0] === 'INDIVIDUAL_ENTREPRENEUR' && (

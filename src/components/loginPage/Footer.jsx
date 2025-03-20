@@ -7,7 +7,7 @@ const Footer = () => {
                 <a className='blue-link' href="#">Свидетельство</a> о включении в реестр лизинговых организаций от 19.04.2016 г.</p>
             <div className="line"></div>
             <div className="row">
-                <span className="copy">© 2024 ООО «А-Лизинг».</span>
+                <span className="copy">© 2025 ООО «А-Лизинг».</span>
                 <div className="links">
                     <a href="#">Политики безопасности</a>
                     <div className="divider"></div>

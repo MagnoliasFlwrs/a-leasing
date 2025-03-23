@@ -4,6 +4,8 @@ import {useGetAccountsMutation, useSignInMutation} from "../../services/auth/ind
 import {useDispatch, useSelector} from "react-redux";
 import {setTokens} from "../../lib/store/features/auth/index.js";
 import {useMask} from "@react-input/mask";
+import {IMaskInput} from "react-imask";
+import IMask from "imask";
 
 const LoginForm = () => {
     const [login, setLogin] = useState('');
@@ -25,12 +27,15 @@ const LoginForm = () => {
     const [registrationBlockState , setRegistrationBlockState] = useState(false);
     const [confirmBlockState , setConfirmBlockState] = useState(false);
 
+    const ref= useRef(null);
+    const newLoginRef= useRef(null);
+
     console.log(selectedAccount)
 
-    const inputRef = useMask({
-        mask: "+375 (__) ___-__-__",
-        replacement: { _: /\d/ },
-    });
+    // const inputRef = useMask({
+    //     mask: "+375 (__) ___-__-__",
+    //     replacement: { _: /\d/ },
+    // });
     const newInputRef = useMask({
         mask: "+375 (__) ___-__-__",
         replacement: { _: /\d/ },
@@ -43,14 +48,19 @@ const LoginForm = () => {
         const { value } = e.target;
         setNewLogin(value);
     }
-
+    const handleAccept = (value, mask) => {
+        setLogin(value)
+    };
+    const allowedCodes = ['25', '44', '29', '33'];
     const handlePass = (e) => {
         const { value } = e.target;
         setPassword(value);
     }
     const validateLogin = ()=> {
         const regex = /^375(29|33|25|44)\d{7}$/;
-        const newLogin = login.replace(/[\s()+-]/g, '')
+        let newLogin = login.replace(/[\s()+-]/g, '');
+        newLogin = '375' + newLogin;
+        console.log(newLogin)
         if (regex.test(newLogin)) {
             setIsValidLogin(true);
             setLoginErr(false);
@@ -66,7 +76,8 @@ const LoginForm = () => {
         }
     }, [isValidLogin]);
     const handleSubmit = async  ()=> {
-        const newLogin = login.replace(/[\s()+-]/g, '');
+        let newLogin = login.replace(/[\s()+-]/g, '');
+        newLogin= '375' + newLogin;
         try {
             const response = await getAccounts({'phoneNumber': newLogin , 'password' : password}).unwrap();
             setAccounts(Object.entries(response))
@@ -84,7 +95,8 @@ const LoginForm = () => {
             console.log(accounts);
             if (accounts.length !== 0) {
                 if (accounts.length === 1) {
-                    const newLogin = login.replace(/[\s()+-]/g, '');
+                    let newLogin = login.replace(/[\s()+-]/g, '');
+                    newLogin= '375' + newLogin;
                     const body = {
                         "password": password,
                         "phoneNumber": newLogin,
@@ -111,7 +123,8 @@ const LoginForm = () => {
     }, [accounts]);
 
     const choosenAccountSubmit = async () => {
-        const newLogin = login.replace(/[\s()+-]/g, '');
+        let newLogin = login.replace(/[\s()+-]/g, '');
+        newLogin= '375' + newLogin;
         const body = {
             "password": password,
             "phoneNumber": newLogin,
@@ -166,14 +179,44 @@ const LoginForm = () => {
                     <p className='title'>Вход в личный кабинет</p>
                     <div className="row">
                         <div className="input-box">
-                            <input
-                                ref={inputRef}
-                                placeholder="+375 (__) ___-__-__"
-                                type="text"
-                                className={loginErr ? 'login-input error' : 'login-input'}
-                                onChange={(e) => handleLogin(e)}
-                                onKeyDown={(e)=> handleKeyDown(e)}
+                            {/*<input*/}
+                            {/*    ref={inputRef}*/}
+                            {/*    placeholder="+375 (__) ___-__-__"*/}
+                            {/*    type="text"*/}
+                            {/*    className={loginErr ? 'login-input error' : 'login-input'}*/}
+                            {/*    onChange={(e) => handleLogin(e)}*/}
+                            {/*    onKeyDown={(e)=> handleKeyDown(e)}*/}
+                            {/*    value={login}*/}
+                            {/*/>*/}
+                            <IMaskInput
+                                mask={[
+                                    {
+                                        mask: '+375 (00) 000-00-00',
+                                        lazy: false,
+                                        placeholderChar: '_',
+                                    },
+                                    {
+                                        mask: '00/00/00/00',
+                                        lazy: false,
+                                        placeholderChar: '_',
+                                        blocks: {
+                                            '00': {
+                                                mask: IMask.MaskedRange,
+                                                from: 0,
+                                                to: 99,
+                                                validate: (value) => allowedCodes.includes(value),
+                                            },
+                                        },
+                                    },
+                                ]}
                                 value={login}
+                                className={loginErr ? 'login-input error' : 'login-input'}
+                                onKeyDown={(e)=>handleKeyDown(e)}
+                                unmask={true}
+                                ref={ref}
+                                inputRef={ref}
+                                onAccept={handleAccept}
+                                placeholder='+375 (__) ___-__-__'
                             />
                             {
                                 loginErr && <span>Неверный формат номера телефона</span>
@@ -363,14 +406,44 @@ const LoginForm = () => {
                         <p className="title">Регистрация</p>
                         <div className="row">
                             <div className="input-box">
-                                <input
-                                    ref={newInputRef}
-                                    placeholder="+375 (__) ___-__-__"
-                                    type="text"
-                                    className={loginErr ? 'new-input error' : 'new-input'}
-                                    onChange={(e) => handleLogin(e)}
+                                {/*<input*/}
+                                {/*    ref={newInputRef}*/}
+                                {/*    placeholder="+375 (__) ___-__-__"*/}
+                                {/*    type="text"*/}
+                                {/*    className={loginErr ? 'new-input error' : 'new-input'}*/}
+                                {/*    onChange={(e) => handleLogin(e)}*/}
+                                {/*    value={login}*/}
+                                {/*    onKeyDown={(e) => handleKeyDown(e)}*/}
+                                {/*/>*/}
+                                <IMaskInput
+                                    mask={[
+                                        {
+                                            mask: '+375 (00) 000-00-00',
+                                            lazy: false,
+                                            placeholderChar: '_',
+                                        },
+                                        {
+                                            mask: '00/00/00/00',
+                                            lazy: false,
+                                            placeholderChar: '_',
+                                            blocks: {
+                                                '00': {
+                                                    mask: IMask.MaskedRange,
+                                                    from: 0,
+                                                    to: 99,
+                                                    validate: (value) => allowedCodes.includes(value),
+                                                },
+                                            },
+                                        },
+                                    ]}
                                     value={login}
-                                    onKeyDown={(e) => handleKeyDown(e)}
+                                    className={loginErr ? 'login-input error' : 'login-input'}
+                                    onKeyDown={(e)=>handleKeyDown(e)}
+                                    unmask={true}
+                                    ref={newLoginRef}
+                                    inputRef={newLoginRef}
+                                    onAccept={handleAccept}
+                                    placeholder='+375 (__) ___-__-__'
                                 />
                                 {
                                     loginErr && <span>Неверный формат номера телефона</span>
